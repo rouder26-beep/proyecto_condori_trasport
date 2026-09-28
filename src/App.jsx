@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustBadges from './components/TrustBadges';
@@ -16,6 +16,25 @@ import ReclamacionesModal from './components/ReclamacionesModal';
 export default function App() {
   const [lang, setLang] = useState('es');
   const [reclamacionesOpen, setReclamacionesOpen] = useState(false);
+
+  useEffect(() => {
+    const sectionHeaders = document.querySelectorAll('.section-header');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    sectionHeaders.forEach((header) => observer.observe(header));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="app-main-wrapper">

@@ -1,16 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Calendar, Users, MapPin, Car, ArrowRight, ShieldCheck, Star, Clock, Award } from 'lucide-react';
 import { translations } from '../data/translations';
 import { originsList, destinationsList, routesData } from '../data/routesData';
 
+const heroImages = [
+  '/images/hero.jpg',
+  '/images/7colores.jpg',
+  '/images/queswachaca.jpg',
+  '/images/suv.jpg',
+  '/images/machupiccho.jpg',
+];
+
 export default function Hero({ lang }) {
   const t = translations[lang].hero;
 
+  const [activeHeroImage, setActiveHeroImage] = useState(0);
   const [origin, setOrigin] = useState(originsList[0]);
   const [destination, setDestination] = useState(destinationsList[1]);
   const [date, setDate] = useState('');
   const [passengers, setPassengers] = useState(2);
   const [vehicle, setVehicle] = useState('suv');
+
+  useEffect(() => {
+    const imageInterval = window.setInterval(() => {
+      setActiveHeroImage((currentImage) => (currentImage + 1) % heroImages.length);
+    }, 6000);
+
+    return () => window.clearInterval(imageInterval);
+  }, []);
 
   // Estimate price
   const matchedRoute = routesData.find(
@@ -37,7 +54,15 @@ export default function Hero({ lang }) {
   return (
     <section id="home" className="hero-section">
       <div className="hero-bg-overlay" />
-      <img src="/images/hero.jpg" alt="Cusco Transport Condori" className="hero-bg-img" />
+      {heroImages.map((image, index) => (
+        <img
+          key={`${image}-${index}`}
+          src={image}
+          alt=""
+          aria-hidden="true"
+          className={`hero-bg-img ${index === activeHeroImage ? 'active' : ''}`}
+        />
+      ))}
 
       <div className="hero-content container">
         <div className="hero-grid">
