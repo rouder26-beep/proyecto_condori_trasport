@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Briefcase, CheckCircle2, ShieldCheck, HeartPulse, Wifi, Snowflake } from 'lucide-react';
+import { Users, Briefcase, CheckCircle2 } from 'lucide-react';
 import { fleetData } from '../data/fleetData';
 import { translations } from '../data/translations';
 

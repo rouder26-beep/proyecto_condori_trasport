@@ -19,8 +19,7 @@ export default function Footer({ lang, onOpenReclamaciones }) {
             </p>
 
             <div className="footer-badges">
-              <span className="badge-item"><ShieldCheck size={14} /> MINCETUR</span>
-              <span className="badge-item"><ShieldCheck size={14} /> DIRCETUR</span>
+              <span className="badge-item"><ShieldCheck size={14} /> SOAT TURISTICO</span>
               <span className="badge-item"><ShieldCheck size={14} /> RUC Activo</span>
             </div>
 

@@ -5,9 +5,11 @@ export const routesData = [
     destination: "Hotel Cusco Centro / San Blas",
     duration: "25 - 35 min",
     prices: {
-      sedan: 15, // USD ($60 PEN aprox)
+      sedan: 15,
       suv: 25,
       minivan: 35,
+      sprinter10: 50,
+      sprinter15: 65,
       sprinter: 50
     },
     popular: true
@@ -21,6 +23,8 @@ export const routesData = [
       sedan: 45,
       suv: 60,
       minivan: 75,
+      sprinter10: 110,
+      sprinter15: 135,
       sprinter: 110
     },
     popular: true
@@ -34,6 +38,8 @@ export const routesData = [
       sedan: 40,
       suv: 55,
       minivan: 70,
+      sprinter10: 100,
+      sprinter15: 120,
       sprinter: 100
     },
     popular: true
@@ -47,6 +53,8 @@ export const routesData = [
       sedan: 35,
       suv: 45,
       minivan: 60,
+      sprinter10: 85,
+      sprinter15: 105,
       sprinter: 85
     },
     popular: false
@@ -60,6 +68,8 @@ export const routesData = [
       sedan: 20,
       suv: 30,
       minivan: 40,
+      sprinter10: 60,
+      sprinter15: 75,
       sprinter: 60
     },
     popular: false
@@ -73,6 +83,8 @@ export const routesData = [
       sedan: 65,
       suv: 85,
       minivan: 105,
+      sprinter10: 150,
+      sprinter15: 180,
       sprinter: 150
     },
     popular: true
@@ -86,6 +98,8 @@ export const routesData = [
       sedan: 130,
       suv: 160,
       minivan: 190,
+      sprinter10: 270,
+      sprinter15: 320,
       sprinter: 270
     },
     popular: false
@@ -99,6 +113,8 @@ export const routesData = [
       sedan: 180,
       suv: 220,
       minivan: 280,
+      sprinter10: 400,
+      sprinter15: 480,
       sprinter: 400
     },
     popular: false

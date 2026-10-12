@@ -7,7 +7,7 @@ export const toursData = [
       pt: "Vale Sagrado dos Incas VIP"
     },
     category: "Full Day",
-    duration: "Full Day (7:00 AM - 6:30 PM)",
+    duration: "Full Day • Horario Libre / A tu ritmo",
     difficulty: { es: "Fácil", en: "Easy", pt: "Fácil" },
     priceFrom: 70, // USD per vehicle / tour estimate
     image: "/images/hero.jpg",
@@ -17,19 +17,19 @@ export const toursData = [
       pt: "Tour privado exclusivo visitando Chinchero, Salineras de Maras, Moray, Urubamba e Ollantaytambo."
     },
     itinerary: [
-      { time: "07:00 AM", detail: "Recojo de su hotel en Cusco en vehículo privado." },
-      { time: "08:15 AM", detail: "Visita al pueblo tradicional de Chinchero y demostración textil." },
-      { time: "10:00 AM", detail: "Recorrido por las terrazas agrícolas concéntricas de Moray." },
-      { time: "11:30 AM", detail: "Visita a las miles de pozas de Salineras de Maras." },
-      { time: "01:00 PM", detail: "Almuerzo buffet en Urubamba (Opcional)." },
-      { time: "03:00 PM", detail: "Exploración del Complejo Arqueológico de Ollantaytambo." },
-      { time: "06:30 PM", detail: "Retorno a Cusco o traslado a la estación de tren de Ollantaytambo." }
+      { detail: "Recojo de su hotel en Cusco en vehículo privado (horario coordinado a su elección)." },
+      { detail: "Visita al pueblo tradicional de Chinchero y demostración de textilería viva ancestral." },
+      { detail: "Recorrido por los andenes circulares y laboratorio agrícola inca de Moray." },
+      { detail: "Visita a las miles de pozas de extracción artesanal de Salineras de Maras." },
+      { detail: "Parada para almuerzo buffet en Urubamba (opcional y sin prisas)." },
+      { detail: "Exploración del impresionante Complejo Arqueológico y fortaleza de Ollantaytambo." },
+      { detail: "Retorno tranquilo a Cusco o traslado directo a la estación de tren de Ollantaytambo." }
     ],
     includes: [
       "Transporte turístico 100% privado con chofer profesional",
       "Recojo y retorno en su hotel",
       "Balón de oxígeno a bordo y botiquín de primeros auxilios",
-      "Flexibilidad total de paradas y tiempos"
+      "Flexibilidad total de paradas y tiempos a su gusto"
     ],
     excludes: [
       "Boleto Turístico del Cusco (BTC)",
@@ -46,7 +46,7 @@ export const toursData = [
       pt: "Montanha Colorida (Vinicunca)"
     },
     category: "Full Day",
-    duration: "Full Day (4:00 AM - 4:30 PM)",
+    duration: "Full Day • Salida Flexible / A tu ritmo",
     difficulty: { es: "Exigente (5,036 m.s.n.m.)", en: "Challenging (5,036 m)", pt: "Desafiador (5.036m)" },
     priceFrom: 85,
     image: "/images/suv.jpg",
@@ -56,12 +56,12 @@ export const toursData = [
       pt: "Viagem confortável e sem pressa para a impressionante Montanha Colorida com oxigênio a bordo."
     },
     itinerary: [
-      { time: "04:00 AM", detail: "Pick-up privado directo en su hotel." },
-      { time: "06:30 AM", detail: "Desayuno buffet tradicional en Cusipata." },
-      { time: "08:30 AM", detail: "Llegada al punto de inicio de caminata en Phulawasipata." },
-      { time: "10:30 AM", detail: "Llegada a la cima de la Montaña de 7 Colores (Fotos & Mirador)." },
-      { time: "01:30 PM", detail: "Almuerzo buffet reconfortante." },
-      { time: "04:30 PM", detail: "Llegada a Cusco." }
+      { detail: "Pick-up privado directo en la puerta de su hotel en Cusco." },
+      { detail: "Parada para desayuno tradicional reconfortante en Cusipata." },
+      { detail: "Llegada al punto de inicio en Phulawasipata y comienzo de la caminata a tu propio paso." },
+      { detail: "Llegada a la cumbre de la Montaña de 7 Colores con tiempo libre para fotos y contemplar el paisaje." },
+      { detail: "Descenso y almuerzo buffet reconfortante." },
+      { detail: "Retorno cómodo y seguro a la ciudad de Cusco en su unidad privada." }
     ],
     includes: [
       "Transporte turístico privado ida y vuelta",
@@ -83,7 +83,7 @@ export const toursData = [
       pt: "Lagoa Humantay Turquesa"
     },
     category: "Full Day",
-    duration: "Full Day (4:30 AM - 5:00 PM)",
+    duration: "Full Day • Salida Flexible / A tu ritmo",
     difficulty: { es: "Moderada / Alta", en: "Moderate / High", pt: "Moderada / Alta" },
     priceFrom: 80,
     image: "/images/minivan.jpg",
@@ -93,12 +93,12 @@ export const toursData = [
       pt: "Admire as incríveis águas turquesas aos pés do nevado Salkantay com transporte privado."
     },
     itinerary: [
-      { time: "04:30 AM", detail: "Recojo en hotel en Cusco." },
-      { time: "07:00 AM", detail: "Desayuno en Mollepata." },
-      { time: "09:00 AM", detail: "Inicio de la caminata desde Soraypampa." },
-      { time: "11:00 AM", detail: "Tiempo para disfrutar y fotografiar la Laguna Humantay." },
-      { time: "02:00 PM", detail: "Almuerzo buffet en Mollepata." },
-      { time: "05:00 PM", detail: "Retorno a la ciudad del Cusco." }
+      { detail: "Recojo privado en su hotel en Cusco a la hora previamente acordada." },
+      { detail: "Parada para desayuno energético en Mollepata." },
+      { detail: "Llegada a Soraypampa e inicio de la caminata hacia la laguna a tu propio ritmo." },
+      { detail: "Tiempo libre para disfrutar, meditar y fotografiar las aguas turquesas de la Laguna Humantay." },
+      { detail: "Descenso y almuerzo tradicional en Mollepata." },
+      { detail: "Retorno a la ciudad del Cusco directo a su hotel." }
     ],
     includes: [
       "Transporte privado A/C Cusco - Soraypampa - Cusco",
@@ -118,7 +118,7 @@ export const toursData = [
       pt: "City Tour Privado Cusco e 4 Ruínas"
     },
     category: "Half Day",
-    duration: "Half Day (4 Horas)",
+    duration: "Half Day • Horario Libre a Elección",
     difficulty: { es: "Fácil", en: "Easy", pt: "Fácil" },
     priceFrom: 45,
     image: "/images/sprinter.jpg",
@@ -128,11 +128,12 @@ export const toursData = [
       pt: "Explore Sacsayhuamán, Qenqo, Puka Pukara e Tambomachay no seu próprio ritmo."
     },
     itinerary: [
-      { time: "01:30 PM", detail: "Recojo en el hotel." },
-      { time: "02:00 PM", detail: "Visita al imponente Parque Arqueológico de Sacsayhuamán." },
-      { time: "03:15 PM", detail: "Recorrido por el centro laberíntico de Qenqo." },
-      { time: "04:15 PM", detail: "Visita a Puka Pukara y los baños del Inca en Tambomachay." },
-      { time: "05:30 PM", detail: "Retorno al centro de Cusco." }
+      { detail: "Recojo en su hotel en el horario que elija (mañana o tarde)." },
+      { detail: "Visita y exploración del imponente Parque Arqueológico de Sacsayhuamán." },
+      { detail: "Recorrido por el centro laberíntico y ceremonial de Qenqo." },
+      { detail: "Visita panorámica a la fortaleza militar de Puka Pukara." },
+      { detail: "Exploración de los baños sagrados del Inca en Tambomachay." },
+      { detail: "Retorno cómodo al centro histórico de Cusco." }
     ],
     includes: [
       "Transporte turístico privado de primer nivel",

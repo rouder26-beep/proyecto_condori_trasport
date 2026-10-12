@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Award, HeartPulse, FileCheck, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, HeartPulse, FileCheck, CheckCircle2 } from 'lucide-react';
 import { translations } from '../data/translations';
 
 export default function TrustBadges({ lang }) {
@@ -17,20 +17,11 @@ export default function TrustBadges({ lang }) {
         <div className="trust-grid">
           <div className="trust-card">
             <div className="trust-icon-wrap">
-              <Award size={32} />
-            </div>
-            <h4>MINCETUR</h4>
-            <p>{t.mincetur}</p>
-            <span className="trust-status"><CheckCircle2 size={14} /> Verificado</span>
-          </div>
-
-          <div className="trust-card">
-            <div className="trust-icon-wrap">
               <ShieldCheck size={32} />
             </div>
-            <h4>DIRCETUR CUSCO</h4>
-            <p>{t.dircetur}</p>
-            <span className="trust-status"><CheckCircle2 size={14} /> Licencia Oficial</span>
+            <h4>SOAT DE TURISMO</h4>
+            <p>{t.soat}</p>
+            <span className="trust-status"><CheckCircle2 size={14} /> {t.soatStatus}</span>
           </div>
 
           <div className="trust-card">

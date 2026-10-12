@@ -6,12 +6,20 @@ import { translations } from '../data/translations';
 export default function TransferCalculator({ lang }) {
   const t = translations[lang].transfers;
 
+  const vehicleLabels = {
+    sedan: 'Sedan (1-3 Pax)',
+    suv: 'SUV (1-4 Pax)',
+    minivan: 'MiniVan (4-7 Pax)',
+    sprinter10: 'Mercedes Benz 10pax (8-10 Pax)',
+    sprinter15: 'Mercedes Benz 15pax (11-15 Pax)',
+  };
+
   const handleBookRoute = (route, vehicleType) => {
     const price = route.prices[vehicleType];
     const msg = `Hola Condori Expedition Transport, deseo reservar la siguiente ruta:%0A` +
       `📌 Ruta: ${route.origin} → ${route.destination}%0A` +
       `⏱️ Duración: ${route.duration}%0A` +
-      `🚗 Vehículo: ${vehicleType.toUpperCase()}%0A` +
+      `🚗 Vehículo: ${vehicleLabels[vehicleType] || vehicleType.toUpperCase()}%0A` +
       `💵 Tarifario: $${price} USD (Precio por vehículo)%0A` +
       `Por favor indíquenme disponibilidad.`;
     window.open(`https://wa.me/51967040149?text=${msg}`, '_blank');
@@ -33,8 +41,10 @@ export default function TransferCalculator({ lang }) {
                 <th>{t.route}</th>
                 <th>{t.duration}</th>
                 <th>{t.vehicleSedan}</th>
+                <th>{t.vehicleSUV}</th>
                 <th>{t.vehicleMinivan}</th>
-                <th>{t.vehicleSprinter}</th>
+                <th>{t.vehicleSprinter10}</th>
+                <th>{t.vehicleSprinter15}</th>
                 <th>Acción</th>
               </tr>
             </thead>
@@ -70,8 +80,24 @@ export default function TransferCalculator({ lang }) {
                   </td>
                   <td className="cell-price">
                     <div className="price-box">
-                      <span className="amount">${route.prices.sprinter} USD</span>
-                      <button className="btn-small-ws" onClick={() => handleBookRoute(route, 'sprinter')}>
+                      <span className="amount">${route.prices.minivan} USD</span>
+                      <button className="btn-small-ws" onClick={() => handleBookRoute(route, 'minivan')}>
+                        Reservar
+                      </button>
+                    </div>
+                  </td>
+                  <td className="cell-price">
+                    <div className="price-box">
+                      <span className="amount">${route.prices.sprinter10} USD</span>
+                      <button className="btn-small-ws" onClick={() => handleBookRoute(route, 'sprinter10')}>
+                        Reservar
+                      </button>
+                    </div>
+                  </td>
+                  <td className="cell-price">
+                    <div className="price-box">
+                      <span className="amount">${route.prices.sprinter15} USD</span>
+                      <button className="btn-small-ws" onClick={() => handleBookRoute(route, 'sprinter15')}>
                         Reservar
                       </button>
                     </div>

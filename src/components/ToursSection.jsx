@@ -104,11 +104,14 @@ export default function ToursSection({ lang }) {
 
             <div className="modal-body">
               <div className="itinerary-section">
-                <h4>Itinerario Detallado</h4>
+                <div className="itinerary-header">
+                  <h4>Itinerario del Recorrido</h4>
+                  <span className="itinerary-badge">Horario Libre • 100% a tu propio ritmo</span>
+                </div>
                 <ul className="itinerary-timeline">
                   {activeModal.itinerary.map((step, i) => (
                     <li key={i}>
-                      <span className="time">{step.time}</span>
+                      <span className="step-num">{i + 1}</span>
                       <span className="detail">{step.detail}</span>
                     </li>
                   ))}

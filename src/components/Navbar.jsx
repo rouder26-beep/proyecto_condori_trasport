@@ -16,7 +16,7 @@ export default function Navbar({ lang, setLang }) {
             <span className="divider">|</span>
             <span><Phone size={14} className="icon-inline" /> +51 967 040 149</span>
             <span className="divider">|</span>
-            <span className="badge-official"><ShieldCheck size={14} className="icon-inline" /> RUC: 20601234567 • MINCETUR / DIRCETUR</span>
+            <span className="badge-official"><ShieldCheck size={14} className="icon-inline" /> RUC: 20601234567 • SOAT TURISTICO</span>
           </div>
 
           <div className="topbar-lang">

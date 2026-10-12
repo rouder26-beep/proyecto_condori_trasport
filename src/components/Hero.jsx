@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Calendar, Users, MapPin, Car, ArrowRight, ShieldCheck, Star, Clock, Award } from 'lucide-react';
+import { Calendar, Users, MapPin, Car, ArrowRight, ShieldCheck, Star, Clock, Award, Mail } from 'lucide-react';
 import { translations } from '../data/translations';
 import { originsList, destinationsList, routesData } from '../data/routesData';
 
@@ -35,7 +35,36 @@ export default function Hero({ lang }) {
          (r.destination.includes(destination) || destination.includes(r.destination))
   );
 
-  const basePrice = matchedRoute ? matchedRoute.prices[vehicle] : (vehicle === 'sedan' ? 40 : vehicle === 'suv' ? 55 : vehicle === 'minivan' ? 75 : 110);
+  const vehicleLabels = {
+    sedan: 'Sedan (1-3 Pax)',
+    suv: 'SUV (1-4 Pax)',
+    minivan: 'MiniVan (4-7 Pax)',
+    sprinter10: 'Mercedes Benz 10pax (8-10 Pax)',
+    sprinter15: 'Mercedes Benz 15pax (11-15 Pax)',
+  };
+
+  const defaultBasePrices = {
+    sedan: 40,
+    suv: 55,
+    minivan: 70,
+    sprinter10: 100,
+    sprinter15: 120,
+  };
+
+  const basePrice = matchedRoute 
+    ? (matchedRoute.prices[vehicle] || matchedRoute.prices.sedan) 
+    : (defaultBasePrices[vehicle] || 55);
+
+  const emailSubject = encodeURIComponent(t.emailSubject);
+  const emailBody = encodeURIComponent(
+    `${t.origin}: ${origin}\n` +
+    `${t.destination}: ${destination}\n` +
+    `${t.date}: ${date || t.dateToConfirm}\n` +
+    `${t.passengers}: ${passengers}\n` +
+    `${t.vehicleType}: ${vehicleLabels[vehicle] || vehicle.toUpperCase()}\n` +
+    `${t.estimatedPrice}: $${basePrice} USD`
+  );
+  const emailQuoteHref = `mailto:${translations[lang].contact.directEmail}?subject=${emailSubject}&body=${emailBody}`;
 
   const handleWhatsAppQuote = (e) => {
     e.preventDefault();
@@ -45,7 +74,7 @@ export default function Hero({ lang }) {
       `🏁 Destino: ${destination}%0A` +
       `📅 Fecha: ${date || 'Por confirmar'}%0A` +
       `👥 Pasajeros: ${passengers}%0A` +
-      `🚘 Vehículo: ${vehicle.toUpperCase()}%0A` +
+      `🚘 Vehículo: ${vehicleLabels[vehicle] || vehicle.toUpperCase()}%0A` +
       `💵 Estímado mostrado: $${basePrice} USD%0A` +
       `Quedo a la espera de confirmación. ¡Muchas gracias!`;
     window.open(`https://wa.me/51967040149?text=${msg}`, '_blank');
@@ -146,21 +175,35 @@ export default function Hero({ lang }) {
                       className={`pill-btn ${vehicle === 'sedan' ? 'active' : ''}`}
                       onClick={() => setVehicle('sedan')}
                     >
-                      Sedán (1-3)
+                      Sedan (1-3)
                     </button>
                     <button 
                       type="button" 
                       className={`pill-btn ${vehicle === 'suv' ? 'active' : ''}`}
                       onClick={() => setVehicle('suv')}
                     >
-                      SUV/Minivan (4-7)
+                      SUV (1-4)
                     </button>
                     <button 
                       type="button" 
-                      className={`pill-btn ${vehicle === 'sprinter' ? 'active' : ''}`}
-                      onClick={() => setVehicle('sprinter')}
+                      className={`pill-btn ${vehicle === 'minivan' ? 'active' : ''}`}
+                      onClick={() => setVehicle('minivan')}
                     >
-                      Sprinter (8-15)
+                      MiniVan (4-7)
+                    </button>
+                    <button 
+                      type="button" 
+                      className={`pill-btn pill-btn-large ${vehicle === 'sprinter10' ? 'active' : ''}`}
+                      onClick={() => setVehicle('sprinter10')}
+                    >
+                      Mercedes Benz 10pax
+                    </button>
+                    <button 
+                      type="button" 
+                      className={`pill-btn pill-btn-large ${vehicle === 'sprinter15' ? 'active' : ''}`}
+                      onClick={() => setVehicle('sprinter15')}
+                    >
+                      Mercedes Benz 15pax
                     </button>
                   </div>
                 </div>
@@ -178,6 +221,10 @@ export default function Hero({ lang }) {
                   <span>{t.btnQuote}</span>
                   <ArrowRight size={18} />
                 </button>
+                <a href={emailQuoteHref} className="btn-calc-email">
+                  <Mail size={17} />
+                  <span>{t.btnEmailQuote}</span>
+                </a>
               </form>
             </div>
           </div>
