@@ -111,7 +111,7 @@ export const translations = {
       successMsg: "¡Gracias por contactarnos! Te responderemos por WhatsApp en unos minutos.",
       directAddress: "Av. El Sol, Centro Histórico de Cusco, Perú",
       directPhone: "+51 967 040 149",
-      directEmail: "reservas@condoriexpedition.com",
+      directEmail: "condoriexpedition@gmail.com",
       complaintsBook: "Libro de Reclamaciones",
     },
     footer: {
@@ -232,7 +232,7 @@ export const translations = {
       successMsg: "Thank you for contacting us! We will reply via WhatsApp shortly.",
       directAddress: "Av. El Sol, Cusco Historic Center, Peru",
       directPhone: "+51 967 040 149",
-      directEmail: "reservas@condoriexpedition.com",
+      directEmail: "condoriexpedition@gmail.com",
       complaintsBook: "Peruvian Complaints Book",
     },
     footer: {
@@ -353,7 +353,7 @@ export const translations = {
       successMsg: "Obrigado! Responderemos no WhatsApp em breve.",
       directAddress: "Av. El Sol, Centro Histórico de Cusco, Peru",
       directPhone: "+51 967 040 149",
-      directEmail: "reservas@condoriexpedition.com",
+      directEmail: "condoriexpedition@gmail.com",
       complaintsBook: "Livro de Reclamações",
     },
     footer: {

@@ -79,7 +79,7 @@ export default function Footer({ lang, onOpenReclamaciones }) {
             <ul className="footer-contact-list">
               <li><MapPin size={15} /> Av. El Sol, Cusco - Perú</li>
               <li><Phone size={15} /> +51 967 040 149</li>
-              <li><Mail size={15} /> reservas@condoriexpedition.com</li>
+              <li><Mail size={15} /> <a href="mailto:condoriexpedition@gmail.com">condoriexpedition@gmail.com</a></li>
             </ul>
 
             <button className="btn-footer-reclamaciones" onClick={onOpenReclamaciones}>
