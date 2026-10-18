@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Clock, MapPin, CheckCircle, XCircle, ArrowRight, X, Compass, Shield } from 'lucide-react';
+import { Clock, CheckCircle, XCircle, ArrowRight, X, Compass } from 'lucide-react';
+
 import { toursData } from '../data/toursData';
 import { translations } from '../data/translations';
 
@@ -19,7 +19,7 @@ export default function ToursSection({ lang }) {
       `⏱️ Duración: ${tour.duration}%0A` +
       `💵 Precio desde: $${tour.priceFrom} USD%0A` +
       `Por favor brindarme más detalles y fechas disponibles.`;
-    window.open(`https://wa.me/51967040149?text=${msg}`, '_blank');
+    window.open(`https://wa.me/51910958898?text=${msg}`, '_blank');
   };
 
   return (

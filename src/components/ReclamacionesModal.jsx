@@ -3,6 +3,7 @@ import { X, BookOpen, Send, CheckCircle } from 'lucide-react';
 
 export default function ReclamacionesModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
+  const [claimCode, setClaimCode] = useState('');
   const [formData, setFormData] = useState({
     nombre: '',
     dni: '',
@@ -19,9 +20,12 @@ export default function ReclamacionesModal({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const whatsappNumber = '51967040149';
+    const newCode = `REC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    setClaimCode(newCode);
+
+    const whatsappNumber = '51910958898';
     const message = encodeURIComponent(
-      `Libro de Reclamaciones - Condori Expedition Transport\n\n` +
+      `Libro de Reclamaciones (${newCode}) - Condori Expedition Transport\n\n` +
       `Nombre: ${formData.nombre}\n` +
       `DNI / CE / Pasaporte: ${formData.dni}\n` +
       `Correo: ${formData.email}\n` +
@@ -44,7 +48,7 @@ export default function ReclamacionesModal({ isOpen, onClose }) {
           <BookOpen size={28} />
           <div>
             <h2>Libro de Reclamaciones Virtual</h2>
-            <p>CONDORI EXPEDITION TRANSPORT • RUC 20601234567</p>
+            <p>CONDORI EXPEDITION TRANSPORT • Grupo Condori RYD SAC • RUC 20616421744</p>
           </div>
         </div>
 
@@ -52,11 +56,12 @@ export default function ReclamacionesModal({ isOpen, onClose }) {
           <div className="reclamaciones-success">
             <CheckCircle size={48} color="#10b981" />
             <h3>Reclamo / Queja Registrado Correctamente</h3>
-            <p>Su código de hoja de reclamación es: <strong>REC-2026-{Math.floor(1000 + Math.random() * 9000)}</strong>.</p>
+            <p>Su código de hoja de reclamación es: <strong>{claimCode}</strong>.</p>
             <p>Conforme a la Ley N° 29571 (Código de Protección y Defensa del Consumidor del Perú), responderemos a su solicitud dentro del plazo legal establecido a través de su correo electrónico.</p>
             <button className="btn-primary" onClick={onClose}>Cerrar</button>
           </div>
         ) : (
+
           <form onSubmit={handleSubmit} className="reclamaciones-form">
             <p className="rec-info-text">Conforme a lo establecido en el Código de Protección y Defensa del Consumidor esta institución cuenta con un Libro de Reclamaciones a su disposición.</p>
 

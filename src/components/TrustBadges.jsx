@@ -19,18 +19,18 @@ export default function TrustBadges({ lang }) {
             <div className="trust-icon-wrap">
               <ShieldCheck size={32} />
             </div>
-            <h4>SOAT DE TURISMO</h4>
+            <h4>SOAT TURÍSTICO & MTC</h4>
             <p>{t.soat}</p>
-            <span className="trust-status"><CheckCircle2 size={14} /> {t.soatStatus}</span>
+            <span className="trust-status"><CheckCircle2 size={14} /> Habilitación MTC y SOAT</span>
           </div>
 
           <div className="trust-card">
             <div className="trust-icon-wrap">
               <FileCheck size={32} />
             </div>
-            <h4>SUNAT RUC</h4>
-            <p>{t.sunat}</p>
-            <span className="trust-status"><CheckCircle2 size={14} /> RUC: 20601234567</span>
+            <h4>EMPRESA FORMAL SUNAT</h4>
+            <p>Grupo Condori RYD SAC</p>
+            <span className="trust-status"><CheckCircle2 size={14} /> RUC: 20616421744</span>
           </div>
 
           <div className="trust-card">
@@ -39,7 +39,7 @@ export default function TrustBadges({ lang }) {
             </div>
             <h4>OXÍGENO A BORDO</h4>
             <p>{t.oxygen}</p>
-            <span className="trust-status"><CheckCircle2 size={14} /> Incluido sin costo</span>
+            <span className="trust-status"><CheckCircle2 size={14} /> 10 Años de Experiencia</span>
           </div>
         </div>
       </div>

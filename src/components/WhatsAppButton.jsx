@@ -4,7 +4,7 @@ import { MessageCircle, X } from 'lucide-react';
 export default function WhatsAppButton() {
   const [tooltipOpen, setTooltipOpen] = useState(true);
 
-  const phone = "51967040149";
+  const phone = "51910958898";
   const message = encodeURIComponent("¡Hola Condori Expedition Transport! 🚗 Deseo consultar la disponibilidad de un traslado privado / tour en Cusco.");
   const waUrl = `https://wa.me/${phone}?text=${message}`;
 
@@ -16,7 +16,7 @@ export default function WhatsAppButton() {
             <X size={12} />
           </button>
           <div className="ws-tooltip-title">¿Necesitas transporte en Cusco?</div>
-          <div className="ws-tooltip-sub">Chatea con nosotros en vivo 24/7</div>
+          <div className="ws-tooltip-sub">Respuesta rápida por WhatsApp</div>
         </div>
       )}
 

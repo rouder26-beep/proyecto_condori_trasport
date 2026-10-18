@@ -1,124 +1,82 @@
 export const routesData = [
   {
     id: "route-1",
-    origin: "Aeropuerto Cusco (CUZ)",
-    destination: "Hotel Cusco Centro / San Blas",
-    duration: "25 - 35 min",
+    origin: "Aeropuerto",
+    destination: "Hotel / Centro de Cusco / Estación de tren",
+    duration: "15 min",
     prices: {
-      sedan: 15,
-      suv: 25,
-      minivan: 35,
-      sprinter10: 50,
-      sprinter15: 65,
-      sprinter: 50
+      sedanSuv: 15,
+      minivan: 20,
+      sprinter10: 35,
+      sprinter15: 50,
     },
     popular: true
   },
   {
     id: "route-2",
-    origin: "Cusco (Hotel / Aeropuerto)",
-    destination: "Estación de Ollantaytambo (Tren Machu Picchu)",
-    duration: "1h 45 min",
+    origin: "Aeropuerto / Hotel / Centro de Cusco",
+    destination: "Ollantaytambo / Hotel / Estación de tren",
+    duration: "1 h 45 min",
     prices: {
-      sedan: 45,
-      suv: 60,
-      minivan: 75,
-      sprinter10: 110,
-      sprinter15: 135,
-      sprinter: 110
+      sedanSuv: 60,
+      minivan: 70,
+      sprinter10: 100,
+      sprinter15: 131,
     },
     popular: true
   },
   {
     id: "route-3",
-    origin: "Cusco",
-    destination: "Urubamba / Valle Sagrado (Hoteles)",
-    duration: "1h 15 min",
+    origin: "Aeropuerto / Hotel / Centro de Cusco",
+    destination: "Estación de tren de Poroy",
+    duration: "45 min",
     prices: {
-      sedan: 40,
-      suv: 55,
-      minivan: 70,
-      sprinter10: 100,
-      sprinter15: 120,
-      sprinter: 100
-    },
-    popular: true
-  },
-  {
-    id: "route-4",
-    origin: "Cusco",
-    destination: "Pisac (Pueblo / ruinas)",
-    duration: "50 min",
-    prices: {
-      sedan: 35,
-      suv: 45,
-      minivan: 60,
-      sprinter10: 85,
-      sprinter15: 105,
-      sprinter: 85
+      sedanSuv: 20,
+      minivan: 30,
+      sprinter10: 50,
+      sprinter15: 55,
     },
     popular: false
   },
   {
-    id: "route-5",
-    origin: "Cusco",
-    destination: "Estación de Poroy",
-    duration: "30 min",
+    id: "route-4",
+    origin: "Aeropuerto / Hotel / Centro de Cusco",
+    destination: "Urubamba / Hotel / Estación de tren",
+    duration: "1 h 30 min",
     prices: {
-      sedan: 20,
-      suv: 30,
-      minivan: 40,
-      sprinter10: 60,
-      sprinter15: 75,
-      sprinter: 60
+      sedanSuv: 60,
+      minivan: 70,
+      sprinter10: 100,
+      sprinter15: 130,
+    },
+    popular: true
+  },
+  {
+    id: "route-5",
+    origin: "Cusco / Hotel",
+    destination: "Estación de tren (Wanchaq, Av. El Sol, San Pedro)",
+    duration: "20 min",
+    prices: {
+      sedanSuv: 10,
+      minivan: 15,
+      sprinter10: 20,
+      sprinter15: 25,
     },
     popular: false
   },
   {
     id: "route-6",
-    origin: "Cusco",
-    destination: "Maras & Moray (Tour de paso a Ollantaytambo)",
-    duration: "4 - 5 horas",
+    origin: "Aeropuerto / Hotel",
+    destination: "Pisac / Centro arqueológico de Pisac",
+    duration: "1 h",
     prices: {
-      sedan: 65,
-      suv: 85,
-      minivan: 105,
-      sprinter10: 150,
-      sprinter15: 180,
-      sprinter: 150
-    },
-    popular: true
-  },
-  {
-    id: "route-7",
-    origin: "Cusco",
-    destination: "Santa Teresa / Hidroeléctrica (Ruta Alterna Machu Picchu)",
-    duration: "6 horas",
-    prices: {
-      sedan: 130,
-      suv: 160,
-      minivan: 190,
-      sprinter10: 270,
-      sprinter15: 320,
-      sprinter: 270
+      sedanSuv: 45,
+      minivan: 60,
+      sprinter10: 75,
+      sprinter15: 90,
     },
     popular: false
   },
-  {
-    id: "route-8",
-    origin: "Cusco",
-    destination: "Puno / Lago Titicaca (Traslado directo o Ruta del Sol)",
-    duration: "7 - 8 horas",
-    prices: {
-      sedan: 180,
-      suv: 220,
-      minivan: 280,
-      sprinter10: 400,
-      sprinter15: 480,
-      sprinter: 400
-    },
-    popular: false
-  }
 ];
 
 export const originsList = [
@@ -136,9 +94,6 @@ export const destinationsList = [
   "Urubamba / Valle Sagrado (Hoteles)",
   "Pisac (Pueblo / ruinas)",
   "Estación de Poroy",
-  "Maras & Moray",
   "Montaña 7 Colores (Vinicunca)",
   "Laguna Humantay",
-  "Santa Teresa / Hidroeléctrica",
-  "Puno / Lago Titicaca"
 ];

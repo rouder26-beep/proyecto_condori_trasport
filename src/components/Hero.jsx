@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Calendar, Users, MapPin, Car, ArrowRight, ShieldCheck, Star, Clock, Award, Mail } from 'lucide-react';
+import { Star, Award, MessageCircle } from 'lucide-react';
 import { translations } from '../data/translations';
-import { originsList, destinationsList, routesData } from '../data/routesData';
+import BookingCalculator from './BookingCalculator';
 
 const heroImages = [
+  '/images/montana-pallaypuncho.jpg',
+  '/images/cusco.jpg',
+  '/images/laguna-humantay.jpg',
   '/images/hero.jpg',
   '/images/7colores.jpg',
   '/images/queswachaca.jpg',
@@ -12,73 +15,16 @@ const heroImages = [
 ];
 
 export default function Hero({ lang }) {
-  const t = translations[lang].hero;
-
+  const t = translations[lang]?.hero || translations.es.hero;
   const [activeHeroImage, setActiveHeroImage] = useState(0);
-  const [origin, setOrigin] = useState(originsList[0]);
-  const [destination, setDestination] = useState(destinationsList[1]);
-  const [date, setDate] = useState('');
-  const [passengers, setPassengers] = useState(2);
-  const [vehicle, setVehicle] = useState('suv');
 
   useEffect(() => {
     const imageInterval = window.setInterval(() => {
       setActiveHeroImage((currentImage) => (currentImage + 1) % heroImages.length);
-    }, 6000);
+    }, 6500);
 
     return () => window.clearInterval(imageInterval);
   }, []);
-
-  // Estimate price
-  const matchedRoute = routesData.find(
-    r => (r.origin.includes(origin) || origin.includes(r.origin)) &&
-         (r.destination.includes(destination) || destination.includes(r.destination))
-  );
-
-  const vehicleLabels = {
-    sedan: 'Sedan (1-3 Pax)',
-    suv: 'SUV (1-4 Pax)',
-    minivan: 'MiniVan (4-7 Pax)',
-    sprinter10: 'Mercedes Benz 10pax (8-10 Pax)',
-    sprinter15: 'Mercedes Benz 15pax (11-15 Pax)',
-  };
-
-  const defaultBasePrices = {
-    sedan: 40,
-    suv: 55,
-    minivan: 70,
-    sprinter10: 100,
-    sprinter15: 120,
-  };
-
-  const basePrice = matchedRoute 
-    ? (matchedRoute.prices[vehicle] || matchedRoute.prices.sedan) 
-    : (defaultBasePrices[vehicle] || 55);
-
-  const emailSubject = encodeURIComponent(t.emailSubject);
-  const emailBody = encodeURIComponent(
-    `${t.origin}: ${origin}\n` +
-    `${t.destination}: ${destination}\n` +
-    `${t.date}: ${date || t.dateToConfirm}\n` +
-    `${t.passengers}: ${passengers}\n` +
-    `${t.vehicleType}: ${vehicleLabels[vehicle] || vehicle.toUpperCase()}\n` +
-    `${t.estimatedPrice}: $${basePrice} USD`
-  );
-  const emailQuoteHref = `mailto:${translations[lang].contact.directEmail}?subject=${emailSubject}&body=${emailBody}`;
-
-  const handleWhatsAppQuote = (e) => {
-    e.preventDefault();
-    const msg = `Hola Condori Expedition Transport! 🚗%0A` +
-      `Me gustaría cotizar el siguiente traslado privado:%0A` +
-      `📍 Origen: ${origin}%0A` +
-      `🏁 Destino: ${destination}%0A` +
-      `📅 Fecha: ${date || 'Por confirmar'}%0A` +
-      `👥 Pasajeros: ${passengers}%0A` +
-      `🚘 Vehículo: ${vehicleLabels[vehicle] || vehicle.toUpperCase()}%0A` +
-      `💵 Estímado mostrado: $${basePrice} USD%0A` +
-      `Quedo a la espera de confirmación. ¡Muchas gracias!`;
-    window.open(`https://wa.me/51967040149?text=${msg}`, '_blank');
-  };
 
   return (
     <section id="home" className="hero-section">
@@ -87,8 +33,8 @@ export default function Hero({ lang }) {
         <img
           key={`${image}-${index}`}
           src={image}
-          alt=""
-          aria-hidden="true"
+          alt={`Paisaje de Cusco y Valle Sagrado - Condori Expedition Transporte ${index + 1}`}
+          loading={index === 0 ? 'eager' : 'lazy'}
           className={`hero-bg-img ${index === activeHeroImage ? 'active' : ''}`}
         />
       ))}
@@ -110,7 +56,9 @@ export default function Hero({ lang }) {
                 <div className="stat-sub">{t.stat1Sub}</div>
               </div>
               <div className="stat-card">
-                <div className="stat-value"><Star size={18} fill="#f59e0b" color="#f59e0b" className="icon-inline" /> 5.0</div>
+                <div className="stat-value">
+                  <Star size={18} fill="#f59e0b" color="#f59e0b" className="icon-inline" /> 5.0
+                </div>
                 <div className="stat-sub">{t.stat2Sub}</div>
               </div>
               <div className="stat-card">
@@ -118,118 +66,27 @@ export default function Hero({ lang }) {
                 <div className="stat-sub">{t.stat3Sub}</div>
               </div>
             </div>
+
+            <div className="hero-direct-ws-box">
+              <a 
+                href="https://wa.me/51910958898?text=Hola%20Condori%20Expedition%20Transport,%20deseo%20consultar%20por%20un%20traslado%20o%20tour%20en%20Cusco." 
+                target="_blank" 
+                rel="noreferrer"
+                className="btn-hero-ws"
+              >
+                <MessageCircle size={20} />
+                <span>Respuesta rápida por WhatsApp</span>
+              </a>
+            </div>
           </div>
 
           {/* Right Instant Calculator Form */}
           <div className="hero-form-col">
-            <div className="hero-calc-card">
-              <div className="calc-header">
-                <h3>{t.calculatorTitle}</h3>
-                <span className="calc-sub-badge">Precios Transparentes • Sin intermediarios</span>
-              </div>
-
-              <form onSubmit={handleWhatsAppQuote} className="calc-form">
-                <div className="form-group">
-                  <label><MapPin size={16} /> {t.origin}</label>
-                  <select value={origin} onChange={(e) => setOrigin(e.target.value)}>
-                    {originsList.map((o, idx) => (
-                      <option key={idx} value={o}>{o}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label><MapPin size={16} /> {t.destination}</label>
-                  <select value={destination} onChange={(e) => setDestination(e.target.value)}>
-                    {destinationsList.map((d, idx) => (
-                      <option key={idx} value={d}>{d}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="form-row-2">
-                  <div className="form-group">
-                    <label><Calendar size={16} /> {t.date}</label>
-                    <input 
-                      type="date" 
-                      value={date} 
-                      onChange={(e) => setDate(e.target.value)}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label><Users size={16} /> {t.passengers}</label>
-                    <select value={passengers} onChange={(e) => setPassengers(Number(e.target.value))}>
-                      {[1,2,3,4,5,6,7,8,9,10,12,15,19].map(num => (
-                        <option key={num} value={num}>{num} pax</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label><Car size={16} /> {t.vehicleType}</label>
-                  <div className="vehicle-pills">
-                    <button 
-                      type="button" 
-                      className={`pill-btn ${vehicle === 'sedan' ? 'active' : ''}`}
-                      onClick={() => setVehicle('sedan')}
-                    >
-                      Sedan (1-3)
-                    </button>
-                    <button 
-                      type="button" 
-                      className={`pill-btn ${vehicle === 'suv' ? 'active' : ''}`}
-                      onClick={() => setVehicle('suv')}
-                    >
-                      SUV (1-4)
-                    </button>
-                    <button 
-                      type="button" 
-                      className={`pill-btn ${vehicle === 'minivan' ? 'active' : ''}`}
-                      onClick={() => setVehicle('minivan')}
-                    >
-                      MiniVan (4-7)
-                    </button>
-                    <button 
-                      type="button" 
-                      className={`pill-btn pill-btn-large ${vehicle === 'sprinter10' ? 'active' : ''}`}
-                      onClick={() => setVehicle('sprinter10')}
-                    >
-                      Mercedes Benz 10pax
-                    </button>
-                    <button 
-                      type="button" 
-                      className={`pill-btn pill-btn-large ${vehicle === 'sprinter15' ? 'active' : ''}`}
-                      onClick={() => setVehicle('sprinter15')}
-                    >
-                      Mercedes Benz 15pax
-                    </button>
-                  </div>
-                </div>
-
-                <div className="calc-price-display">
-                  <div className="price-label">Precio Aproximado:</div>
-                  <div className="price-amount">${basePrice} <span className="currency">USD</span></div>
-                </div>
-
-                <p className="calc-note">
-                  <ShieldCheck size={14} className="icon-inline" /> {t.perVehicleNote}
-                </p>
-
-                <button type="submit" className="btn-calc-submit">
-                  <span>{t.btnQuote}</span>
-                  <ArrowRight size={18} />
-                </button>
-                <a href={emailQuoteHref} className="btn-calc-email">
-                  <Mail size={17} />
-                  <span>{t.btnEmailQuote}</span>
-                </a>
-              </form>
-            </div>
+            <BookingCalculator lang={lang} />
           </div>
         </div>
       </div>
     </section>
   );
 }
+

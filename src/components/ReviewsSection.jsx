@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, Quote, CheckCircle2 } from 'lucide-react';
+import { Star, Quote, CheckCircle2, ExternalLink } from 'lucide-react';
 import { translations } from '../data/translations';
 
 const reviewsList = [
@@ -42,19 +42,29 @@ const reviewsList = [
     route: "Traslado Aeropuerto + Valle Sagrado",
     comment: "Un 10/10 en puntualidad y atención. Rudy estuvo pendiente de nuestro vuelo atrasado en todo momento sin cobrarnos nada extra. Repetiremos sin duda.",
     source: "Google Review"
+  },
+  {
+    id: 5,
+    name: "Matheus Oliveira",
+    country: "🇧🇷 Brasil",
+    rating: 5,
+    date: "Hace 1 mes",
+    route: "Laguna Humantay Tour Privado",
+    comment: "Tivemos uma experiência incrível no passeio para Humantay. Motorista pontual, carro limpo e assistência total durante todo o trajeto.",
+    source: "TripAdvisor"
   }
 ];
 
 export default function ReviewsSection({ lang }) {
-  const t = translations[lang].reviews;
+  const t = translations[lang]?.reviews || translations.es.reviews;
 
   return (
     <section id="reseñas" className="reviews-section">
       <div className="container">
         <div className="section-header center">
           <span className="section-tag">TESTIMONIOS REALES DE CLIENTES</span>
-          <h2>{t.title}</h2>
-          <p>{t.subtitle}</p>
+          <h2>{t.title || 'Lo Que Dicen Nuestros Pasajeros'}</h2>
+          <p>{t.subtitle || 'La satisfacción y seguridad de nuestros viajeros es nuestra mejor carta de presentación.'}</p>
 
           <div className="reviews-score-badge">
             <div className="stars-row">
@@ -62,7 +72,7 @@ export default function ReviewsSection({ lang }) {
                 <Star key={s} size={22} fill="#f59e0b" color="#f59e0b" />
               ))}
             </div>
-            <span className="score-text">5.0 / 5.0 Excelente • +500 Viajeros Atendidos</span>
+            <span className="score-text">5.0 / 5.0 Calificación Promedio • +500 Viajeros Atendidos</span>
           </div>
         </div>
 
@@ -87,12 +97,37 @@ export default function ReviewsSection({ lang }) {
                   <strong>{rev.name}</strong>
                   <span className="rev-meta">{rev.country} • {rev.route}</span>
                 </div>
-                <span className="badge-verified"><CheckCircle2 size={13} /> {t.verified}</span>
+                <span className="badge-verified"><CheckCircle2 size={13} /> {t.verified || 'Verificado'}</span>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Espacio para enlaces a Google y TripAdvisor */}
+        <div className="reviews-platforms-row">
+          <a 
+            href="https://maps.google.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-platform-review google-btn"
+            title="Escribir o leer opiniones en Google"
+          >
+            <span>Ver perfil en Google Reviews</span>
+            <ExternalLink size={15} />
+          </a>
+          <a 
+            href="https://tripadvisor.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-platform-review tripadvisor-btn"
+            title="Escribir o leer opiniones en TripAdvisor"
+          >
+            <span>Ver opiniones en TripAdvisor</span>
+            <ExternalLink size={15} />
+          </a>
         </div>
       </div>
     </section>
   );
 }
+

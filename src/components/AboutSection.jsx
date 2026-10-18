@@ -1,5 +1,5 @@
-import React from 'react';
-import { Shield, Clock, Heart, Award, CheckCircle2 } from 'lucide-react';
+import { Shield, Clock, Heart } from 'lucide-react';
+
 import { translations } from '../data/translations';
 
 export default function AboutSection({ lang }) {

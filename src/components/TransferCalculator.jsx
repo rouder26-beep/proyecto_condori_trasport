@@ -1,5 +1,5 @@
-import React from 'react';
-import { Clock, MessageCircle, Info, ChevronRight, Check } from 'lucide-react';
+import { Clock, MessageCircle, Info } from 'lucide-react';
+
 import { routesData } from '../data/routesData';
 import { translations } from '../data/translations';
 
@@ -22,7 +22,7 @@ export default function TransferCalculator({ lang }) {
       `🚗 Vehículo: ${vehicleLabels[vehicleType] || vehicleType.toUpperCase()}%0A` +
       `💵 Tarifario: $${price} USD (Precio por vehículo)%0A` +
       `Por favor indíquenme disponibilidad.`;
-    window.open(`https://wa.me/51967040149?text=${msg}`, '_blank');
+    window.open(`https://wa.me/51910958898?text=${msg}`, '_blank');
   };
 
   return (

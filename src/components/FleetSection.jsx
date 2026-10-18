@@ -11,7 +11,7 @@ export default function FleetSection({ lang }) {
       `🚘 Vehículo: ${vehicle.name} (${vehicle.model})%0A` +
       `👥 Capacidad: ${vehicle.passengers}%0A` +
       `🧳 Equipaje: ${vehicle.luggage}`;
-    window.open(`https://wa.me/51967040149?text=${msg}`, '_blank');
+    window.open(`https://wa.me/51910958898?text=${msg}`, '_blank');
   };
 
   return (
