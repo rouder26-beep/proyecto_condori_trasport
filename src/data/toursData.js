@@ -7,7 +7,7 @@ export const toursData = [
       pt: "Vale Sagrado dos Incas VIP"
     },
     category: "Full Day",
-    duration: "Full Day • Horario Libre / A tu ritmo",
+    duration: "Full Day",
     difficulty: { es: "Fácil", en: "Easy", pt: "Fácil" },
     priceFrom: 70, // USD per vehicle / tour estimate
     image: "/images/hero.jpg",
@@ -35,7 +35,8 @@ export const toursData = [
       "Boleto Turístico del Cusco (BTC)",
       "Boleto de ingreso a Salineras de Maras (S/ 20)",
       "Guía oficial de turismo (opcional adicional)",
-      "Alimentación y bebidas"
+      "Alimentación y bebidas",
+      "Propinas"
     ]
   },
   {
@@ -46,7 +47,7 @@ export const toursData = [
       pt: "Montanha Colorida (Vinicunca)"
     },
     category: "Full Day",
-    duration: "Full Day • Salida Flexible / A tu ritmo",
+    duration: "Full Day",
     difficulty: { es: "Exigente (5,036 m.s.n.m.)", en: "Challenging (5,036 m)", pt: "Desafiador (5.036m)" },
     priceFrom: 85,
     image: "/images/vinicunca.jpg",
@@ -72,7 +73,8 @@ export const toursData = [
     excludes: [
       "Boleto de ingreso a la comunidad (S/ 25)",
       "Caballo de alquiler opcional",
-      "Guía oficial de montaña"
+      "Guía oficial de montaña",
+      "Propinas"
     ]
   },
   {
@@ -83,7 +85,7 @@ export const toursData = [
       pt: "Lagoa Humantay Turquesa"
     },
     category: "Full Day",
-    duration: "Full Day • Salida Flexible / A tu ritmo",
+    duration: "Full Day",
     difficulty: { es: "Moderada / Alta", en: "Moderate / High", pt: "Moderada / Alta" },
     priceFrom: 80,
     image: "/images/humantay.jpg",
@@ -107,7 +109,8 @@ export const toursData = [
     ],
     excludes: [
       "Ingreso a la comunidad de Mollepata (S/ 20)",
-      "Caballos opcionales"
+      "Caballos opcionales",
+      "Propinas"
     ]
   },
   {
@@ -118,7 +121,7 @@ export const toursData = [
       pt: "City Tour Privado Cusco e 4 Ruínas"
     },
     category: "Half Day",
-    duration: "Half Day • Horario Libre a Elección",
+    duration: "Half Day",
     difficulty: { es: "Fácil", en: "Easy", pt: "Fácil" },
     priceFrom: 45,
     image: "/images/sprinter.jpg",
@@ -142,7 +145,8 @@ export const toursData = [
     ],
     excludes: [
       "Boleto Turístico del Cusco (BTC)",
-      "Guía turístico"
+      "Guía turístico",
+      "Propinas"
     ]
   },
   {
@@ -153,7 +157,7 @@ export const toursData = [
       pt: "Ponte Q'eswachaka (Última Ponte Inca)"
     },
     category: "Full Day",
-    duration: "Full Day • Salida Flexible / A tu ritmo",
+    duration: "Full Day",
     difficulty: { es: "Moderada", en: "Moderate", pt: "Moderada" },
     priceFrom: "XX",
     image: "/images/queswachaca.jpg",
@@ -180,7 +184,8 @@ export const toursData = [
     excludes: [
       "Boleto o aporte comunal de ingreso al puente Q'eswachaka",
       "Alimentación y bebidas",
-      "Guía oficial de turismo (opcional adicional)"
+      "Guía oficial de turismo (opcional adicional)",
+      "Propinas"
     ]
   },
   {
@@ -191,7 +196,7 @@ export const toursData = [
       pt: "Montanha Pallay Punchu"
     },
     category: "Full Day",
-    duration: "Full Day • Salida Flexible / A tu ritmo",
+    duration: "Full Day",
     difficulty: { es: "Exigente (aprox. 4,900 m.s.n.m.)", en: "Challenging (approx. 4,900 m)", pt: "Exigente (aprox. 4.900 m)" },
     priceFrom: "XX",
     image: "/images/montana-pallaypuncho.jpg",
@@ -219,7 +224,8 @@ export const toursData = [
     excludes: [
       "Boleto o ticket de ingreso comunal a Pallay Punchu",
       "Alimentación y bebidas",
-      "Guía oficial de montaña (opcional adicional)"
+      "Guía oficial de montaña (opcional adicional)",
+      "Propinas"
     ]
   }
 ];

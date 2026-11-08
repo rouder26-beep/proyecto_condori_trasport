@@ -77,6 +77,32 @@ export const routesData = [
     },
     popular: false
   },
+  {
+    id: "route-7",
+    origin: "Cusco / Hotel / Aeropuerto",
+    destination: "Montaña 7 Colores (Vinicunca)",
+    duration: "Full Day",
+    prices: {
+      sedanSuv: 85,
+      minivan: 95,
+      sprinter10: 120,
+      sprinter15: 150,
+    },
+    popular: true
+  },
+  {
+    id: "route-8",
+    origin: "Cusco / Hotel / Aeropuerto",
+    destination: "Laguna Humantay",
+    duration: "Full Day",
+    prices: {
+      sedanSuv: 80,
+      minivan: 90,
+      sprinter10: 115,
+      sprinter15: 145,
+    },
+    popular: true
+  },
 ];
 
 export const originsList = [
@@ -85,15 +111,17 @@ export const originsList = [
   "Estación de Poroy",
   "Urubamba / Valle Sagrado",
   "Ollantaytambo",
-  "Pisac"
+  "Pisac",
+  "Estación de tren (Wanchaq, Av. El Sol, San Pedro)"
 ];
 
 export const destinationsList = [
   "Hotel Cusco Centro / San Blas",
   "Estación de Ollantaytambo (Tren Machu Picchu)",
   "Urubamba / Valle Sagrado (Hoteles)",
-  "Pisac (Pueblo / ruinas)",
-  "Estación de Poroy",
+  "Estación de tren de Poroy",
+  "Estación de tren (Wanchaq, Av. El Sol, San Pedro)",
+  "Pisac / Centro arqueológico",
   "Montaña 7 Colores (Vinicunca)",
-  "Laguna Humantay",
+  "Laguna Humantay"
 ];

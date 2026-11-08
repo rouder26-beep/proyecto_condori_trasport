@@ -2,7 +2,7 @@ export const fleetData = [
   {
     id: "fleet-sedan",
     name: "Sedan",
-    model: "Toyota Corolla / Yaris / Nissan Versa",
+    model: "",
     passengers: "1 - 3 Pasajeros",
     luggage: "2 Maletas Grandes + 2 Bolsos",
     image: "/images/fleet-sedan.jpg",
@@ -18,7 +18,7 @@ export const fleetData = [
   {
     id: "fleet-suv",
     name: "SUV",
-    model: "Toyota RAV4 / Fortuner / Changan CS55",
+    model: "",
     passengers: "1 - 4 Pasajeros",
     luggage: "3 - 4 Maletas de viaje",
     image: "/images/fleet-suv.jpg",
@@ -34,7 +34,7 @@ export const fleetData = [
   {
     id: "fleet-minivan",
     name: "MiniVan",
-    model: "Hyundai Staria / H1 / Kia Carnival",
+    model: "",
     passengers: "4 - 7 Pasajeros",
     luggage: "5 - 7 Maletas de viaje",
     image: "/images/fleet-minivan.jpg",
@@ -42,7 +42,6 @@ export const fleetData = [
     features: [
       "Aire Acondicionado independiente por fila",
       "Asientos capitulares de gran comodidad",
-      "Sillas de bebé homologadas (previa solicitud)",
       "Balón de Oxígeno medicinal a bordo",
       "Amortiguación suave para carreteras andinas"
     ]
@@ -50,7 +49,7 @@ export const fleetData = [
   {
     id: "fleet-sprinter-10",
     name: "Mercedes Benz 10pax",
-    model: "Mercedes-Benz Sprinter 316 / 415 CDi",
+    model: "",
     passengers: "8 - 10 Pasajeros",
     luggage: "10 Maletas de viaje + Maletero",
     image: "/images/fleet-sprinter-10pax.jpg",
@@ -66,7 +65,7 @@ export const fleetData = [
   {
     id: "fleet-sprinter-15",
     name: "Mercedes Benz 15pax",
-    model: "Mercedes-Benz Sprinter 516 CDi Larga",
+    model: "",
     passengers: "11 - 15 Pasajeros",
     luggage: "15 Maletas Grandes + Maletero XL",
     image: "/images/fleet-sprinter-15pax.jpg",
@@ -74,7 +73,7 @@ export const fleetData = [
     features: [
       "Asientos tipo primera clase ergonómicos",
       "Climatización bi-zona de alta potencia",
-      "Pantalla TV / Audio HD y puertos de carga",
+      "Audio HD y puertos de carga",
       "Maletero extendido de gran volumen",
       "Botiquín y balón de oxígeno medicinal"
     ]

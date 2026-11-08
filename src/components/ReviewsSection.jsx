@@ -42,16 +42,6 @@ const reviewsList = [
     route: "Traslado Aeropuerto + Valle Sagrado",
     comment: "Un 10/10 en puntualidad y atención. Rudy estuvo pendiente de nuestro vuelo atrasado en todo momento sin cobrarnos nada extra. Repetiremos sin duda.",
     source: "Google Review"
-  },
-  {
-    id: 5,
-    name: "Matheus Oliveira",
-    country: "🇧🇷 Brasil",
-    rating: 5,
-    date: "Hace 1 mes",
-    route: "Laguna Humantay Tour Privado",
-    comment: "Tivemos uma experiência incrível no passeio para Humantay. Motorista pontual, carro limpo e assistência total durante todo o trajeto.",
-    source: "TripAdvisor"
   }
 ];
 

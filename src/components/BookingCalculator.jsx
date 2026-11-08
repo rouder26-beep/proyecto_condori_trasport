@@ -15,11 +15,36 @@ export default function BookingCalculator({ lang }) {
   const [vehicle, setVehicle] = useState('suv');
   const [optionalOpen, setOptionalOpen] = useState(false);
 
-  // Estimate price — no se toca la lógica de precios
-  const matchedRoute = routesData.find(
-    r => (r.origin.toLowerCase().includes(origin.toLowerCase()) || origin.toLowerCase().includes(r.origin.toLowerCase())) &&
-         (r.destination.toLowerCase().includes(destination.toLowerCase()) || destination.toLowerCase().includes(r.destination.toLowerCase()))
-  );
+  // Helper para normalizar y buscar coincidencias entre origen y destino
+  const normalize = (str) =>
+    (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  const normOrigin = normalize(origin);
+  const normDest = normalize(destination);
+
+  const matchedRoute = routesData.find(r => {
+    const rOrig = normalize(r.origin);
+    const rDest = normalize(r.destination);
+
+    const originMatches =
+      rOrig.includes(normOrigin) ||
+      normOrigin.includes(rOrig) ||
+      (normOrigin.includes('aeropuerto') && rOrig.includes('aeropuerto')) ||
+      ((normOrigin.includes('hotel') || normOrigin.includes('cusco')) && (rOrig.includes('hotel') || rOrig.includes('cusco')));
+
+    const destMatches =
+      rDest.includes(normDest) ||
+      normDest.includes(rDest) ||
+      (normDest.includes('ollantaytambo') && rDest.includes('ollantaytambo')) ||
+      (normDest.includes('urubamba') && rDest.includes('urubamba')) ||
+      (normDest.includes('poroy') && rDest.includes('poroy')) ||
+      (normDest.includes('pisac') && rDest.includes('pisac')) ||
+      (normDest.includes('vinicunca') && rDest.includes('vinicunca')) ||
+      (normDest.includes('humantay') && rDest.includes('humantay')) ||
+      ((normDest.includes('hotel') || normDest.includes('centro')) && (rDest.includes('hotel') || rDest.includes('centro')));
+
+    return originMatches && destMatches;
+  });
 
   const vehicleOptions = [
     { id: 'sedan', label: 'Sedan', capacity: '1-3 Pax', luggage: '2 maletas' },
@@ -30,16 +55,24 @@ export default function BookingCalculator({ lang }) {
   ];
 
   const defaultBasePrices = {
-    sedan: 40,
-    suv: 55,
+    sedan: 60,
+    suv: 60,
     minivan: 70,
     sprinter10: 100,
-    sprinter15: 120,
+    sprinter15: 130,
+  };
+
+  const getPriceForVehicle = (route, vehicleKey) => {
+    if (!route || !route.prices) return defaultBasePrices[vehicleKey] || 60;
+    if (vehicleKey === 'sedan' || vehicleKey === 'suv') {
+      return route.prices.sedanSuv ?? route.prices.sedan ?? route.prices.suv ?? 60;
+    }
+    return route.prices[vehicleKey] ?? defaultBasePrices[vehicleKey] ?? 60;
   };
 
   const basePrice = matchedRoute
-    ? (matchedRoute.prices[vehicle] || matchedRoute.prices.sedan)
-    : (defaultBasePrices[vehicle] || 55);
+    ? getPriceForVehicle(matchedRoute, vehicle)
+    : (defaultBasePrices[vehicle] || 60);
 
   const activeVehicleObj = vehicleOptions.find(v => v.id === vehicle) || vehicleOptions[1];
   const vehicleLabelFull = `${activeVehicleObj.label} (${activeVehicleObj.capacity})`;

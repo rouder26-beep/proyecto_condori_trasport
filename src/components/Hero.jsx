@@ -66,18 +66,6 @@ export default function Hero({ lang }) {
                 <div className="stat-sub">{t.stat3Sub}</div>
               </div>
             </div>
-
-            <div className="hero-direct-ws-box">
-              <a 
-                href="https://wa.me/51910958898?text=Hola%20Condori%20Expedition%20Transport,%20deseo%20consultar%20por%20un%20traslado%20o%20tour%20en%20Cusco." 
-                target="_blank" 
-                rel="noreferrer"
-                className="btn-hero-ws"
-              >
-                <MessageCircle size={20} />
-                <span>Respuesta rápida por WhatsApp</span>
-              </a>
-            </div>
           </div>
 
           {/* Right Instant Calculator Form */}

@@ -29,12 +29,12 @@ export default function Footer({ lang, onOpenReclamaciones }) {
             <div className="social-follow-box">
               <span className="social-follow-label">{t.followUs || 'SÍGUENOS'}</span>
               <div className="social-icons-row">
-                <a href="https://facebook.com/Condori_expedition" target="_blank" rel="noreferrer" className="social-icon-btn facebook" title="Facebook - Condori_expedition" aria-label="Facebook">
+                <a href="https://www.facebook.com/profile.php?id=61595821621754" target="_blank" rel="noreferrer" className="social-icon-btn facebook" title="Facebook - Condori Expedition" aria-label="Facebook">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                   </svg>
                 </a>
-                <a href="https://instagram.com/Condori_expedition" target="_blank" rel="noreferrer" className="social-icon-btn instagram" title="Instagram - @Condori_expedition" aria-label="Instagram">
+                <a href="https://www.instagram.com/condori_expedition?utm_source=qr&mdxt=ODJucHF6YTBlMWlz" target="_blank" rel="noreferrer" className="social-icon-btn instagram" title="Instagram - @condori_expedition" aria-label="Instagram">
                   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -91,6 +91,28 @@ export default function Footer({ lang, onOpenReclamaciones }) {
             <button type="button" className="btn-footer-reclamaciones" onClick={onOpenReclamaciones}>
               <BookOpen size={16} /> Libro de Reclamaciones
             </button>
+          </div>
+        </div>
+
+        <div className="footer-payment-methods">
+          <span className="payment-methods-title">Métodos de pago:</span>
+          <div className="payment-methods-list">
+            <span className="payment-badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="payment-icon">
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <circle cx="12" cy="12" r="2" />
+                <path d="M6 12h.01M18 12h.01" />
+              </svg>
+              <span>Efectivo soles (S/) y dólares ($)</span>
+            </span>
+            <span className="payment-badge visa-badge">
+              <svg viewBox="0 0 48 48" width="34" height="22" className="visa-svg-logo" aria-label="Visa">
+                <rect width="48" height="28" y="10" rx="4" fill="#ffffff" />
+                <path d="M19.4 28.5l2.2-13.4h3.5l-2.2 13.4h-3.5zm13.7-13.1c-.7-.3-1.8-.5-3.2-.5-3.5 0-6 1.8-6 4.4 0 1.9 1.8 3 3.1 3.6 1.4.7 1.9 1.1 1.9 1.7 0 .9-1.1 1.4-2.2 1.4-1.4 0-2.2-.2-3.4-.7l-.5-.2-.5 3.1c.9.4 2.5.7 4.2.7 3.9 0 6.5-1.9 6.5-4.6 0-1.5-.9-2.7-3-3.7-1.3-.6-2.1-1.1-2.1-1.7 0-.6.7-1.2 2.2-1.2 1.2 0 2.1.2 2.8.5l.3.2.7-3.2zm8.5 0h-2.7c-.8 0-1.5.2-1.9 1.1l-5.3 12.3h3.7l.7-2h4.5l.4 2h3.3l-2.7-13.4zm-4.7 8.7l1.9-5.1.7 2.1.4 3h-3zm-19.8-8.7l-3.4 9.1-.4-1.8c-.6-2-2.5-4.2-4.6-5.3l3 11.4h3.7l5.5-13.4h-3.8z" fill="#1A1F71"/>
+                <path d="M12.1 15.4H6.7l-.1.3c4.2 1 6.9 3.5 8 6.6l-1.2-5.9c-.2-.7-.7-1-1.3-1z" fill="#F7B600"/>
+              </svg>
+              <span>Tarjetas Visa</span>
+            </span>
           </div>
         </div>
 

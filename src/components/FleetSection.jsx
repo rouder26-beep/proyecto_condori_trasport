@@ -8,7 +8,7 @@ export default function FleetSection({ lang }) {
 
   const handleInquireVehicle = (vehicle) => {
     const msg = `Hola Condori Expedition Transport, deseo consultar la disponibilidad del vehículo:%0A` +
-      `🚘 Vehículo: ${vehicle.name} (${vehicle.model})%0A` +
+      `🚘 Vehículo: ${vehicle.name}%0A` +
       `👥 Capacidad: ${vehicle.passengers}%0A` +
       `🧳 Equipaje: ${vehicle.luggage}`;
     window.open(`https://wa.me/51910958898?text=${msg}`, '_blank');
@@ -33,7 +33,6 @@ export default function FleetSection({ lang }) {
 
               <div className="fleet-card-body">
                 <h3>{vehicle.name}</h3>
-                <p className="fleet-model">{vehicle.model}</p>
 
                 <div className="fleet-specs-row">
                   <div className="spec-item">

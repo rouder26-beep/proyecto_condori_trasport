@@ -50,8 +50,8 @@ export default function HomePage() {
       }
     ],
     "sameAs": [
-      "https://facebook.com/Condori_expedition",
-      "https://instagram.com/Condori_expedition",
+      "https://www.facebook.com/profile.php?id=61595821621754",
+      "https://www.instagram.com/condori_expedition?utm_source=qr&mdxt=ODJucHF6YTBlMWlz",
       "https://tiktok.com/@Condori_expedition"
     ]
   };

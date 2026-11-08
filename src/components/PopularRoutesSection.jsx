@@ -9,7 +9,7 @@ export default function PopularRoutesSection({ lang: _lang }) {
   const popularRoutes = routesData.filter(r => r.popular).slice(0, 4);
 
   const handleBook = (route) => {
-    const minPrice = route.prices.sedan || route.prices.suv;
+    const minPrice = route.prices.sedanSuv;
     const msg = `Hola Condori Expedition Transport, deseo cotizar la ruta más solicitada:%0A` +
       `📌 ${route.origin} → ${route.destination}%0A` +
       `⏱️ Duración: ${route.duration}%0A` +
@@ -33,7 +33,7 @@ export default function PopularRoutesSection({ lang: _lang }) {
 
         <div className="popular-routes-grid">
           {popularRoutes.map((route) => {
-            const minPrice = route.prices.sedan || route.prices.suv;
+            const minPrice = route.prices.sedanSuv;
             return (
               <div key={route.id} className="popular-route-card">
                 <div className="popular-route-badge">Ruta Frecuente</div>

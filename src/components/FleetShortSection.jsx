@@ -36,7 +36,6 @@ export default function FleetShortSection({ lang: _lang }) {
 
               <div className="fleet-short-body">
                 <h3 className="fleet-name">{item.name}</h3>
-                <p className="fleet-model">{item.model}</p>
 
                 <div className="fleet-short-specs">
                   <div className="spec-badge">

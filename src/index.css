@@ -64,7 +64,7 @@ ul {
 
 /* --- Section Headers --- */
 .section-header {
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 .section-header.center {
   text-align: center;
@@ -599,7 +599,7 @@ ul {
 
 /* --- TRUST BADGES --- */
 .trust-section {
-  padding: 60px 0;
+  padding: 40px 0;
   background: #ffffff;
   border-bottom: 1px solid var(--border-light);
 }
@@ -848,13 +848,14 @@ ul {
   top: 14px;
   left: 14px;
   display: inline-block;
+  width: fit-content;
   background: rgba(15, 23, 42, 0.85);
   color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 11px;
   font-weight: 700;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   line-height: 1;
 }
 .tour-price-badge {
@@ -1205,8 +1206,27 @@ ul {
 
 /* --- REVIEWS SECTION --- */
 .reviews-section {
-  padding: 80px 0;
-  background: var(--bg-light);
+  position: relative;
+  padding: 48px 0;
+  background-color: #f8fafc;
+  overflow: hidden;
+}
+.reviews-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/logo-watermark.jpg');
+  background-repeat: repeat;
+  background-size: 130px 130px;
+  background-position: center;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+.reviews-section .container {
+  position: relative;
+  z-index: 1;
 }
 .reviews-score-badge {
   margin-top: 16px;
@@ -1227,7 +1247,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
-  margin-top: 40px;
+  margin-top: 24px;
 }
 .review-card {
   background: #ffffff;
@@ -1620,6 +1640,54 @@ ul {
   cursor: pointer;
 }
 
+.footer-payment-methods {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 18px 20px;
+  margin: 32px 0 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+.payment-methods-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--accent-gold, #f59e0b);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.payment-methods-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.payment-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+.payment-badge .payment-icon {
+  color: #10b981;
+}
+.visa-badge {
+  background: rgba(255, 255, 255, 0.12);
+}
+.visa-svg-logo {
+  display: block;
+  border-radius: 3px;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.08);
   padding-top: 24px;
@@ -1984,7 +2052,55 @@ ul {
   .footer-top-grid {
     grid-template-columns: 1fr;
   }
-  .footer-bottom {
+  .footer-payment-methods {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 18px 20px;
+  margin: 32px 0 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+.payment-methods-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--accent-gold, #f59e0b);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.payment-methods-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.payment-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+.payment-badge .payment-icon {
+  color: #10b981;
+}
+.visa-badge {
+  background: rgba(255, 255, 255, 0.12);
+}
+.visa-svg-logo {
+  display: block;
+  border-radius: 3px;
+}
+
+.footer-bottom {
     flex-direction: column;
     gap: 12px;
     text-align: center;
@@ -2126,14 +2242,35 @@ ul {
 
 /* Rutas Más Pedidas */
 .popular-routes-section {
-  padding: 80px 0;
-  background: #ffffff;
+  position: relative;
+  padding: 48px 0;
+  background-color: #f8fafc;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  overflow: hidden;
+}
+.popular-routes-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/logo-watermark.jpg');
+  background-repeat: repeat;
+  background-size: 130px 130px;
+  background-position: center;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+.popular-routes-section .container {
+  position: relative;
+  z-index: 1;
 }
 .popular-routes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 24px;
-  margin-top: 36px;
+  margin-top: 24px;
 }
 .popular-route-card {
   position: relative;
@@ -2282,7 +2419,7 @@ ul {
 
 /* Botones CTA centrales */
 .section-cta-center {
-  margin-top: 40px;
+  margin-top: 24px;
   text-align: center;
 }
 .btn-cta-primary {
@@ -2325,14 +2462,14 @@ ul {
 
 /* Flota versión corta */
 .fleet-short-section {
-  padding: 80px 0;
-  background: var(--bg-light);
+  padding: 48px 0;
+  background: #ffffff;
 }
 .fleet-short-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
-  margin-top: 36px;
+  margin-top: 24px;
 }
 .fleet-short-card {
   background: #ffffff;
@@ -2412,7 +2549,7 @@ ul {
   display: flex;
   justify-content: center;
   gap: 16px;
-  margin-top: 36px;
+  margin-top: 24px;
   flex-wrap: wrap;
 }
 .btn-platform-review {
@@ -2446,14 +2583,14 @@ ul {
 
 /* Tours destacados */
 .featured-tours-section {
-  padding: 80px 0;
+  padding: 48px 0;
   background: #ffffff;
 }
 .featured-tours-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
   gap: 28px;
-  margin-top: 36px;
+  margin-top: 24px;
 }
 .featured-tour-card {
   background: #ffffff;
@@ -2484,15 +2621,16 @@ ul {
 }
 .tour-badge-cat {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
+  top: 14px;
+  left: 14px;
   display: inline-block;
+  width: fit-content;
   background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(8px);
   color: #ffffff;
   font-size: 11px;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 12px;
   line-height: 1;
 }
@@ -2580,10 +2718,30 @@ ul {
 
 /* Contacto rápido */
 .quick-contact-section {
-  padding: 80px 0;
-  background: var(--bg-light);
+  position: relative;
+  padding: 48px 0;
+  background-color: #f8fafc;
+  overflow: hidden;
+}
+.quick-contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/logo-watermark.jpg');
+  background-repeat: repeat;
+  background-size: 130px 130px;
+  background-position: center;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+.quick-contact-section .container {
+  position: relative;
+  z-index: 1;
 }
 .quick-contact-card {
+  position: relative;
   background: linear-gradient(135deg, var(--primary-navy) 0%, #1e293b 100%);
   color: #ffffff;
   border-radius: var(--radius-lg);
@@ -2593,6 +2751,25 @@ ul {
   gap: 40px;
   align-items: center;
   box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.quick-contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/logo-watermark.jpg');
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  background-position: center;
+  opacity: 0.06;
+  filter: invert(1);
+  pointer-events: none;
+  z-index: 0;
+}
+.quick-contact-info,
+.quick-contact-actions {
+  position: relative;
+  z-index: 1;
 }
 .badge-official-inline {
   display: inline-flex;
