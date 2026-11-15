@@ -227,5 +227,46 @@ export const toursData = [
       "Guía oficial de montaña (opcional adicional)",
       "Propinas"
     ]
+  },
+  {
+    id: "tour-7-lagunas-ausangate",
+    title: {
+      es: "Circuito 7 Lagunas de Ausangate",
+      en: "Ausangate 7 Lakes Circuit",
+      pt: "Circuito 7 Lagoas de Ausangate"
+    },
+    category: "Full Day",
+    duration: "Full Day",
+    difficulty: { es: "Moderada / Alta (4,200 - 4,600 m.s.n.m.)", en: "Moderate / High (4,200 - 4,600 m)", pt: "Moderada / Alta (4.200 - 4.600 m)" },
+    priceFrom: 85,
+    image: "/images/7lagunas-ausangate.jpg",
+    description: {
+      es: "Espectacular caminata a los pies del imponente nevado Ausangate visitando 7 lagunas de aguas turquesas y verdes (Pucacocha, Azulcocha, Otorongococha y más), culminando en las relajantes aguas termales de Pacchanta.",
+      en: "Spectacular hike at the foot of mount Ausangate visiting 7 turquoise and green glacier lakes, finishing at the natural hot springs of Pacchanta.",
+      pt: "Espetacular caminhada aos pés do nevado Ausangate visitando 7 lagoas de águas turquesas e verdes, terminando nas relaxantes águas termais de Pacchanta."
+    },
+    includesSummary: "Transporte 100% privado, chofer experimentado, balón de oxígeno medicinal y tiempo en aguas termales de Pacchanta.",
+    itinerary: [
+      { detail: "Recojo privado en su hotel en Cusco de madrugada (horario coordinado a su elección)." },
+      { detail: "Viaje panorámico hacia la comunidad andina de Pacchanta con parada para desayuno reconfortante." },
+      { detail: "Inicio del trekking por el circuito de las 7 lagunas a los pies del nevado sagrado Ausangate (Pucacocha, Patacocha, Comercocha, Azulcocha, etc.)." },
+      { detail: "Paradas fotográficas y contemplación de paisajes glaciares, flora y fauna andina (alpacas y vizcachas)." },
+      { detail: "Retorno a Pacchanta y tiempo libre para disfrutar de las reconfortantes aguas termales medicinales." },
+      { detail: "Almuerzo tradicional reconfortante en Pacchanta." },
+      { detail: "Retorno cómodo y seguro en su transporte privado directo a su hotel en Cusco." }
+    ],
+    includes: [
+      "Transporte turístico 100% privado ida y vuelta",
+      "Conductor profesional experimentado en rutas andinas",
+      "Balón de oxígeno medicinal a bordo y botiquín",
+      "Paradas fotográficas ilimitadas a su ritmo"
+    ],
+    excludes: [
+      "Boleto de ingreso a la comunidad / ruta (aprox. S/ 10 - S/ 20)",
+      "Ingreso a los baños termales de Pacchanta (S/ 5 opcional)",
+      "Alimentación y bebidas",
+      "Guía oficial de turismo (opcional adicional)",
+      "Propinas"
+    ]
   }
 ];
