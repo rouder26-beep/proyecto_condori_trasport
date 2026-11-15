@@ -347,5 +347,45 @@ export const toursData = [
       "Guía oficial de turismo (opcional adicional)",
       "Propinas"
     ]
+  },
+  {
+    id: "tour-glaciar-quelccaya",
+    title: {
+      es: "Glaciar Quelccaya (El Glaciar Tropical Más Grande del Mundo)",
+      en: "Quelccaya Glacier (World's Largest Tropical Ice Cap)",
+      pt: "Geleira Quelccaya (A Maior Geleira Tropical do Mundo)"
+    },
+    category: "Full Day",
+    duration: "Full Day",
+    difficulty: { es: "Exigente (5,100 - 5,200 m.s.n.m.)", en: "Challenging (5,100 - 5,200 m)", pt: "Desafiador (5.100 - 5.200 m)" },
+    priceFrom: 110,
+    image: "/images/glaciar-quelccaya.jpg",
+    description: {
+      es: "Expedición única al casquete de hielo tropical más extenso del planeta en la cordillera Vilcanota. Admira imponentes paredes de hielo turquesa de hasta 30 metros de altura, lagunas glaciares y paisajes vírgenes de alta montaña.",
+      en: "Exclusive high-altitude expedition to the largest tropical ice cap on Earth. Witness massive 30-meter turquoise ice walls, crystal glacial lagoons, and pristine Andean wilderness.",
+      pt: "Expedição única à maior calota de gelo tropical do planeta na cordilheira Vilcanota. Admire imponentes paredões de gelo turquesa de até 30 metros, lagoas glaciais e paisagens andinas intocadas."
+    },
+    includesSummary: "Transporte 100% privado 4x4 / turismo andino, chofer experimentado de alta montaña, balón de oxígeno medicinal y asistencia permanente.",
+    itinerary: [
+      { detail: "Recojo privado en su hotel en Cusco de madrugada (aprox. 03:30 - 04:00 AM coordinado a su elección)." },
+      { detail: "Viaje cómodo por la ruta sur andina con parada para desayuno reconfortante en Checacupe o Pitumarca." },
+      { detail: "Paso por paisajes remotos de puna andina con presencia de alpacas, llamas y vicuñas en su hábitat natural." },
+      { detail: "Llegada al punto de inicio cerca del glaciar y comienzo de la caminata hacia la base de la masa de hielo." },
+      { detail: "Tiempo libre para explorar de cerca las monumentales cuevas y paredes de hielo cristalino y lagunas de deshielo." },
+      { detail: "Descenso y almuerzo reconfortante tradicional en comunidad local." },
+      { detail: "Retorno seguro a la ciudad de Cusco en su unidad privada directo a su alojamiento." }
+    ],
+    includes: [
+      "Transporte turístico privado ida y vuelta apto para rutas andinas",
+      "Conductor profesional experto en alta montaña",
+      "Balón de oxígeno medicinal a bordo y botiquín de primeros auxilios",
+      "Manta térmica y paradas fotográficas ilimitadas"
+    ],
+    excludes: [
+      "Aporte o ticket comunal de ingreso (aprox. S/ 15 - S/ 20)",
+      "Alimentación y bebidas",
+      "Guía oficial de montaña (opcional adicional)",
+      "Propinas"
+    ]
   }
 ];
