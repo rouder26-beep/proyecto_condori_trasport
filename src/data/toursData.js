@@ -308,5 +308,44 @@ export const toursData = [
       "Guía oficial de turismo (opcional adicional)",
       "Propinas"
     ]
+  },
+  {
+    id: "tour-valle-sur-cusco",
+    title: {
+      es: "Tour Valle Sur Cusco (Tipón, Pikillacta & Andahuaylillas)",
+      en: "South Valley Cusco Tour (Tipon, Pikillacta & Andahuaylillas)",
+      pt: "Tour Vale Sul Cusco (Tipón, Pikillacta e Andahuaylillas)"
+    },
+    category: "Half Day",
+    duration: "Half Day",
+    difficulty: { es: "Fácil (3,100 - 3,500 m.s.n.m.)", en: "Easy (3,100 - 3,500 m)", pt: "Fácil (3.100 - 3.500 m)" },
+    priceFrom: 50,
+    image: "/images/valle-sur-cusco.jpg",
+    description: {
+      es: "Ruta cultural que combina la asombrosa ingeniería hidráulica inca de Tipón, la imponente ciudadela pre-inca Wari de Pikillacta y la hermosa 'Capilla Sixtina de América' en la iglesia de San Pedro Apóstol de Andahuaylillas.",
+      en: "A fascinating cultural journey combining the Inca hydraulic engineering of Tipon, the pre-Inca Wari city of Pikillacta, and the Andean Sistine Chapel in Andahuaylillas.",
+      pt: "Uma rota cultural fascinante combinando a engenharia hidráulica inca de Tipón, a cidadela pré-inca Wari de Pikillacta e a Capela Sistina das Américas em Andahuaylillas."
+    },
+    includesSummary: "Transporte 100% privado, chofer profesional, paradas fotográficas ilimitadas y visita gastronómica opcional en Saylla o Huaro.",
+    itinerary: [
+      { detail: "Recojo privado en su hotel en Cusco en el horario coordinado (mañana o tarde)." },
+      { detail: "Viaje cómodo hacia el Parque Arqueológico de Tipón para admirar sus fuentes ceremoniales y andenes hidráulicos." },
+      { detail: "Recorrido por el complejo arqueológico de Pikillacta, testimonio urbanístico de la cultura Wari." },
+      { detail: "Llegada al pueblo tradicional de Andahuaylillas y visita a su templo barroco con lienzos de la escuela cusqueña." },
+      { detail: "Parada opcional en Saylla o Huaro para probar gastronomía típica tradicional (chicharrón o panes de Oropesa)." },
+      { detail: "Retorno tranquilo y seguro a la ciudad de Cusco directo a su alojamiento." }
+    ],
+    includes: [
+      "Transporte turístico 100% privado ida y vuelta",
+      "Combustible, peajes y conductor profesional local",
+      "Flexibilidad total de paradas y tiempos a su gusto"
+    ],
+    excludes: [
+      "Boleto Turístico del Cusco (BTC para Tipón y Pikillacta)",
+      "Boleto de ingreso a la iglesia de Andahuaylillas (aprox. S/ 15)",
+      "Alimentación y bebidas",
+      "Guía oficial de turismo (opcional adicional)",
+      "Propinas"
+    ]
   }
 ];
