@@ -124,7 +124,7 @@ export const toursData = [
     duration: "Half Day",
     difficulty: { es: "Fácil", en: "Easy", pt: "Fácil" },
     priceFrom: 45,
-    image: "/images/sprinter.jpg",
+    image: "/images/city-tour-cusco.jpg",
     description: {
       es: "Explora Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay en un recorrido cómodo sin grupos multitudinarios.",
       en: "Explore Sacsayhuaman, Qenqo, Puka Pukara, and Tambomachay with your private driver.",
