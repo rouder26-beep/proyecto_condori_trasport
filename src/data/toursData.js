@@ -10,7 +10,7 @@ export const toursData = [
     duration: "Full Day",
     difficulty: { es: "Fácil", en: "Easy", pt: "Fácil" },
     priceFrom: 70, // USD per vehicle / tour estimate
-    image: "/images/hero.jpg",
+    image: "/images/valle-sagrado.jpg",
     description: {
       es: "Recorrido privado exclusivo visitando Chinchero (textilería tradicional), Salineras de Maras, Centro Arqueológico de Moray, Urubamba y la fortaleza viva de Ollantaytambo.",
       en: "Exclusive private tour visiting Chinchero, Salt Mines of Maras, Moray terraces, Urubamba, and Ollantaytambo Fortress.",
