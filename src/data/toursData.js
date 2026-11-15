@@ -268,5 +268,45 @@ export const toursData = [
       "Guía oficial de turismo (opcional adicional)",
       "Propinas"
     ]
+  },
+  {
+    id: "tour-montana-palcoyo",
+    title: {
+      es: "Montaña Palcoyo (Cordillera de Colores)",
+      en: "Palcoyo Mountain (Rainbow Mountain Range)",
+      pt: "Montanha Palcoyo (Cordilheira Colorida)"
+    },
+    category: "Full Day",
+    duration: "Full Day",
+    difficulty: { es: "Fácil / Moderada (4,900 m.s.n.m.)", en: "Easy / Moderate (4,900 m)", pt: "Fácil / Moderada (4.900 m)" },
+    priceFrom: 85,
+    image: "/images/palcoyo.jpg",
+    description: {
+      es: "La mejor alternativa a Vinicunca con caminata suave y sin pendientes empinadas. Disfruta de la vista panorámica de 3 montañas de colores, el asombroso bosque de piedras geológico y vistas al nevado Ausangate sin aglomeraciones.",
+      en: "The best gentle alternative to Vinicunca with easy walking. Enjoy 3 distinct rainbow mountains, a unique rock forest, and views of mount Ausangate with fewer crowds.",
+      pt: "A melhor alternativa a Vinicunca com caminhada leve. Desfrute da vista de 3 montanhas coloridas, a floresta de pedras e vistas do nevado Ausangate sem multidões."
+    },
+    includesSummary: "Transporte 100% privado, chofer profesional, balón de oxígeno medicinal y caminata suave sin aglomeraciones.",
+    itinerary: [
+      { detail: "Recojo privado en su hotel en Cusco temprano por la mañana (horario coordinado a su elección)." },
+      { detail: "Viaje cómodo por el valle sur pasando por Combapata con parada para desayuno reconfortante." },
+      { detail: "Llegada al punto de inicio cerca de Palcoyo (aprox. 4,900 m.s.n.m.)." },
+      { detail: "Caminata suave y casi plana de 45 min a 1 hora apreciando las tres montañas de colores." },
+      { detail: "Visita y tiempo fotográfico en el impresionante Bosque de Piedras (formación geológica única)." },
+      { detail: "Descenso y almuerzo reconfortante tradicional." },
+      { detail: "Retorno tranquilo a Cusco en su movilidad privada directo a su hotel." }
+    ],
+    includes: [
+      "Transporte turístico 100% privado ida y vuelta",
+      "Conductor profesional experimentado en rutas de montaña",
+      "Balón de oxígeno medicinal a bordo y botiquín",
+      "Paradas fotográficas ilimitadas y viaje a su ritmo"
+    ],
+    excludes: [
+      "Boleto de ingreso a la comunidad de Palcoyo (aprox. S/ 15 - S/ 20)",
+      "Alimentación y bebidas",
+      "Guía oficial de turismo (opcional adicional)",
+      "Propinas"
+    ]
   }
 ];
