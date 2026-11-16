@@ -457,5 +457,51 @@ export const toursData = [
       "Guía oficial de turismo (opcional adicional)",
       "Propinas"
     ]
+  },
+  {
+    id: "tour-maras-moray-salineras",
+    title: {
+      es: "Maras, Moray y Salineras (Cusco - Ollantaytambo)",
+      en: "Maras, Moray & Salt Mines (Cusco - Ollantaytambo)",
+      pt: "Maras, Moray e Salineras (Cusco - Ollantaytambo)"
+    },
+    category: "Half Day",
+    duration: "Half Day",
+    difficulty: { es: "Fácil", en: "Easy", pt: "Fácil" },
+    priceFrom: 90,
+    image: "/images/maras-moray-salineras.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$90.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$110.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$140.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$180.00 USD" },
+    ],
+    description: {
+      es: "Recorrido privado ideal conectando Cusco con Ollantaytambo (o viceversa), visitando en ruta el pintoresco pueblo de Maras, los impresionantes andenes circulares de Moray y las miles de pozas milenarias de las Salineras de Maras.",
+      en: "Private tour connecting Cusco and Ollantaytambo while visiting the colonial town of Maras, the circular Inca agricultural terraces of Moray, and the ancient Salt Mines of Maras.",
+      pt: "Passeio privado conectando Cusco e Ollantaytambo, visitando no caminho o povoado de Maras, os terraços circulares incas de Moray e as impressionantes Salineras de Maras."
+    },
+    includesSummary: "Transporte 100% privado, chofer profesional, oxígeno medicinal y paradas fotográficas ilimitadas.",
+    itinerary: [
+      { detail: "Recojo privado en su hotel en Cusco (o estación/hotel en Ollantaytambo) en el horario coordinado a su elección." },
+      { detail: "Viaje escénico por la meseta de Chinchero con vistas panorámicas a la cordillera de los Andes." },
+      { detail: "Visita al Centro Arqueológico de Moray y sus famosos andenes circulares de experimentación agrícola inca." },
+      { detail: "Paso por el pueblo colonial de Maras y sus históricas portadas de piedra." },
+      { detail: "Exploración de las Salineras de Maras con más de 3,000 pozas de sal cristalina explotadas artesanalmente." },
+      { detail: "Llegada directa a la estación de tren o a su hotel en Ollantaytambo (o retorno a Cusco según su ruta)." }
+    ],
+    includes: [
+      "Transporte turístico 100% privado con chofer profesional",
+      "Recojo en Cusco y desembarque en Ollantaytambo (o viceversa) con custodia de equipaje a bordo",
+      "Oxígeno medicinal a bordo y botiquín de primeros auxilios",
+      "Paradas fotográficas ilimitadas y tiempos flexibles a su ritmo"
+    ],
+    excludes: [
+      "Boleto Turístico del Cusco (BTC para Moray)",
+      "Boleto de ingreso a Salineras de Maras (S/ 20)",
+      "Alimentación y bebidas",
+      "Guía oficial de turismo (opcional adicional)",
+      "Propinas"
+    ]
   }
 ];
