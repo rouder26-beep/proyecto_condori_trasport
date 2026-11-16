@@ -210,8 +210,14 @@ export const toursData = [
     category: "Full Day",
     duration: "Full Day",
     difficulty: { es: "Exigente (aprox. 4,900 m.s.n.m.)", en: "Challenging (approx. 4,900 m)", pt: "Exigente (aprox. 4.900 m)" },
-    priceFrom: "XX",
+    priceFrom: 130,
     image: "/images/montana-pallaypuncho.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$130.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$160.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$210.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$250.00 USD" },
+    ],
     description: {
       es: "Excursión privada a la espectacular Montaña Pallay Punchu, conocida por sus colores únicos y paisajes de otro mundo, con salida flexible y transporte cómodo.",
       en: "Private excursion to the spectacular Pallay Punchu Mountain, known for its sharp colored ridges and otherworldly landscapes, with flexible departure and comfortable transport.",
