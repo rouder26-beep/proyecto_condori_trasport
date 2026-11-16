@@ -250,8 +250,14 @@ export const toursData = [
     category: "Full Day",
     duration: "Full Day",
     difficulty: { es: "Moderada / Alta (4,200 - 4,600 m.s.n.m.)", en: "Moderate / High (4,200 - 4,600 m)", pt: "Moderada / Alta (4.200 - 4.600 m)" },
-    priceFrom: 85,
+    priceFrom: 130,
     image: "/images/7lagunas-ausangate.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$130.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$160.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$200.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$240.00 USD" },
+    ],
     description: {
       es: "Espectacular caminata a los pies del imponente nevado Ausangate visitando 7 lagunas de aguas turquesas y verdes (Pucacocha, Azulcocha, Otorongococha y más), culminando en las relajantes aguas termales de Pacchanta.",
       en: "Spectacular hike at the foot of mount Ausangate visiting 7 turquoise and green glacier lakes, finishing at the natural hot springs of Pacchanta.",
