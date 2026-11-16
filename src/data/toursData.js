@@ -376,8 +376,14 @@ export const toursData = [
     category: "Full Day",
     duration: "Full Day",
     difficulty: { es: "Exigente (5,100 - 5,200 m.s.n.m.)", en: "Challenging (5,100 - 5,200 m)", pt: "Desafiador (5.100 - 5.200 m)" },
-    priceFrom: 110,
+    priceFrom: 280,
     image: "/images/glaciar-quelccaya.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$280.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$430.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$480.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$600.00 USD" },
+    ],
     description: {
       es: "Expedición única al casquete de hielo tropical más extenso del planeta en la cordillera Vilcanota. Admira imponentes paredes de hielo turquesa de hasta 30 metros de altura, lagunas glaciares y paisajes vírgenes de alta montaña.",
       en: "Exclusive high-altitude expedition to the largest tropical ice cap on Earth. Witness massive 30-meter turquoise ice walls, crystal glacial lagoons, and pristine Andean wilderness.",
