@@ -175,6 +175,7 @@ export default function TourDetailPage() {
                   {tour.excludes.map((item, idx) => (
                     <li key={idx}>{item}</li>
                   ))}
+                  <li>{t.personalExpenses || 'Gastos personales'}</li>
                 </ul>
               </div>
             </div>
@@ -201,7 +202,7 @@ export default function TourDetailPage() {
                 </div>
                 <div className="perk-item">
                   <CheckCircle size={16} className="perk-icon" />
-                  <span>Balón de oxígeno y botiquín a bordo</span>
+                  <span>Oxígeno medicinal y botiquín a bordo</span>
                 </div>
               </div>
 

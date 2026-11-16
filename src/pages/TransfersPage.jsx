@@ -280,7 +280,7 @@ export default function TransfersPage() {
           <div className="guarantee-item">
             <CheckCircle2 size={18} className="guar-icon" />
             <div>
-              <strong>Balón de Oxígeno a Bordo</strong>
+              <strong>Oxígeno Medicinal a Bordo</strong>
               <p>Asistencia medicinal preventiva para evitar y aliviar el mal de altura (soroche).</p>
             </div>
           </div>

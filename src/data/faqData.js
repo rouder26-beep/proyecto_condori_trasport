@@ -49,13 +49,13 @@ export const faqData = [
   },
   {
     question: {
-      es: "¿Cuentan con balón de oxígeno en los vehículos?",
-      en: "Do your vehicles carry oxygen tanks for altitude sickness?",
+      es: "¿Cuentan con oxígeno medicinal en los vehículos?",
+      en: "Do your vehicles carry medical oxygen for altitude sickness?",
       pt: "Os veículos possuem cilindro de oxigênio para a altitude?"
     },
     answer: {
-      es: "Sí, absolutamente. Todas nuestras unidades están equipadas con balón de oxígeno medicinal de emergencia y botiquín de primeros auxilios sin costo extra, vital para la altura de Cusco (3,400m).",
-      en: "Yes, absolutely! All vehicles carry emergency medical oxygen tanks and first aid kits at no additional charge.",
+      es: "Sí, absolutamente. Todas nuestras unidades están equipadas con oxígeno medicinal de emergencia y botiquín de primeros auxilios sin costo extra, vital para la altura de Cusco (3,400m).",
+      en: "Yes, absolutely! All vehicles carry emergency medical oxygen and first aid kits at no additional charge.",
       pt: "Sim! Todos os nossos veículos estão equipados com cilindro de oxigênio medicinal e kit de primeiros socorros."
     }
   },

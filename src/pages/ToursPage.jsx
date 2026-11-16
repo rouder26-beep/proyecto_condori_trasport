@@ -120,7 +120,7 @@ export default function ToursPage() {
                   <p className="tour-desc">{desc}</p>
 
                   <div className="tour-includes-preview">
-                    <strong>Incluye:</strong> {tour.includesSummary || "Transporte 100% privado, chofer profesional, balón de oxígeno y paradas fotográficas ilimitadas."}
+                    <strong>Incluye:</strong> {tour.includesSummary || "Transporte 100% privado, chofer profesional, oxígeno medicinal y paradas fotográficas ilimitadas."}
                   </div>
 
                   <div className="tour-card-footer">
@@ -168,7 +168,7 @@ export default function ToursPage() {
           <div className="prop-box">
             <ShieldCheck size={24} className="prop-icon" />
             <h3>Seguridad & Oxígeno</h3>
-            <p>Todas nuestras unidades cuentan con balón de oxígeno medicinal y conductores capacitados en rutas de altura.</p>
+            <p>Todas nuestras unidades cuentan con oxígeno medicinal y conductores capacitados en rutas de altura.</p>
           </div>
           <div className="prop-box">
             <CheckCircle2 size={24} className="prop-icon" />

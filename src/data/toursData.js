@@ -34,7 +34,7 @@ export const toursData = [
     includes: [
       "Transporte turístico 100% privado con chofer profesional",
       "Recojo y retorno en su hotel",
-      "Balón de oxígeno a bordo y botiquín de primeros auxilios",
+      "Oxígeno medicinal a bordo y botiquín de primeros auxilios",
       "Flexibilidad total de paradas y tiempos a su gusto"
     ],
     excludes: [
@@ -73,7 +73,7 @@ export const toursData = [
     includes: [
       "Transporte turístico privado ida y vuelta",
       "Conductor experimentado en rutas de montaña",
-      "Balón de oxígeno medicinal + pulsiómetro",
+      "Oxígeno medicinal + pulsiómetro",
       "Manta térmica y snacks a bordo"
     ],
     excludes: [
@@ -111,7 +111,7 @@ export const toursData = [
     includes: [
       "Transporte privado A/C Cusco - Soraypampa - Cusco",
       "Chofer capacitado en primeros auxilios",
-      "Balón de oxígeno de emergencia"
+      "Oxígeno medicinal de emergencia"
     ],
     excludes: [
       "Ingreso a la comunidad de Mollepata (S/ 20)",
@@ -211,7 +211,7 @@ export const toursData = [
       en: "Private excursion to the spectacular Pallay Punchu Mountain, known for its sharp colored ridges and otherworldly landscapes, with flexible departure and comfortable transport.",
       pt: "Excursão privada à espetacular Montanha Pallay Punchu, conhecida por suas cores únicas e paisagens de outro mundo, com saída flexível e transporte confortável."
     },
-    includesSummary: "Transporte 100% privado, chofer profesional, balón de oxígeno y paradas fotográficas ilimitadas.",
+    includesSummary: "Transporte 100% privado, chofer profesional, oxígeno medicinal y paradas fotográficas ilimitadas.",
     itinerary: [
       { detail: "Pick-up privado en su hotel en Cusco (horario coordinado a su elección)." },
       { detail: "Viaje cómodo por el valle sur con parada para desayuno reconfortante." },
@@ -223,7 +223,7 @@ export const toursData = [
     ],
     includes: [
       "Transporte 100% privado con chofer profesional",
-      "Balón de oxígeno medicinal a bordo y botiquín",
+      "Oxígeno medicinal a bordo y botiquín",
       "Paradas fotográficas ilimitadas",
       "Manta térmica y asistencia en ruta"
     ],
@@ -251,7 +251,7 @@ export const toursData = [
       en: "Spectacular hike at the foot of mount Ausangate visiting 7 turquoise and green glacier lakes, finishing at the natural hot springs of Pacchanta.",
       pt: "Espetacular caminhada aos pés do nevado Ausangate visitando 7 lagoas de águas turquesas e verdes, terminando nas relaxantes águas termais de Pacchanta."
     },
-    includesSummary: "Transporte 100% privado, chofer experimentado, balón de oxígeno medicinal y tiempo en aguas termales de Pacchanta.",
+    includesSummary: "Transporte 100% privado, chofer experimentado, oxígeno medicinal y tiempo en aguas termales de Pacchanta.",
     itinerary: [
       { detail: "Recojo privado en su hotel en Cusco de madrugada (horario coordinado a su elección)." },
       { detail: "Viaje panorámico hacia la comunidad andina de Pacchanta con parada para desayuno reconfortante." },
@@ -264,7 +264,7 @@ export const toursData = [
     includes: [
       "Transporte turístico 100% privado ida y vuelta",
       "Conductor profesional experimentado en rutas andinas",
-      "Balón de oxígeno medicinal a bordo y botiquín",
+      "Oxígeno medicinal a bordo y botiquín",
       "Paradas fotográficas ilimitadas a su ritmo"
     ],
     excludes: [
@@ -292,7 +292,7 @@ export const toursData = [
       en: "The best gentle alternative to Vinicunca with easy walking. Enjoy 3 distinct rainbow mountains, a unique rock forest, and views of mount Ausangate with fewer crowds.",
       pt: "A melhor alternativa a Vinicunca com caminhada leve. Desfrute da vista de 3 montanhas coloridas, a floresta de pedras e vistas do nevado Ausangate sem multidões."
     },
-    includesSummary: "Transporte 100% privado, chofer profesional, balón de oxígeno medicinal y caminata suave sin aglomeraciones.",
+    includesSummary: "Transporte 100% privado, chofer profesional, oxígeno medicinal y caminata suave sin aglomeraciones.",
     itinerary: [
       { detail: "Recojo privado en su hotel en Cusco temprano por la mañana (horario coordinado a su elección)." },
       { detail: "Viaje cómodo por el valle sur pasando por Combapata con parada para desayuno reconfortante." },
@@ -305,7 +305,7 @@ export const toursData = [
     includes: [
       "Transporte turístico 100% privado ida y vuelta",
       "Conductor profesional experimentado en rutas de montaña",
-      "Balón de oxígeno medicinal a bordo y botiquín",
+      "Oxígeno medicinal a bordo y botiquín",
       "Paradas fotográficas ilimitadas y viaje a su ritmo"
     ],
     excludes: [
@@ -371,7 +371,7 @@ export const toursData = [
       en: "Exclusive high-altitude expedition to the largest tropical ice cap on Earth. Witness massive 30-meter turquoise ice walls, crystal glacial lagoons, and pristine Andean wilderness.",
       pt: "Expedição única à maior calota de gelo tropical do planeta na cordilheira Vilcanota. Admire imponentes paredões de gelo turquesa de até 30 metros, lagoas glaciais e paisagens andinas intocadas."
     },
-    includesSummary: "Transporte 100% privado 4x4 / turismo andino, chofer experimentado de alta montaña, balón de oxígeno medicinal y asistencia permanente.",
+    includesSummary: "Transporte 100% privado 4x4 / turismo andino, chofer experimentado de alta montaña, oxígeno medicinal y asistencia permanente.",
     itinerary: [
       { detail: "Recojo privado en su hotel en Cusco de madrugada (aprox. 03:30 - 04:00 AM coordinado a su elección)." },
       { detail: "Viaje cómodo por la ruta sur andina con parada para desayuno reconfortante en Checacupe o Pitumarca." },
@@ -384,7 +384,7 @@ export const toursData = [
     includes: [
       "Transporte turístico privado ida y vuelta apto para rutas andinas",
       "Conductor profesional experto en alta montaña",
-      "Balón de oxígeno medicinal a bordo y botiquín de primeros auxilios",
+      "Oxígeno medicinal a bordo y botiquín de primeros auxilios",
       "Manta térmica y paradas fotográficas ilimitadas"
     ],
     excludes: [
@@ -411,7 +411,7 @@ export const toursData = [
       en: "Mystical trek to one of Peru's most dramatic sacred Inca sanctuaries, perched on a horned rock formation high above the Apurimac River canyon.",
       pt: "Aventura mística a um dos santuários incas mais impressionantes do Peru, construído no topo de uma formação rochosa em forma de chifres sobre o cânion do rio Apurímac."
     },
-    includesSummary: "Transporte 100% privado, chofer profesional experto en rutas andinas, balón de oxígeno medicinal y caminata a tu propio ritmo.",
+    includesSummary: "Transporte 100% privado, chofer profesional experto en rutas andinas, oxígeno medicinal y caminata a tu propio ritmo.",
     itinerary: [
       { detail: "Recojo privado en su hotel en Cusco temprano por la mañana (horario coordinado a su elección)." },
       { detail: "Viaje cómodo por el valle sur andino con parada para desayuno reconfortante en Cusipata o Sangarará." },
@@ -424,7 +424,7 @@ export const toursData = [
     includes: [
       "Transporte turístico 100% privado ida y vuelta",
       "Conductor profesional experimentado en rutas andinas",
-      "Balón de oxígeno medicinal a bordo y botiquín",
+      "Oxígeno medicinal a bordo y botiquín",
       "Paradas fotográficas ilimitadas y viaje a su propio ritmo"
     ],
     excludes: [

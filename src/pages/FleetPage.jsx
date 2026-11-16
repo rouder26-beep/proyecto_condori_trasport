@@ -38,7 +38,7 @@ export default function FleetPage() {
     <div className="page-view-fleet">
       <SEO 
         title="Nuestra Flota de Vehículos Turísticos en Cusco | Condori Expedition"
-        description="Conoce nuestra flota de transporte privado en Cusco: Sedanes, SUVs 4x4, MiniVans familiares y Sprinter Mercedes-Benz. Equipadas con balón de oxígeno y SOAT turístico."
+        description="Conoce nuestra flota de transporte privado en Cusco: Sedanes, SUVs 4x4, MiniVans familiares y Sprinter Mercedes-Benz. Equipadas con oxígeno medicinal y SOAT turístico."
         canonical="/flota"
         keywords="flota turistica Cusco, alquiler van con chofer Cusco, sprinter Cusco, minivan turistica Cusco, transporte privado cusco"
       />

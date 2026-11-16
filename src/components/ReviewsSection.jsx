@@ -30,7 +30,7 @@ const reviewsList = [
     rating: 5,
     date: "Hace 3 semanas",
     route: "Tour Montanha 7 Cores",
-    comment: "Viagem maravilhosa! Carro super confortável, motorista muito atencioso e seguro nas curvas da montanha. O balão de oxigênio nos deu muita tranquilidade.",
+    comment: "Viagem maravilhosa! Carro super confortável, motorista muito atencioso e seguro nas curvas da montanha. O oxigênio medicinal nos deu muita tranquilidade.",
     source: "Google Review"
   },
   {

@@ -22,7 +22,7 @@ export default function HomePage() {
     "url": "https://condoriexpedition.com",
     "logo": "https://condoriexpedition.com/images/logo.png",
     "image": "https://condoriexpedition.com/images/hero.jpg",
-    "description": "Transporte turístico privado y tours en Cusco, Ollantaytambo y Valle Sagrado. Traslado aeropuerto Cusco con precio fijo por vehículo, monitoreo de vuelos y balón de oxígeno a bordo.",
+    "description": "Transporte turístico privado y tours en Cusco, Ollantaytambo y Valle Sagrado. Traslado aeropuerto Cusco con precio fijo por vehículo, monitoreo de vuelos y oxígeno medicinal a bordo.",
     "telephone": "+51910958898",
     "email": "condoriexpedition@gmail.com",
     "priceRange": "$$",

@@ -17,7 +17,7 @@ export default function FleetShortSection({ lang: _lang }) {
           </span>
           <h2>Flota Moderna para Cada Tipo de Viaje</h2>
           <p>
-            Unidades equipadas con aire acondicionado, tracción andina, monitoreo GPS y balón de oxígeno medicinal para tu seguridad en las alturas de Cusco.
+            Unidades equipadas con aire acondicionado, tracción andina, monitoreo GPS y oxígeno medicinal para tu seguridad en las alturas de Cusco.
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export default function FleetShortSection({ lang: _lang }) {
                 </div>
 
                 <div className="fleet-highlight-feature">
-                  <ShieldCheck size={14} className="icon-inline" /> Balón de oxígeno y SOAT turístico vigente
+                  <ShieldCheck size={14} className="icon-inline" /> Oxígeno medicinal y SOAT turístico vigente
                 </div>
               </div>
             </div>

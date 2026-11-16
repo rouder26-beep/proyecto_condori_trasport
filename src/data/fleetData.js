@@ -75,7 +75,7 @@ export const fleetData = [
       "Climatización bi-zona de alta potencia",
       "Audio HD y puertos de carga",
       "Maletero extendido de gran volumen",
-      "Botiquín y balón de oxígeno medicinal"
+      "Botiquín y oxígeno medicinal"
     ]
   }
 ];

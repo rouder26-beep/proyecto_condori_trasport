@@ -77,6 +77,7 @@ export const translations = {
       btnDetails: "Ver Itinerario Completo",
       btnReserveTour: "Reservar Tour",
       ratesPerVehicle: "Tarifas por vehículo",
+      personalExpenses: "Gastos personales",
     },
     fleet: {
       title: "Nuestra Flota de Vehículos Modernos",
@@ -90,7 +91,7 @@ export const translations = {
       title: "Acerca de Condori Expedition Transport",
       subtitle: "Pasión por el servicio puntual y la hospitalidad cusqueña.",
       text1: "En Condori Expedition Transport nos especializamos en brindar experiencias de transporte privado de alta calidad en Cusco, el Valle Sagrado de los Incas, Ollantaytambo y conexiones a Machu Picchu.",
-      text2: "Nuestra misión es asegurar que cada viajero disfrute del paisaje andino con total tranquilidad, puntualidad rigurosa y la amabilidad que nos caracteriza. Todos nuestros vehículos cuentan con revisiones técnicas al día, SOAT turístico y balón de oxígeno medicinal para el mal de altura.",
+      text2: "Nuestra misión es asegurar que cada viajero disfrute del paisaje andino con total tranquilidad, puntualidad rigurosa y la amabilidad que nos caracteriza. Todos nuestros vehículos cuentan con revisiones técnicas al día, SOAT turístico y oxígeno medicinal para el mal de altura.",
       mission: "Misión: Ofrecer traslados turísticos seguros, transparentes y libres de estrés para viajeros del mundo entero.",
       vision: "Visión: Ser la empresa líder y mejor valorada en transporte privado en la región del Cusco.",
     },
@@ -201,6 +202,7 @@ export const translations = {
       btnDetails: "Full Itinerary",
       btnReserveTour: "Book Tour",
       ratesPerVehicle: "Rates per vehicle",
+      personalExpenses: "Personal expenses",
     },
     fleet: {
       title: "Our Modern Vehicle Fleet",
@@ -325,6 +327,7 @@ export const translations = {
       btnDetails: "Ver Roteiro Completo",
       btnReserveTour: "Reservar Tour",
       ratesPerVehicle: "Tarifas por veículo",
+      personalExpenses: "Despesas pessoais",
     },
     fleet: {
       title: "Nossa Frota de Veículos Modernos",
