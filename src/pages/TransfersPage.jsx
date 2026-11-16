@@ -3,10 +3,12 @@ import { useOutletContext } from 'react-router-dom';
 import { Clock, MessageCircle, Search, Car, CheckCircle2 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { routesData } from '../data/routesData';
+import { translations } from '../data/translations';
 import BookingCalculator from '../components/BookingCalculator';
 
 export default function TransfersPage() {
   const { lang } = useOutletContext();
+  const t = translations[lang]?.transfers || translations.es.transfers;
 
 
 
@@ -130,12 +132,12 @@ export default function TransfersPage() {
           <table className="routes-table">
             <thead>
               <tr>
-                <th>Ruta</th>
-                <th>Duración</th>
-                <th>Sedan–SUV (3 pax)</th>
-                <th>Minivan (6 pax)</th>
-                <th>Mercedes-Benz 10 pax</th>
-                <th>Mercedes-Benz 15 pax</th>
+                <th>{t.route || 'Ruta'}</th>
+                <th>{t.duration || 'Duración'}</th>
+                <th>{t.vehicleSedan || 'Sedan–SUV (3 pax)'}</th>
+                <th>{t.vehicleMinivan || 'Minivan (6 pax)'}</th>
+                <th>{t.vehicleSprinter10 || 'Mercedes-Benz 10 pax'}</th>
+                <th>{t.vehicleSprinter15 || 'Mercedes-Benz 15 pax'}</th>
                 <th>Acción</th>
               </tr>
             </thead>
@@ -155,7 +157,11 @@ export default function TransfersPage() {
                   </td>
 
                   <td className="cell-duration">
-                    <span className="duration-tag"><Clock size={14} /> {route.duration}</span>
+                    <span className="duration-tag">
+                      <Clock size={14} />
+                      <span className="duration-approx">{t.approx || 'aprox.'}</span>
+                      {route.duration}
+                    </span>
                   </td>
 
                   {/* Sedan–SUV (destacado naranja) */}
@@ -232,6 +238,9 @@ export default function TransfersPage() {
               ))}
             </tbody>
           </table>
+          <p className="routes-table-note">
+            <Clock size={13} /> {t.trafficNote || 'Los tiempos son referenciales y pueden variar según el tráfico.'}
+          </p>
         </div>
 
         {filteredRoutes.length === 0 && (

@@ -60,7 +60,11 @@ export default function TransferCalculator({ lang }) {
                     {route.popular && <span className="badge-popular">Ruta más solicitada</span>}
                   </td>
                   <td className="cell-duration">
-                    <span className="duration-tag"><Clock size={14} /> {route.duration}</span>
+                    <span className="duration-tag">
+                      <Clock size={14} />
+                      <span className="duration-approx">{t.approx || 'aprox.'}</span>
+                      {route.duration}
+                    </span>
                   </td>
                   <td className="cell-price">
                     <div className="price-box">
@@ -111,6 +115,9 @@ export default function TransferCalculator({ lang }) {
               ))}
             </tbody>
           </table>
+          <p className="routes-table-note">
+            <Clock size={13} /> {t.trafficNote || 'Los tiempos son referenciales y pueden variar según el tráfico.'}
+          </p>
         </div>
 
         <div className="transfers-disclaimer">

@@ -60,6 +60,8 @@ export const translations = {
       vehicleSprinter: "Sprinter (8-15)",
       btnReserve: "Reservar Ruta",
       disclaimer: "* Tarifas aplicables para servicio privado exclusivo. Si tu destino no está en la lista, contáctanos para una cotización a medida.",
+      approx: "aprox.",
+      trafficNote: "Los tiempos son referenciales y pueden variar según el tráfico.",
     },
     tours: {
       title: "Catálogo de Tours Privados en Cusco",
@@ -181,6 +183,8 @@ export const translations = {
       vehicleSprinter: "Sprinter (8-15)",
       btnReserve: "Book Route",
       disclaimer: "* Rates valid for exclusive private service. Contact us for custom unlisted destinations.",
+      approx: "approx.",
+      trafficNote: "Times are approximate and may vary depending on traffic.",
     },
     tours: {
       title: "Cusco Private Tours Catalog",
@@ -302,6 +306,8 @@ export const translations = {
       vehicleSprinter: "Sprinter (8-15)",
       btnReserve: "Reservar Rota",
       disclaimer: "* Tarifas para serviço privado exclusivo.",
+      approx: "aprox.",
+      trafficNote: "Os tempos são aproximados e podem variar conforme o trânsito.",
     },
     tours: {
       title: "Catálogo de Tours Privados em Cusco",
