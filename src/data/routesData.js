@@ -116,6 +116,20 @@ export const routesData = [
     },
     popular: true
   },
+  {
+    id: "route-10",
+    origin: "Cusco / Hotel",
+    destination: "Hidroeléctrica (Machu Picchu por auto)",
+    duration: "6 h (por tramo)",
+    tripType: "roundTrip", // Ida y vuelta
+    prices: {
+      sedanSuv: 220,
+      minivan: 255,
+      sprinter10: 320,
+      sprinter15: 420,
+    },
+    popular: true
+  },
 ];
 
 export const originsList = [
@@ -132,6 +146,7 @@ export const destinationsList = [
   "Hotel Cusco Centro / San Blas",
   "Estación de Ollantaytambo (Tren Machu Picchu)",
   "Urubamba / Valle Sagrado (Hoteles)",
+  "Hidroeléctrica (Ida y Vuelta)",
   "Puno / Lago Titicaca (Hotel / Terminal)",
   "Estación de tren de Poroy",
   "Estación de tren (Wanchaq, Av. El Sol, San Pedro)",

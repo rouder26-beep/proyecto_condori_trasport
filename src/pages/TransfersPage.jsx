@@ -152,7 +152,9 @@ export default function TransfersPage() {
                     </div>
                     <div style={{display:'flex', gap:'6px', flexWrap:'wrap', marginTop:'4px'}}>
                       {route.popular && <span className="badge-popular">Ruta más solicitada</span>}
-                      <span className="badge-one-way">Solo ida</span>
+                      <span className="badge-one-way">
+                        {route.tripType === 'roundTrip' ? 'Ida y vuelta' : 'Solo ida'}
+                      </span>
                     </div>
                   </td>
 
