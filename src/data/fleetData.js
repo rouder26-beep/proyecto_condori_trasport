@@ -11,7 +11,7 @@ export const fleetData = [
       "Aire Acondicionado / Calefacción",
       "Asientos ergonómicos reclinables",
       "Cargadores USB para celular",
-      "Balón de Oxígeno medicinal a bordo",
+      "Oxígeno medicinal a bordo",
       "SOAT Turístico Vigente"
     ]
   },
@@ -27,7 +27,7 @@ export const fleetData = [
       "Tracción segura para rutas andinas",
       "Climatizador bi-zona",
       "Amplio maletero y lunas polarizadas",
-      "Balón de Oxígeno medicinal a bordo",
+      "Oxígeno medicinal a bordo",
       "SOAT Turístico Vigente"
     ]
   },
@@ -42,7 +42,7 @@ export const fleetData = [
     features: [
       "Aire Acondicionado independiente por fila",
       "Asientos capitulares de gran comodidad",
-      "Balón de Oxígeno medicinal a bordo",
+      "Oxígeno medicinal a bordo",
       "Amortiguación suave para carreteras andinas"
     ]
   },
@@ -58,7 +58,7 @@ export const fleetData = [
       "Asientos turísticos altos reclinables",
       "Sistema de climatización integral",
       "Audio guía con micrófono para tour",
-      "Balón de Oxígeno medicinal a bordo",
+      "Oxígeno medicinal a bordo",
       "Seguro de Pasajeros APV / SOAT Turístico"
     ]
   },
