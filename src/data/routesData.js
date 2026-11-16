@@ -82,6 +82,7 @@ export const routesData = [
     origin: "Cusco / Hotel / Aeropuerto",
     destination: "Montaña 7 Colores (Vinicunca)",
     duration: "Full Day",
+    hideTripType: true,
     prices: {
       sedanSuv: 85,
       minivan: 95,
@@ -95,6 +96,7 @@ export const routesData = [
     origin: "Cusco / Hotel / Aeropuerto",
     destination: "Laguna Humantay",
     duration: "Full Day",
+    hideTripType: true,
     prices: {
       sedanSuv: 80,
       minivan: 90,
