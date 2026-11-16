@@ -75,7 +75,7 @@ export const routesData = [
       sprinter10: 75,
       sprinter15: 90,
     },
-    popular: false
+    popular: true
   },
   {
     id: "route-7",
