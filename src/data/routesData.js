@@ -84,10 +84,10 @@ export const routesData = [
     duration: "Full Day",
     hideTripType: true,
     prices: {
-      sedanSuv: 85,
-      minivan: 95,
-      sprinter10: 120,
-      sprinter15: 150,
+      sedanSuv: 120,
+      minivan: 150,
+      sprinter10: 180,
+      sprinter15: 220,
     },
     popular: true
   },
@@ -98,10 +98,10 @@ export const routesData = [
     duration: "Full Day",
     hideTripType: true,
     prices: {
-      sedanSuv: 80,
-      minivan: 90,
-      sprinter10: 115,
-      sprinter15: 145,
+      sedanSuv: 120,
+      minivan: 150,
+      sprinter10: 180,
+      sprinter15: 220,
     },
     popular: true
   },
