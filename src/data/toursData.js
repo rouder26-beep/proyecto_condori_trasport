@@ -93,8 +93,14 @@ export const toursData = [
     category: "Full Day",
     duration: "Full Day",
     difficulty: { es: "Moderada / Alta", en: "Moderate / High", pt: "Moderada / Alta" },
-    priceFrom: 80,
+    priceFrom: 120,
     image: "/images/humantay.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$120.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$150.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$180.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$220.00 USD" },
+    ],
     description: {
       es: "Admira las deslumbrantes aguas turquesas al pie del imponente nevado Salkantay con transporte privado a tu propio ritmo.",
       en: "Witness the stunning turquoise waters at the base of Salkantay peak in private comfort.",
