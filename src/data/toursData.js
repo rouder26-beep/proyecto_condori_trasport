@@ -387,5 +387,45 @@ export const toursData = [
       "Guía oficial de montaña (opcional adicional)",
       "Propinas"
     ]
+  },
+  {
+    id: "tour-waqrapukara",
+    title: {
+      es: "Waqrapukara (Fortaleza Sagrada Inca)",
+      en: "Waqrapukara (Sacred Inca Fortress)",
+      pt: "Waqrapukara (Fortaleza Sagrada Inca)"
+    },
+    category: "Full Day",
+    duration: "Full Day",
+    difficulty: { es: "Moderada / Exigente (4,140 m.s.n.m.)", en: "Moderate / Challenging (4,140 m)", pt: "Moderada / Desafiadora (4.140 m)" },
+    priceFrom: 90,
+    image: "/images/waqrapukara.jpg",
+    description: {
+      es: "Aventura mística hacia una de las fortalezas y santuarios incas más impresionantes del Perú, construida en la cima de un gigantesco promontorio rocoso con forma de cuernos sobre el majestuoso cañón del río Apurímac.",
+      en: "Mystical trek to one of Peru's most dramatic sacred Inca sanctuaries, perched on a horned rock formation high above the Apurimac River canyon.",
+      pt: "Aventura mística a um dos santuários incas mais impressionantes do Peru, construído no topo de uma formação rochosa em forma de chifres sobre o cânion do rio Apurímac."
+    },
+    includesSummary: "Transporte 100% privado, chofer profesional experto en rutas andinas, balón de oxígeno medicinal y caminata a tu propio ritmo.",
+    itinerary: [
+      { detail: "Recojo privado en su hotel en Cusco temprano por la mañana (horario coordinado a su elección)." },
+      { detail: "Viaje cómodo por el valle sur andino con parada para desayuno reconfortante en Cusipata o Sangarará." },
+      { detail: "Paso escénico por la laguna de Pomacanchi y llegada a la comunidad de Santa Lucía o Pitumarca (punto de inicio)." },
+      { detail: "Inicio de la caminata hacia el monumento arqueológico de Waqrapukara con vistas panorámicas al cañón del Apurímac." },
+      { detail: "Exploración completa del santuario: recintos ceremoniales, andenes incas, hornacinas de triple jamba y torreones." },
+      { detail: "Tiempo para almuerzo campestre / box lunch con vista inolvidable." },
+      { detail: "Retorno a la movilidad privada y traslado seguro de regreso a su hotel en Cusco." }
+    ],
+    includes: [
+      "Transporte turístico 100% privado ida y vuelta",
+      "Conductor profesional experimentado en rutas andinas",
+      "Balón de oxígeno medicinal a bordo y botiquín",
+      "Paradas fotográficas ilimitadas y viaje a su propio ritmo"
+    ],
+    excludes: [
+      "Aporte o boleto comunal de ingreso a Waqrapukara (aprox. S/ 10 - S/ 15)",
+      "Alimentación y bebidas",
+      "Guía oficial de turismo (opcional adicional)",
+      "Propinas"
+    ]
   }
 ];
