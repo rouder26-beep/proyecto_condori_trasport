@@ -325,8 +325,14 @@ export const toursData = [
     category: "Half Day",
     duration: "Half Day",
     difficulty: { es: "Fácil (3,100 - 3,500 m.s.n.m.)", en: "Easy (3,100 - 3,500 m)", pt: "Fácil (3.100 - 3.500 m)" },
-    priceFrom: 50,
+    priceFrom: 80,
     image: "/images/valle-sur-cusco.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$80.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$100.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$150.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$180.00 USD" },
+    ],
     description: {
       es: "Ruta cultural que combina la asombrosa ingeniería hidráulica inca de Tipón, la imponente ciudadela pre-inca Wari de Pikillacta y la hermosa 'Capilla Sixtina de América' en la iglesia de San Pedro Apóstol de Andahuaylillas.",
       en: "A fascinating cultural journey combining the Inca hydraulic engineering of Tipon, the pre-Inca Wari city of Pikillacta, and the Andean Sistine Chapel in Andahuaylillas.",
