@@ -55,8 +55,14 @@ export const toursData = [
     category: "Full Day",
     duration: "Full Day",
     difficulty: { es: "Exigente (5,036 m.s.n.m.)", en: "Challenging (5,036 m)", pt: "Desafiador (5.036m)" },
-    priceFrom: 85,
+    priceFrom: 120,
     image: "/images/vinicunca.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$120.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$150.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$180.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$220.00 USD" },
+    ],
     description: {
       es: "Viaje cómodo y sin apresuramientos hacia la impresionante Montaña Arcoíris. Salida en privado con oxígeno suplementario a bordo.",
       en: "Comfortable private day trip to Rainbow Mountain with supplementary oxygen on board.",
