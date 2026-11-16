@@ -3399,6 +3399,55 @@ ul {
 .tour-itinerary-section {
   margin-bottom: 40px;
 }
+
+/* Tarifas por vehículo en Tour Detail */
+.tour-vehicle-rates-section {
+  margin-bottom: 40px;
+}
+.vehicle-rates-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.vehicle-rate-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  width: 100%;
+}
+.rate-vehicle-info {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+}
+.rate-vehicle-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+.rate-vehicle-pax {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.rate-dotted-filler {
+  flex: 1;
+  border-bottom: 1.5px dotted rgba(100, 116, 139, 0.35);
+  min-width: 20px;
+  margin-bottom: 3px;
+}
+.rate-price-tag {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--accent-terracotta);
+  white-space: nowrap;
+}
 .section-subtitle {
   font-family: var(--font-heading);
   font-size: 22px;

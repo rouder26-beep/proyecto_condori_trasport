@@ -1,12 +1,14 @@
 import React from 'react';
 import { useParams, Link, useOutletContext } from 'react-router-dom';
-import { Clock, Mountain, ArrowLeft, MessageCircle, Mail, CheckCircle, XCircle, ShieldCheck, Compass } from 'lucide-react';
+import { Clock, Mountain, ArrowLeft, MessageCircle, Mail, CheckCircle, XCircle, ShieldCheck, Compass, Car } from 'lucide-react';
 import SEO from '../components/SEO';
 import { toursData } from '../data/toursData';
+import { translations } from '../data/translations';
 
 export default function TourDetailPage() {
   const { slug } = useParams();
   const { lang } = useOutletContext();
+  const t = translations[lang]?.tours || translations.es.tours;
 
   const tour = toursData.find(item => item.id === slug);
 
@@ -134,6 +136,27 @@ export default function TourDetailPage() {
                 ))}
               </div>
             </div>
+
+            {/* Tarifas por vehículo (si están definidas) */}
+            {tour.vehicleRates && tour.vehicleRates.length > 0 && (
+              <div className="tour-vehicle-rates-section">
+                <h2 className="section-subtitle">
+                  <Car size={22} className="icon-inline" /> {t.ratesPerVehicle || 'Tarifas por vehículo'}
+                </h2>
+                <div className="vehicle-rates-card">
+                  {tour.vehicleRates.map((rate, rIdx) => (
+                    <div key={rIdx} className="vehicle-rate-row">
+                      <div className="rate-vehicle-info">
+                        <strong className="rate-vehicle-name">{rate.vehicle}</strong>
+                        <span className="rate-vehicle-pax">({rate.capacity})</span>
+                      </div>
+                      <div className="rate-dotted-filler" aria-hidden="true" />
+                      <div className="rate-price-tag">{rate.price}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Incluye / No incluye */}
             <div className="tour-inclusions-grid">

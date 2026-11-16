@@ -76,6 +76,7 @@ export const translations = {
       excludes: "No incluye",
       btnDetails: "Ver Itinerario Completo",
       btnReserveTour: "Reservar Tour",
+      ratesPerVehicle: "Tarifas por vehículo",
     },
     fleet: {
       title: "Nuestra Flota de Vehículos Modernos",
@@ -199,6 +200,7 @@ export const translations = {
       excludes: "Excludes",
       btnDetails: "Full Itinerary",
       btnReserveTour: "Book Tour",
+      ratesPerVehicle: "Rates per vehicle",
     },
     fleet: {
       title: "Our Modern Vehicle Fleet",
@@ -322,6 +324,7 @@ export const translations = {
       excludes: "Não inclui",
       btnDetails: "Ver Roteiro Completo",
       btnReserveTour: "Reservar Tour",
+      ratesPerVehicle: "Tarifas por veículo",
     },
     fleet: {
       title: "Nossa Frota de Veículos Modernos",
