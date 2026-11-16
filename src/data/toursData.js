@@ -165,8 +165,14 @@ export const toursData = [
     category: "Full Day",
     duration: "Full Day",
     difficulty: { es: "Moderada", en: "Moderate", pt: "Moderada" },
-    priceFrom: "XX",
+    priceFrom: 160,
     image: "/images/queswachaca.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$160.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$200.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$220.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$250.00 USD" },
+    ],
     description: {
       es: "Viaje privado hacia el último puente colgante inca tejido a mano con paja, renovado cada año por las comunidades locales. Disfruta del paisaje andino y de la cultura viva a tu propio ritmo.",
       en: "Private journey to the last handwoven Inca suspension bridge, renewed annually by local communities. Enjoy Andean landscapes and living culture at your own pace.",
