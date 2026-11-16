@@ -38,6 +38,7 @@ export default function BookingCalculator({ lang }) {
       (normDest.includes('ollantaytambo') && rDest.includes('ollantaytambo')) ||
       (normDest.includes('urubamba') && rDest.includes('urubamba')) ||
       (normDest.includes('poroy') && rDest.includes('poroy')) ||
+      (normDest.includes('puno') && rDest.includes('puno')) ||
       (normDest.includes('pisac') && rDest.includes('pisac')) ||
       (normDest.includes('vinicunca') && rDest.includes('vinicunca')) ||
       (normDest.includes('humantay') && rDest.includes('humantay')) ||

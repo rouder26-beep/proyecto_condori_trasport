@@ -103,6 +103,19 @@ export const routesData = [
     },
     popular: true
   },
+  {
+    id: "route-9",
+    origin: "Cusco / Hotel / Aeropuerto",
+    destination: "Puno / Lago Titicaca (Hotel / Terminal)",
+    duration: "7 h",
+    prices: {
+      sedanSuv: 300,
+      minivan: 350,
+      sprinter10: 400,
+      sprinter15: 450,
+    },
+    popular: true
+  },
 ];
 
 export const originsList = [
@@ -119,6 +132,7 @@ export const destinationsList = [
   "Hotel Cusco Centro / San Blas",
   "Estación de Ollantaytambo (Tren Machu Picchu)",
   "Urubamba / Valle Sagrado (Hoteles)",
+  "Puno / Lago Titicaca (Hotel / Terminal)",
   "Estación de tren de Poroy",
   "Estación de tren (Wanchaq, Av. El Sol, San Pedro)",
   "Pisac / Centro arqueológico",
