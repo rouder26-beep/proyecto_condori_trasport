@@ -297,8 +297,14 @@ export const toursData = [
     category: "Full Day",
     duration: "Full Day",
     difficulty: { es: "Fácil / Moderada (4,900 m.s.n.m.)", en: "Easy / Moderate (4,900 m)", pt: "Fácil / Moderada (4.900 m)" },
-    priceFrom: 85,
+    priceFrom: 130,
     image: "/images/palcoyo.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$130.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$160.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$210.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$249.00 USD" },
+    ],
     description: {
       es: "La mejor alternativa a Vinicunca con caminata suave y sin pendientes empinadas. Disfruta de la vista panorámica de 3 montañas de colores, el asombroso bosque de piedras geológico y vistas al nevado Ausangate sin aglomeraciones.",
       en: "The best gentle alternative to Vinicunca with easy walking. Enjoy 3 distinct rainbow mountains, a unique rock forest, and views of mount Ausangate with fewer crowds.",
