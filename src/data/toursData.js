@@ -141,8 +141,14 @@ export const toursData = [
     category: "Half Day",
     duration: "Half Day",
     difficulty: { es: "Fácil", en: "Easy", pt: "Fácil" },
-    priceFrom: 45,
+    priceFrom: 50,
     image: "/images/city-tour-cusco.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$50.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$65.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$95.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$125.00 USD" },
+    ],
     description: {
       es: "Explora Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay en un recorrido cómodo sin grupos multitudinarios.",
       en: "Explore Sacsayhuaman, Qenqo, Puka Pukara, and Tambomachay with your private driver.",
