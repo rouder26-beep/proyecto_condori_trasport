@@ -422,8 +422,14 @@ export const toursData = [
     category: "Full Day",
     duration: "Full Day",
     difficulty: { es: "Moderada / Exigente (4,140 m.s.n.m.)", en: "Moderate / Challenging (4,140 m)", pt: "Moderada / Desafiadora (4.140 m)" },
-    priceFrom: 90,
+    priceFrom: 150,
     image: "/images/waqrapukara.jpg",
+    vehicleRates: [
+      { vehicle: "Sedán - SUV", capacity: "3 pax", price: "$150.00 USD" },
+      { vehicle: "Minivan", capacity: "6 pax", price: "$200.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "10 pax", price: "$270.00 USD" },
+      { vehicle: "Mercedes-Benz", capacity: "15 pax", price: "$290.00 USD" },
+    ],
     description: {
       es: "Aventura mística hacia una de las fortalezas y santuarios incas más impresionantes del Perú, construida en la cima de un gigantesco promontorio rocoso con forma de cuernos sobre el majestuoso cañón del río Apurímac.",
       en: "Mystical trek to one of Peru's most dramatic sacred Inca sanctuaries, perched on a horned rock formation high above the Apurimac River canyon.",
