@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Calendar, Users, MapPin, Car, ArrowRight, ShieldCheck, Mail, Clock, Plane, Luggage, ChevronDown, ChevronUp } from 'lucide-react';
 import { translations } from '../data/translations';
-import { originsList, destinationsList, routesData } from '../data/routesData';
+import { originsList, originsListI18n, destinationsList, destinationsListI18n, routesData } from '../data/routesData';
 
 export default function BookingCalculator({ lang }) {
   const t = translations[lang]?.hero || translations.es.hero;
 
-  const [origin, setOrigin] = useState(originsList[0] || 'Aeropuerto Cusco (CUZ)');
-  const [destination, setDestination] = useState(destinationsList[1] || 'Ollantaytambo Estación');
+  const [originIdx, setOriginIdx] = useState(0);
+  const [destIdx, setDestIdx] = useState(1);
   const [date, setDate] = useState('');
   const [pickupTime, setPickupTime] = useState('');
   const [flightNumber, setFlightNumber] = useState('');
@@ -15,12 +15,19 @@ export default function BookingCalculator({ lang }) {
   const [vehicle, setVehicle] = useState('suv');
   const [optionalOpen, setOptionalOpen] = useState(false);
 
-  // Helper para normalizar y buscar coincidencias entre origen y destino
+  const esOrigin = originsList[originIdx] || originsList[0];
+  const esDest = destinationsList[destIdx] || destinationsList[1];
+  const displayOrigins = originsListI18n[lang] || originsListI18n.es;
+  const displayDestinations = destinationsListI18n[lang] || destinationsListI18n.es;
+  const displayOrigin = displayOrigins[originIdx] || esOrigin;
+  const displayDest = displayDestinations[destIdx] || esDest;
+
+  // Helper para normalizar y buscar coincidencias entre origen y destino (usando la clave en ES)
   const normalize = (str) =>
     (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-  const normOrigin = normalize(origin);
-  const normDest = normalize(destination);
+  const normOrigin = normalize(esOrigin);
+  const normDest = normalize(esDest);
 
   const matchedRoute = routesData.find(r => {
     const rOrig = normalize(r.origin);
@@ -49,11 +56,11 @@ export default function BookingCalculator({ lang }) {
   });
 
   const vehicleOptions = [
-    { id: 'sedan', label: 'Sedan', capacity: '1-3 Pax', luggage: '2 maletas' },
-    { id: 'suv', label: 'SUV', capacity: '1-4 Pax', luggage: '3 maletas' },
-    { id: 'minivan', label: 'MiniVan', capacity: '4-7 Pax', luggage: '6 maletas' },
-    { id: 'sprinter10', label: 'Sprinter 10pax', capacity: '8-10 Pax', luggage: 'Equipaje grupal' },
-    { id: 'sprinter15', label: 'Sprinter 15pax', capacity: '11-15 Pax', luggage: 'Equipaje grupal' },
+    { id: 'sedan', label: 'Sedan', capacity: '1-3 Pax', luggage: t.luggage2 || '2 maletas' },
+    { id: 'suv', label: 'SUV', capacity: '1-4 Pax', luggage: t.luggage3 || '3 maletas' },
+    { id: 'minivan', label: 'MiniVan', capacity: '4-7 Pax', luggage: t.luggage6 || '6 maletas' },
+    { id: 'sprinter10', label: 'Sprinter 10pax', capacity: '8-10 Pax', luggage: t.luggageGroup || 'Equipaje grupal' },
+    { id: 'sprinter15', label: 'Sprinter 15pax', capacity: '11-15 Pax', luggage: t.luggageGroup || 'Equipaje grupal' },
   ];
 
   const defaultBasePrices = {
@@ -79,89 +86,80 @@ export default function BookingCalculator({ lang }) {
   const activeVehicleObj = vehicleOptions.find(v => v.id === vehicle) || vehicleOptions[1];
   const vehicleLabelFull = `${activeVehicleObj.label} (${activeVehicleObj.capacity})`;
 
-  // "por vehículo" en 3 idiomas
-  const perVehicleLabel = { es: 'por vehículo', en: 'per vehicle', pt: 'por veículo' }[lang] || 'por vehículo';
-  // "+ Agregar hora y vuelo" en 3 idiomas
-  const addOptionalLabel = {
-    es: '+ Agregar hora y vuelo (opcional)',
-    en: '+ Add pickup time & flight (optional)',
-    pt: '+ Adicionar hora e voo (opcional)',
-  }[lang] || '+ Agregar hora y vuelo (opcional)';
-
-  const emailSubject = encodeURIComponent(`Cotización de traslado privado - ${origin} a ${destination}`);
+  const emailSubject = encodeURIComponent(`${t.emailSubject} - ${displayOrigin} → ${displayDest}`);
   const emailBody = encodeURIComponent(
-    `Solicitud de Traslado Privado en Cusco:\n\n` +
-    `📍 Origen: ${origin}\n` +
-    `🏁 Destino: ${destination}\n` +
-    `📅 Fecha: ${date || 'Por confirmar'}\n` +
-    `⏰ Hora de recogida: ${pickupTime || 'No especificada'}\n` +
-    `✈️ N° Vuelo: ${flightNumber || 'No especificado'}\n` +
-    `👥 Pasajeros: ${passengers}\n` +
-    `🚘 Vehículo: ${vehicleLabelFull}\n` +
-    `💵 Tarifa estimada: $${basePrice} USD (Precio por vehículo completo)\n\n` +
-    `Incluye: Combustible, peajes y chofer profesional.\n`
+    `${t.emailBodyIntro}\n\n` +
+    `📍 ${t.origin}: ${displayOrigin}\n` +
+    `🏁 ${t.destination}: ${displayDest}\n` +
+    `📅 ${t.date}: ${date || t.dateToConfirm}\n` +
+    `⏰ ${t.pickupTimeLabel}: ${pickupTime || t.notSpecifiedFem}\n` +
+    `✈️ ${t.flightNumberLabel}: ${flightNumber || t.notSpecified}\n` +
+    `👥 ${t.passengers}: ${passengers}\n` +
+    `🚘 ${t.vehicleType}: ${vehicleLabelFull}\n` +
+    `💵 ${t.estimatedPrice} $${basePrice} USD (${t.perVehicleLabel})\n\n` +
+    `${t.emailBodyIncludes}\n`
   );
   const emailQuoteHref = `mailto:condoriexpedition@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
   const handleWhatsAppQuote = (e) => {
     e.preventDefault();
-    const flightInfo = flightNumber ? `%0A✈️ N° Vuelo: ${encodeURIComponent(flightNumber)}` : '';
-    const timeInfo = pickupTime ? `%0A⏰ Hora de recogida: ${encodeURIComponent(pickupTime)}` : '';
-    const msg = `Hola Condori Expedition Transport! 🚗%0A` +
-      `Me gustaría cotizar el siguiente traslado privado:%0A` +
-      `📍 Origen: ${encodeURIComponent(origin)}%0A` +
-      `🏁 Destino: ${encodeURIComponent(destination)}%0A` +
-      `📅 Fecha: ${date || 'Por confirmar'}${timeInfo}${flightInfo}%0A` +
-      `👥 Pasajeros: ${passengers}%0A` +
-      `🚘 Vehículo: ${encodeURIComponent(vehicleLabelFull)}%0A` +
-      `💵 Precio por vehículo: $${basePrice} USD%0A` +
-      `Quedo a la espera de confirmación y disponibilidad. ¡Muchas gracias!`;
+    const flightInfo = flightNumber ? `%0A✈️ ${encodeURIComponent(t.flightNumberLabel)}: ${encodeURIComponent(flightNumber)}` : '';
+    const timeInfo = pickupTime ? `%0A⏰ ${encodeURIComponent(t.pickupTimeLabel)}: ${encodeURIComponent(pickupTime)}` : '';
+    const msg = `${encodeURIComponent(t.waQuoteIntro)}%0A` +
+      `${encodeURIComponent(t.waQuoteSub)}%0A` +
+      `📍 ${encodeURIComponent(t.origin)}: ${encodeURIComponent(displayOrigin)}%0A` +
+      `🏁 ${encodeURIComponent(t.destination)}: ${encodeURIComponent(displayDest)}%0A` +
+      `📅 ${encodeURIComponent(t.date)}: ${encodeURIComponent(date || t.dateToConfirm)}${timeInfo}${flightInfo}%0A` +
+      `👥 ${encodeURIComponent(t.passengers)}: ${passengers}%0A` +
+      `🚘 ${encodeURIComponent(t.vehicleType)}: ${encodeURIComponent(vehicleLabelFull)}%0A` +
+      `💵 ${encodeURIComponent(t.estimatedPrice)} $${basePrice} USD (${encodeURIComponent(t.perVehicleLabel)})%0A` +
+      `${encodeURIComponent(t.waQuoteOutro)}`;
     window.open(`https://wa.me/51910958898?text=${msg}`, '_blank');
   };
 
   return (
     <div className="hero-calc-card unified-calculator" id="calculador-traslado">
       <div className="calc-header">
-        <h3>Calcula tu Traslado al Instante</h3>
-        <p className="calc-header-subtitle">Tarifas transparentes por vehículo completo</p>
+        <h3>{t.calculatorTitle}</h3>
+        <p className="calc-header-subtitle">{t.calculatorSub}</p>
       </div>
 
       {/* Trust badges — solo 2, en una línea */}
       <div className="calc-trust-badges">
-        <span className="badge-pill"><ShieldCheck size={13} /> Sin intermediarios</span>
-        <span className="badge-pill"><Car size={13} /> Conductores locales</span>
+        <span className="badge-pill"><ShieldCheck size={13} /> {t.noMiddlemen}</span>
+        <span className="badge-pill"><Car size={13} /> {t.localDrivers}</span>
       </div>
 
       <form onSubmit={handleWhatsAppQuote} className="calc-form">
         <div className="form-group">
-          <label htmlFor="calc-origin"><MapPin size={15} /> {t.origin || 'Lugar de Origen'}</label>
+          <label htmlFor="calc-origin"><MapPin size={15} /> {t.origin}</label>
           <select
             id="calc-origin"
-            value={origin}
-            onChange={(e) => setOrigin(e.target.value)}
+            value={originIdx}
+            onChange={(e) => setOriginIdx(Number(e.target.value))}
           >
-            {originsList.map((o, idx) => (
-              <option key={idx} value={o}>{o}</option>
+            {displayOrigins.map((o, idx) => (
+              <option key={idx} value={idx}>{o}</option>
             ))}
           </select>
         </div>
 
         <div className="form-group">
-          <label htmlFor="calc-destination"><MapPin size={15} /> {t.destination || 'Destino'}</label>
+          <label htmlFor="calc-destination"><MapPin size={15} /> {t.destination}</label>
           <select
             id="calc-destination"
-            value={destination}
-            onChange={(e) => setDestination(e.target.value)}
+            value={destIdx}
+            onChange={(e) => setDestIdx(Number(e.target.value))}
           >
-            {destinationsList.map((d, idx) => (
-              <option key={idx} value={d}>{d}</option>
+            {displayDestinations.map((d, idx) => (
+              <option key={idx} value={idx}>{d}</option>
             ))}
           </select>
         </div>
 
         <div className="form-row-2">
           <div className="form-group">
-            <label htmlFor="calc-date"><Calendar size={15} /> {t.date || 'Fecha del viaje'}</label>
+            <label htmlFor="calc-date"><Calendar size={15} /> {t.date}</label>
             <input
               id="calc-date"
               type="date"
@@ -171,14 +169,16 @@ export default function BookingCalculator({ lang }) {
           </div>
 
           <div className="form-group">
-            <label htmlFor="calc-passengers"><Users size={15} /> {t.passengers || 'Pasajeros'}</label>
+            <label htmlFor="calc-passengers"><Users size={15} /> {t.passengers}</label>
             <select
               id="calc-passengers"
               value={passengers}
               onChange={(e) => setPassengers(Number(e.target.value))}
             >
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 19].map(num => (
-                <option key={num} value={num}>{num} {num === 1 ? 'pasajero' : 'pasajeros'}</option>
+                <option key={num} value={num}>
+                  {num} {num === 1 ? t.passengerSingular : t.passengerPlural}
+                </option>
               ))}
             </select>
           </div>
@@ -192,14 +192,14 @@ export default function BookingCalculator({ lang }) {
           aria-expanded={optionalOpen}
         >
           {optionalOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-          {addOptionalLabel}
+          {t.addOptional}
         </button>
 
         {optionalOpen && (
           <div className="form-row-2 optional-row">
             <div className="form-group">
               <label htmlFor="calc-time">
-                <Clock size={14} /> Hora recogida
+                <Clock size={14} /> {t.pickupTimeLabel}
               </label>
               <input
                 id="calc-time"
@@ -211,12 +211,12 @@ export default function BookingCalculator({ lang }) {
 
             <div className="form-group">
               <label htmlFor="calc-flight">
-                <Plane size={14} /> N° de vuelo
+                <Plane size={14} /> {t.flightNumberLabel}
               </label>
               <input
                 id="calc-flight"
                 type="text"
-                placeholder="Ej. LA 2012"
+                placeholder={t.flightPlaceholder}
                 value={flightNumber}
                 onChange={(e) => setFlightNumber(e.target.value)}
               />
@@ -225,7 +225,7 @@ export default function BookingCalculator({ lang }) {
         )}
 
         <div className="form-group">
-          <label><Car size={15} /> {t.vehicleType || 'Tipo de Vehículo'}</label>
+          <label><Car size={15} /> {t.vehicleType}</label>
           <div className="vehicle-pills vehicle-pills-detailed">
             {vehicleOptions.map((v) => (
               <button
@@ -243,26 +243,26 @@ export default function BookingCalculator({ lang }) {
 
         {/* Nota de equipaje compacta */}
         <div className="calc-luggage-notice">
-          <Luggage size={13} className="icon-inline" /> <strong>{activeVehicleObj.luggage}</strong> recomendado
+          <Luggage size={13} className="icon-inline" /> <strong>{activeVehicleObj.luggage}</strong> {t.recommended}
         </div>
 
         {/* Precio — sin recuadro verde */}
         <div className="calc-price-display unified-price">
-          <div className="price-label">Tarifa estimada:</div>
+          <div className="price-label">{t.estimatedPrice}</div>
           <div className="price-amount">
             ${basePrice} <span className="currency">USD</span>
-            <span className="price-per-vehicle">{perVehicleLabel}</span>
+            <span className="price-per-vehicle">{t.perVehicleLabel}</span>
           </div>
         </div>
 
         <button type="submit" className="btn-calc-submit">
-          <span>Cotizar por WhatsApp</span>
+          <span>{t.btnQuote}</span>
           <ArrowRight size={17} />
         </button>
 
         <a href={emailQuoteHref} className="btn-calc-email">
           <Mail size={15} />
-          <span>Cotizar por correo electrónico</span>
+          <span>{t.btnEmailQuote}</span>
         </a>
       </form>
     </div>

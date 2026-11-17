@@ -6,7 +6,6 @@ import SEO from '../components/SEO';
 import { faqData } from '../data/faqData';
 import { translations } from '../data/translations';
 
-// Preguntas adicionales específicas solicitadas: cancelaciones, sillas de bebé, etc.
 const extendedFaqs = [
   ...faqData,
   {
@@ -64,6 +63,8 @@ export default function FaqPage() {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
+  const waHref = `https://wa.me/51910958898?text=${encodeURIComponent(t.waMessage || 'Hola Condori Expedition Transport, tengo una consulta adicional.')}`;
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -88,13 +89,12 @@ export default function FaqPage() {
       />
 
       {/* Page Header */}
-
       <section className="page-hero-banner" style={{'--page-hero-img': "url('/images/laguna-humantay.jpg')"}}>
         <div className="container">
-          <span className="page-hero-badge">RESOLVEMOS TODAS TUS DUDAS</span>
-          <h1>Preguntas Frecuentes sobre Traslados y Tours</h1>
+          <span className="page-hero-badge">{t.heroBadge}</span>
+          <h1>{t.heroTitle}</h1>
           <p className="page-hero-sub">
-            Información clara sobre pagos, equipaje andino, altitud y oxígeno, retrasos de vuelos y cancelaciones sin letra pequeña.
+            {t.heroSub}
           </p>
         </div>
       </section>
@@ -104,23 +104,23 @@ export default function FaqPage() {
         <div className="faq-quick-topics">
           <div className="topic-card">
             <CreditCard size={22} className="topic-icon" />
-            <strong>Medios de Pago</strong>
+            <strong>{t.paymentTitle}</strong>
             <span>{t.paymentSubtitle || 'Dólares, soles y Visa'}</span>
           </div>
           <div className="topic-card">
             <Luggage size={22} className="topic-icon" />
-            <strong>Equipaje & Maletas</strong>
-            <span>Capacidades por unidad y trenes</span>
+            <strong>{t.luggageTitle}</strong>
+            <span>{t.luggageSubtitle}</span>
           </div>
           <div className="topic-card">
             <Wind size={22} className="topic-icon" />
-            <strong>Oxígeno Medicinal</strong>
+            <strong>{t.oxygenTitle}</strong>
             <span>{t.oxygenSubtitle || 'Oxígeno a bordo en todas las rutas'}</span>
           </div>
           <div className="topic-card">
             <RefreshCw size={22} className="topic-icon" />
-            <strong>Reprogramaciones</strong>
-            <span>Cero costo por retrasos de vuelo</span>
+            <strong>{t.rescheduleTitle}</strong>
+            <span>{t.rescheduleSubtitle}</span>
           </div>
         </div>
 
@@ -130,10 +130,10 @@ export default function FaqPage() {
             <Search size={18} className="search-icon" />
             <input 
               type="text" 
-              placeholder="Buscar en preguntas frecuentes (ej. pago, oxígeno, equipaje, vuelo, cancelación)..." 
+              placeholder={t.searchPlaceholder} 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              aria-label="Buscar preguntas frecuentes"
+              aria-label={t.searchAria}
             />
           </div>
         </div>
@@ -171,9 +171,9 @@ export default function FaqPage() {
 
         {filtered.length === 0 && (
           <div className="no-results-box">
-            <p>No se encontraron respuestas para tu búsqueda "{searchTerm}".</p>
+            <p>{t.noResults} "{searchTerm}".</p>
             <button type="button" className="btn-secondary" onClick={() => setSearchTerm('')}>
-              Ver todas las preguntas
+              {t.btnResetSearch}
             </button>
           </div>
         )}
@@ -183,17 +183,17 @@ export default function FaqPage() {
           <div className="faq-cta-inner">
             <HelpCircle size={32} className="faq-cta-icon" />
             <div>
-              <h3>¿Tienes otra consulta que no está en la lista?</h3>
-              <p>Escríbenos directamente por WhatsApp y nuestro equipo de operaciones te responderá en menos de 5 minutos.</p>
+              <h3>{t.ctaTitle}</h3>
+              <p>{t.ctaDesc}</p>
             </div>
             <a 
-              href="https://wa.me/51910958898?text=Hola%20Condori%20Expedition%20Transport,%20tengo%20una%20consulta%20adicional." 
+              href={waHref} 
               target="_blank" 
               rel="noreferrer"
               className="btn-ws-faq"
             >
               <MessageCircle size={18} />
-              <span>Chatear por WhatsApp</span>
+              <span>{t.btnChatWa}</span>
             </a>
           </div>
         </div>

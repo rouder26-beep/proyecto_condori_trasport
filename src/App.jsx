@@ -11,7 +11,27 @@ import ContactPage from './pages/ContactPage';
 import FaqPage from './pages/FaqPage';
 
 export default function App() {
-  const [lang, setLang] = useState('es');
+  const [lang, setLangState] = useState(() => {
+    try {
+      const saved = localStorage.getItem('condori_lang');
+      return saved === 'en' || saved === 'pt' || saved === 'es' ? saved : 'es';
+    } catch {
+      return 'es';
+    }
+  });
+
+  const setLang = (newLang) => {
+    setLangState(newLang);
+    try {
+      localStorage.setItem('condori_lang', newLang);
+    } catch {
+      // ignore storage errors
+    }
+  };
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   useEffect(() => {
     const handleScrollAnimations = () => {

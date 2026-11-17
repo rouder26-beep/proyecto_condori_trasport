@@ -33,7 +33,7 @@ export default function Hero({ lang }) {
         <img
           key={`${image}-${index}`}
           src={image}
-          alt={`Paisaje de Cusco y Valle Sagrado - Condori Expedition Transporte ${index + 1}`}
+          alt={`${t.imgAltPrefix || 'Paisaje de Cusco y Valle Sagrado - Condori Expedition Transporte'} ${index + 1}`}
           loading={index === 0 ? 'eager' : 'lazy'}
           className={`hero-bg-img ${index === activeHeroImage ? 'active' : ''}`}
         />

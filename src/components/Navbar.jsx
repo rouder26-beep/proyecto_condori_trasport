@@ -5,11 +5,12 @@ import { translations } from '../data/translations';
 
 export default function Navbar({ lang, setLang }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const t = translations[lang].nav;
+  const t = translations[lang]?.nav || translations.es.nav;
 
   const closeMenu = () => setMobileOpen(false);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   const handleHome = () => { closeMenu(); scrollToTop(); };
+  const waHref = `https://wa.me/51910958898?text=${encodeURIComponent(t.waMessage || 'Hola Condori Expedition Transport, quisiera cotizar un servicio privado.')}`;
 
   return (
     <header className="navbar-container">
@@ -23,10 +24,10 @@ export default function Navbar({ lang, setLang }) {
               <Phone size={14} className="icon-inline" /> +51 910 958 898
             </a>
             <span className="divider">|</span>
-            <span className="badge-official"><ShieldCheck size={14} className="icon-inline" /> RUC: 20616421744 • SOAT TURISTICO • MTC</span>
+            <span className="badge-official"><ShieldCheck size={14} className="icon-inline" /> {t.badgeOfficial || 'RUC: 20616421744 • SOAT TURISTICO • MTC'}</span>
           </div>
 
-          <div className="topbar-lang" aria-label="Selector de idioma">
+          <div className="topbar-lang" aria-label={t.langSelectorAria || 'Selector de idioma'}>
             <Globe size={15} />
             <button 
               type="button"
@@ -57,7 +58,7 @@ export default function Navbar({ lang, setLang }) {
       </div>
 
       {/* Main navigation */}
-      <nav className="main-nav" aria-label="Navegación principal">
+      <nav className="main-nav" aria-label={t.mainNavAria || 'Navegación principal'}>
         <div className="nav-brand">
           <Link to="/" className="brand-logo-official" onClick={handleHome}>
             <img src="/images/logo.png" alt="CONDORI EXPEDITION TRANSPORT" className="logo-img-header" width="180" height="48" />
@@ -72,12 +73,12 @@ export default function Navbar({ lang, setLang }) {
           </li>
           <li>
             <NavLink to="/traslados" className={({ isActive }) => (isActive ? 'nav-link-active' : '')} onClick={closeMenu}>
-              {lang === 'es' ? 'Traslados' : t.transfers}
+              {t.transfersShort || t.transfers}
             </NavLink>
           </li>
           <li>
             <NavLink to="/tours" className={({ isActive }) => (isActive ? 'nav-link-active' : '')} onClick={closeMenu}>
-              {lang === 'es' ? 'Tours' : t.tours}
+              {t.toursShort || t.tours}
             </NavLink>
           </li>
           <li>
@@ -98,7 +99,7 @@ export default function Navbar({ lang, setLang }) {
 
           <li className="mobile-cta-item">
             <a 
-              href="https://wa.me/51910958898?text=Hola%20Condori%20Expedition%20Transport,%20quisiera%20cotizar%20un%20servicio%20privado." 
+              href={waHref} 
               target="_blank" 
               rel="noreferrer"
               className="btn-ws-nav"
@@ -110,7 +111,7 @@ export default function Navbar({ lang, setLang }) {
 
         <div className="nav-actions">
           <a 
-            href="https://wa.me/51910958898?text=Hola%20Condori%20Expedition%20Transport,%20quisiera%20cotizar%20un%20servicio%20privado." 
+            href={waHref} 
             target="_blank" 
             rel="noreferrer"
             className="btn-ws-desktop"
@@ -123,7 +124,7 @@ export default function Navbar({ lang, setLang }) {
             type="button"
             className="mobile-menu-toggle" 
             onClick={() => setMobileOpen(!mobileOpen)} 
-            aria-label="Abrir menú de navegación"
+            aria-label={t.openMenuAria || 'Abrir menú de navegación'}
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={26} /> : <Menu size={26} />}

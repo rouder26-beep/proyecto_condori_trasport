@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
+import { translations } from '../data/translations';
 
-export default function WhatsAppButton() {
+export default function WhatsAppButton({ lang = 'es' }) {
   const [tooltipOpen, setTooltipOpen] = useState(true);
+  const t = translations[lang]?.whatsappFloat || translations.es.whatsappFloat;
 
   const phone = "51910958898";
-  const message = encodeURIComponent("¡Hola Condori Expedition Transport! 🚗 Deseo consultar la disponibilidad de un traslado privado / tour en Cusco.");
+  const message = encodeURIComponent(t.message);
   const waUrl = `https://wa.me/${phone}?text=${message}`;
 
   return (
     <div className="floating-ws-container">
       {tooltipOpen && (
         <div className="ws-tooltip">
-          <button className="ws-tooltip-close" onClick={() => setTooltipOpen(false)}>
+          <button className="ws-tooltip-close" onClick={() => setTooltipOpen(false)} aria-label="Close">
             <X size={12} />
           </button>
-          <div className="ws-tooltip-title">¿Necesitas transporte en Cusco?</div>
-          <div className="ws-tooltip-sub">Respuesta rápida por WhatsApp</div>
+          <div className="ws-tooltip-title">{t.title}</div>
+          <div className="ws-tooltip-sub">{t.sub}</div>
         </div>
       )}
 
@@ -25,7 +27,7 @@ export default function WhatsAppButton() {
         target="_blank" 
         rel="noreferrer" 
         className="ws-pulse-btn"
-        aria-label="Contactar por WhatsApp"
+        aria-label={t.ariaLabel}
       >
         <MessageCircle size={32} />
       </a>

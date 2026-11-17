@@ -9,6 +9,7 @@ import TrustBadges from '../components/TrustBadges';
 export default function AboutPage() {
   const { lang } = useOutletContext();
   const t = translations[lang]?.about || translations.es.about;
+  const waHref = `https://wa.me/51910958898?text=${encodeURIComponent(t.waAdminMsg)}`;
 
   return (
     <div className="page-view-about">
@@ -20,13 +21,12 @@ export default function AboutPage() {
       />
 
       {/* Page Header */}
-
       <section className="page-hero-banner" style={{'--page-hero-img': "url('/images/cusco.jpg')"}}>
         <div className="container">
-          <span className="page-hero-badge">EMPRESA FORMAL CUSQUEÑA</span>
-          <h1>Sobre Condori Expedition Transport</h1>
+          <span className="page-hero-badge">{t.heroBadge}</span>
+          <h1>{t.heroTitle}</h1>
           <p className="page-hero-sub">
-            Más de 10 años brindando transporte turístico privado, seguro y puntual en Cusco, Ollantaytambo y el Valle Sagrado de los Incas.
+            {t.heroSub}
           </p>
         </div>
       </section>
@@ -35,40 +35,40 @@ export default function AboutPage() {
       <div className="container py-content">
         <div className="about-main-grid">
           <div className="about-narrative-col">
-            <span className="section-tag">NUESTRA TRAYECTORIA</span>
-            <h2>{t.title || 'Pasión por el Turismo y la Excelencia en Cada Ruta'}</h2>
-            <h3 className="about-subhead">{t.subtitle || 'Una empresa familiar nacida en el corazón de Cusco'}</h3>
+            <span className="section-tag">{t.sectionTag}</span>
+            <h2>{t.title}</h2>
+            <h3 className="about-subhead">{t.subtitle}</h3>
 
             <p className="about-text-lead">{t.text1}</p>
             <p className="about-text-body">{t.text2}</p>
 
             <div className="about-mission-card">
-              <h4>Nuestra Misión</h4>
-              <p>{t.mission || 'Brindar traslados y recorridos privados de alta calidad, garantizando puntualidad milimétrica, máxima seguridad y precios justos sin intermediarios.'}</p>
+              <h4>{t.missionTitle}</h4>
+              <p>{t.mission}</p>
             </div>
 
             <div className="about-pillars-grid">
               <div className="pillar-item">
                 <Clock size={22} className="pillar-icon" />
                 <div>
-                  <strong>Puntualidad Rigurosa</strong>
-                  <p>Llegamos 15 minutos antes a tu hotel o puerta de aeropuerto para que no pierdas ningún tren ni vuelo.</p>
+                  <strong>{t.pillar1Title}</strong>
+                  <p>{t.pillar1Desc}</p>
                 </div>
               </div>
 
               <div className="pillar-item">
                 <ShieldCheck size={22} className="pillar-icon" />
                 <div>
-                  <strong>Conductores Locales Expertos</strong>
-                  <p>Choferes profesionales con récord impecable y amplio conocimiento histórico de las carreteras andinas.</p>
+                  <strong>{t.pillar2Title}</strong>
+                  <p>{t.pillar2Desc}</p>
                 </div>
               </div>
 
               <div className="pillar-item">
                 <Heart size={22} className="pillar-icon" />
                 <div>
-                  <strong>Trato Cálido y Cercano</strong>
-                  <p>Atención directa y personalizada desde el primer mensaje de WhatsApp hasta tu llegada a destino.</p>
+                  <strong>{t.pillar3Title}</strong>
+                  <p>{t.pillar3Desc}</p>
                 </div>
               </div>
             </div>
@@ -77,49 +77,49 @@ export default function AboutPage() {
           {/* Legal Card & Badges */}
           <aside className="about-legal-sidebar">
             <div className="legal-credentials-box">
-              <h3>Datos Formales de la Empresa</h3>
-              <p className="legal-desc">Empresa formal inscrita y regulada según la normativa turística peruana:</p>
+              <h3>{t.legalTitle}</h3>
+              <p className="legal-desc">{t.legalDesc}</p>
 
               <div className="credential-row">
-                <span className="cred-label">Razón Social:</span>
+                <span className="cred-label">{t.credNameLabel}</span>
                 <strong className="cred-val">Grupo Condori RYD SAC</strong>
               </div>
 
               <div className="credential-row">
-                <span className="cred-label">RUC Oficial:</span>
+                <span className="cred-label">{t.credRucLabel}</span>
                 <strong className="cred-val highlight">20616421744</strong>
               </div>
 
               <div className="credential-row">
-                <span className="cred-label">Estado SUNAT:</span>
-                <strong className="cred-val text-success">Activo y Habido</strong>
+                <span className="cred-label">{t.credSunatLabel}</span>
+                <strong className="cred-val text-success">{t.credSunatVal}</strong>
               </div>
 
               <div className="credential-row">
-                <span className="cred-label">Póliza de Seguros:</span>
-                <strong className="cred-val">SOAT Turístico Vigente</strong>
+                <span className="cred-label">{t.credSoatLabel}</span>
+                <strong className="cred-val">{t.credSoatVal}</strong>
               </div>
 
               <div className="credential-row">
-                <span className="cred-label">Autorización:</span>
-                <strong className="cred-val">MTC / Gerencia de Transportes Cusco</strong>
+                <span className="cred-label">{t.credMtcLabel}</span>
+                <strong className="cred-val">{t.credMtcVal}</strong>
               </div>
 
               <div className="credential-row">
-                <span className="cred-label">Sede Principal:</span>
-                <strong className="cred-val">San Antonio - San Sebastián, Cusco</strong>
+                <span className="cred-label">{t.credAddressLabel}</span>
+                <strong className="cred-val">{t.credAddressVal}</strong>
               </div>
 
               <div className="legal-cta-box">
-                <p>¿Deseas coordinar un servicio corporativo o particular?</p>
+                <p>{t.legalCtaQuestion}</p>
                 <a 
-                  href="https://wa.me/51910958898?text=Hola%20Condori%20Expedition%20Transport,%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20su%20servicio%20formal." 
+                  href={waHref} 
                   target="_blank" 
                   rel="noreferrer"
                   className="btn-legal-ws"
                 >
                   <MessageCircle size={18} />
-                  <span>Contactar con la Administración</span>
+                  <span>{t.btnContactAdmin}</span>
                 </a>
               </div>
             </div>
@@ -127,15 +127,15 @@ export default function AboutPage() {
             <div className="about-stats-box">
               <div className="stat-unit">
                 <span className="unit-number">10+</span>
-                <span className="unit-label">Años de experiencia en Cusco</span>
+                <span className="unit-label">{t.stat1Label}</span>
               </div>
               <div className="stat-unit">
                 <span className="unit-number">100%</span>
-                <span className="unit-label">Servicio Privado y Exclusivo</span>
+                <span className="unit-label">{t.stat2Label}</span>
               </div>
               <div className="stat-unit">
                 <span className="unit-number">5.0 ★</span>
-                <span className="unit-label">Calificación de satisfacción</span>
+                <span className="unit-label">{t.stat3Label}</span>
               </div>
             </div>
           </aside>

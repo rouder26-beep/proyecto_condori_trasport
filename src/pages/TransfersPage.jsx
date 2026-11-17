@@ -10,8 +10,6 @@ export default function TransfersPage() {
   const { lang } = useOutletContext();
   const t = translations[lang]?.transfers || translations.es.transfers;
 
-
-
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('all');
 
@@ -24,19 +22,28 @@ export default function TransfersPage() {
 
   const handleBookRoute = (route, vehicleType) => {
     const price = route.prices[vehicleType] || route.prices.sedanSuv;
-    const msg = `Hola Condori Expedition Transport! 🚗%0A` +
-      `Deseo reservar el siguiente traslado privado:%0A` +
-      `📌 Ruta: ${encodeURIComponent(route.origin)} → ${encodeURIComponent(route.destination)}%0A` +
-      `⏱️ Duración aproximada: ${encodeURIComponent(route.duration)}%0A` +
-      `🚘 Vehículo: ${encodeURIComponent(vehicleLabels[vehicleType] || vehicleType.toUpperCase())}%0A` +
-      `💵 Tarifa fija: $${price} USD (Precio por vehículo)%0A` +
-      `Por favor confirmar disponibilidad.`;
+    const orig = route.originI18n?.[lang] || route.origin;
+    const dest = route.destinationI18n?.[lang] || route.destination;
+    const dur = route.durationI18n?.[lang] || route.duration;
+    const msg = `${encodeURIComponent(t.waIntro)}%0A` +
+      `${encodeURIComponent(t.waSub)}%0A` +
+      `📌 ${encodeURIComponent(t.waRoute)}: ${encodeURIComponent(orig)} → ${encodeURIComponent(dest)}%0A` +
+      `⏱️ ${encodeURIComponent(t.waDuration)}: ${encodeURIComponent(dur)}%0A` +
+      `🚘 ${encodeURIComponent(t.waVehicle)}: ${encodeURIComponent(vehicleLabels[vehicleType] || vehicleType.toUpperCase())}%0A` +
+      `💵 ${encodeURIComponent(t.waRate)}: $${price} USD (${encodeURIComponent(t.waPerVehicle)})%0A` +
+      `${encodeURIComponent(t.waOutro)}`;
     window.open(`https://wa.me/51910958898?text=${msg}`, '_blank');
   };
 
   const filteredRoutes = routesData.filter((route) => {
     const query = searchTerm.toLowerCase();
-    const matchesSearch = route.origin.toLowerCase().includes(query) || route.destination.toLowerCase().includes(query);
+    const orig = (route.originI18n?.[lang] || route.origin).toLowerCase();
+    const dest = (route.destinationI18n?.[lang] || route.destination).toLowerCase();
+    const matchesSearch =
+      orig.includes(query) ||
+      dest.includes(query) ||
+      route.origin.toLowerCase().includes(query) ||
+      route.destination.toLowerCase().includes(query);
     if (filterType === 'popular') return matchesSearch && route.popular;
     return matchesSearch;
   });
@@ -51,13 +58,12 @@ export default function TransfersPage() {
       />
 
       {/* Page Header */}
-
       <section className="page-hero-banner" style={{'--page-hero-img': "url('/images/suv.jpg')"}}>
         <div className="container">
-          <span className="page-hero-badge">TARIFAS FORMALES Y TRANSPARENTES</span>
-          <h1>Tarifario Completo de Traslados Privados en Cusco</h1>
+          <span className="page-hero-badge">{t.heroBadge}</span>
+          <h1>{t.heroTitle}</h1>
           <p className="page-hero-sub">
-            Precios fijos por vehículo completo (no por persona). Incluye chofer profesional bilingüe/local, combustible, peajes y asistencia 24/7.
+            {t.heroSub}
           </p>
         </div>
       </section>
@@ -69,29 +75,29 @@ export default function TransfersPage() {
           <div className="guide-card">
             <Car size={20} className="guide-icon" />
             <div>
-              <strong>Sedan – SUV (1-3 Pax)</strong>
-              <span>Hasta 3 maletas. Ideal para parejas, viajes de negocios y rutas andinas.</span>
+              <strong>{t.guide1Title}</strong>
+              <span>{t.guide1Desc}</span>
             </div>
           </div>
           <div className="guide-card">
             <Car size={20} className="guide-icon" />
             <div>
-              <strong>MiniVan (4-6 Pax)</strong>
-              <span>Hasta 6 maletas. Espacio amplio para familias y grupos medianos.</span>
+              <strong>{t.guide2Title}</strong>
+              <span>{t.guide2Desc}</span>
             </div>
           </div>
           <div className="guide-card">
             <Car size={20} className="guide-icon" />
             <div>
-              <strong>Mercedes-Benz 10 Pax</strong>
-              <span>Vehículo ejecutivo de alta gama para grupos medianos-grandes.</span>
+              <strong>{t.guide3Title}</strong>
+              <span>{t.guide3Desc}</span>
             </div>
           </div>
           <div className="guide-card">
             <Car size={20} className="guide-icon" />
             <div>
-              <strong>Mercedes-Benz 15 Pax</strong>
-              <span>Máxima capacidad y confort turístico para grupos grandes.</span>
+              <strong>{t.guide4Title}</strong>
+              <span>{t.guide4Desc}</span>
             </div>
           </div>
         </div>
@@ -102,10 +108,10 @@ export default function TransfersPage() {
             <Search size={18} className="search-icon" />
             <input 
               type="text" 
-              placeholder="Buscar por origen o destino (ej. Aeropuerto, Ollantaytambo, Urubamba)..." 
+              placeholder={t.searchPlaceholder} 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              aria-label="Buscar rutas de traslado"
+              aria-label={t.searchAria}
             />
           </div>
 
@@ -115,14 +121,14 @@ export default function TransfersPage() {
               className={`filter-btn ${filterType === 'all' ? 'active' : ''}`}
               onClick={() => setFilterType('all')}
             >
-              Todas las rutas ({routesData.length})
+              {t.filterAll} ({routesData.length})
             </button>
             <button 
               type="button" 
               className={`filter-btn ${filterType === 'popular' ? 'active' : ''}`}
               onClick={() => setFilterType('popular')}
             >
-              Más solicitadas
+              {t.filterPopular}
             </button>
           </div>
         </div>
@@ -138,108 +144,113 @@ export default function TransfersPage() {
                 <th>{t.vehicleMinivan || 'Minivan (6 pax)'}</th>
                 <th>{t.vehicleSprinter10 || 'Mercedes-Benz 10 pax'}</th>
                 <th>{t.vehicleSprinter15 || 'Mercedes-Benz 15 pax'}</th>
-                <th>Acción</th>
+                <th>{t.actionCol || 'Acción'}</th>
               </tr>
             </thead>
             <tbody>
-              {filteredRoutes.map((route) => (
-                <tr key={route.id} className={route.popular ? 'row-popular' : ''}>
-                  <td className="cell-route">
-                    <div className="route-names">
-                      <strong className="route-origin">{route.origin}</strong>
-                      <span className="route-arrow">→</span>
-                      <strong className="route-dest">{route.destination}</strong>
-                    </div>
-                    <div style={{display:'flex', gap:'6px', flexWrap:'wrap', marginTop:'4px'}}>
-                      {route.popular && <span className="badge-popular">Ruta más solicitada</span>}
-                      {!route.hideTripType && (
-                        <span className="badge-one-way">
-                          {route.tripType === 'roundTrip' ? 'Ida y vuelta' : 'Solo ida'}
-                        </span>
-                      )}
-                    </div>
-                  </td>
+              {filteredRoutes.map((route) => {
+                const orig = route.originI18n?.[lang] || route.origin;
+                const dest = route.destinationI18n?.[lang] || route.destination;
+                const dur = route.durationI18n?.[lang] || route.duration;
+                return (
+                  <tr key={route.id} className={route.popular ? 'row-popular' : ''}>
+                    <td className="cell-route">
+                      <div className="route-names">
+                        <strong className="route-origin">{orig}</strong>
+                        <span className="route-arrow">→</span>
+                        <strong className="route-dest">{dest}</strong>
+                      </div>
+                      <div style={{display:'flex', gap:'6px', flexWrap:'wrap', marginTop:'4px'}}>
+                        {route.popular && <span className="badge-popular">{t.badgePopular}</span>}
+                        {!route.hideTripType && (
+                          <span className="badge-one-way">
+                            {route.tripType === 'roundTrip' ? t.roundTrip : t.oneWay}
+                          </span>
+                        )}
+                      </div>
+                    </td>
 
-                  <td className="cell-duration">
-                    <span className="duration-tag">
-                      <Clock size={14} />
-                      <span className="duration-approx">{t.approx || 'aprox.'}</span>
-                      {route.duration}
-                    </span>
-                  </td>
+                    <td className="cell-duration">
+                      <span className="duration-tag">
+                        <Clock size={14} />
+                        <span className="duration-approx">{t.approx || 'aprox.'}</span>
+                        {dur}
+                      </span>
+                    </td>
 
-                  {/* Sedan–SUV (destacado naranja) */}
-                  <td className="cell-price">
-                    <div className="price-box highlight">
-                      <span className="amount">${route.prices.sedanSuv} USD</span>
+                    {/* Sedan–SUV (destacado naranja) */}
+                    <td className="cell-price">
+                      <div className="price-box highlight">
+                        <span className="amount">${route.prices.sedanSuv} USD</span>
+                        <button 
+                          type="button"
+                          className="btn-small-ws" 
+                          onClick={() => handleBookRoute(route, 'sedanSuv')}
+                          title={`${t.btnBookSmall} Sedan–SUV`}
+                        >
+                          {t.btnBookSmall}
+                        </button>
+                      </div>
+                    </td>
+
+                    {/* Minivan */}
+                    <td className="cell-price">
+                      <div className="price-box">
+                        <span className="amount">${route.prices.minivan} USD</span>
+                        <button 
+                          type="button"
+                          className="btn-small-ws" 
+                          onClick={() => handleBookRoute(route, 'minivan')}
+                          title={`${t.btnBookSmall} MiniVan`}
+                        >
+                          {t.btnBookSmall}
+                        </button>
+                      </div>
+                    </td>
+
+                    {/* Mercedes-Benz 10 pax */}
+                    <td className="cell-price">
+                      <div className="price-box">
+                        <span className="amount">${route.prices.sprinter10} USD</span>
+                        <button 
+                          type="button"
+                          className="btn-small-ws" 
+                          onClick={() => handleBookRoute(route, 'sprinter10')}
+                          title={`${t.btnBookSmall} Mercedes-Benz 10pax`}
+                        >
+                          {t.btnBookSmall}
+                        </button>
+                      </div>
+                    </td>
+
+                    {/* Mercedes-Benz 15 pax */}
+                    <td className="cell-price">
+                      <div className="price-box">
+                        <span className="amount">${route.prices.sprinter15} USD</span>
+                        <button 
+                          type="button"
+                          className="btn-small-ws" 
+                          onClick={() => handleBookRoute(route, 'sprinter15')}
+                          title={`${t.btnBookSmall} Mercedes-Benz 15pax`}
+                        >
+                          {t.btnBookSmall}
+                        </button>
+                      </div>
+                    </td>
+
+                    {/* Acción — Cotizar */}
+                    <td className="cell-action">
                       <button 
                         type="button"
-                        className="btn-small-ws" 
+                        className="btn-table-ws" 
                         onClick={() => handleBookRoute(route, 'sedanSuv')}
-                        title="Reservar en Sedan–SUV"
                       >
-                        Reservar
+                        <MessageCircle size={16} /> {t.btnQuote}
                       </button>
-                    </div>
-                  </td>
-
-                  {/* Minivan */}
-                  <td className="cell-price">
-                    <div className="price-box">
-                      <span className="amount">${route.prices.minivan} USD</span>
-                      <button 
-                        type="button"
-                        className="btn-small-ws" 
-                        onClick={() => handleBookRoute(route, 'minivan')}
-                        title="Reservar en MiniVan"
-                      >
-                        Reservar
-                      </button>
-                    </div>
-                  </td>
-
-                  {/* Mercedes-Benz 10 pax */}
-                  <td className="cell-price">
-                    <div className="price-box">
-                      <span className="amount">${route.prices.sprinter10} USD</span>
-                      <button 
-                        type="button"
-                        className="btn-small-ws" 
-                        onClick={() => handleBookRoute(route, 'sprinter10')}
-                        title="Reservar en Mercedes-Benz 10pax"
-                      >
-                        Reservar
-                      </button>
-                    </div>
-                  </td>
-
-                  {/* Mercedes-Benz 15 pax */}
-                  <td className="cell-price">
-                    <div className="price-box">
-                      <span className="amount">${route.prices.sprinter15} USD</span>
-                      <button 
-                        type="button"
-                        className="btn-small-ws" 
-                        onClick={() => handleBookRoute(route, 'sprinter15')}
-                        title="Reservar en Mercedes-Benz 15pax"
-                      >
-                        Reservar
-                      </button>
-                    </div>
-                  </td>
-
-                  {/* Acción — Cotizar */}
-                  <td className="cell-action">
-                    <button 
-                      type="button"
-                      className="btn-table-ws" 
-                      onClick={() => handleBookRoute(route, 'sedanSuv')}
-                    >
-                      <MessageCircle size={16} /> Cotizar
-                    </button>
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
           <p className="routes-table-note">
@@ -249,9 +260,9 @@ export default function TransfersPage() {
 
         {filteredRoutes.length === 0 && (
           <div className="no-results-box">
-            <p>No se encontraron rutas con el término "{searchTerm}".</p>
+            <p>{t.noResults} "{searchTerm}".</p>
             <button type="button" className="btn-secondary" onClick={() => setSearchTerm('')}>
-              Ver todas las rutas
+              {t.btnResetSearch}
             </button>
           </div>
         )}
@@ -261,29 +272,29 @@ export default function TransfersPage() {
           <div className="guarantee-item">
             <CheckCircle2 size={18} className="guar-icon" />
             <div>
-              <strong>Precio por Vehículo Completo</strong>
-              <p>El valor mostrado no es por pasajero; cubre toda la unidad para tu grupo exclusivo.</p>
+              <strong>{t.guar1Title}</strong>
+              <p>{t.guar1Desc}</p>
             </div>
           </div>
           <div className="guarantee-item">
             <CheckCircle2 size={18} className="guar-icon" />
             <div>
-              <strong>Todo Incluido</strong>
-              <p>Incluye combustible, peajes, estacionamiento de aeropuerto y chofer profesional.</p>
+              <strong>{t.guar2Title}</strong>
+              <p>{t.guar2Desc}</p>
             </div>
           </div>
           <div className="guarantee-item">
             <CheckCircle2 size={18} className="guar-icon" />
             <div>
-              <strong>Seguimiento de Vuelo Sin Recargo</strong>
-              <p>Monitoreamos tu número de vuelo en tiempo real; si se atrasa, te esperamos sin cobro extra.</p>
+              <strong>{t.guar3Title}</strong>
+              <p>{t.guar3Desc}</p>
             </div>
           </div>
           <div className="guarantee-item">
             <CheckCircle2 size={18} className="guar-icon" />
             <div>
-              <strong>Oxígeno Medicinal a Bordo</strong>
-              <p>Asistencia medicinal preventiva para evitar y aliviar el mal de altura (soroche).</p>
+              <strong>{t.guar4Title}</strong>
+              <p>{t.guar4Desc}</p>
             </div>
           </div>
         </div>
@@ -291,9 +302,9 @@ export default function TransfersPage() {
         {/* Sección de Calculador interactivo para rutas personalizadas */}
         <div className="transfers-calc-block">
           <div className="section-header center">
-            <span className="section-tag">¿TU RUTA O DESTINO NO ESTÁ EN LA TABLA?</span>
-            <h2>Calcula o Cotiza tu Traslado a Medida</h2>
-            <p>Selecciona tu fecha y vehículo o escríbenos directamente con tu itinerario.</p>
+            <span className="section-tag">{t.calcTag}</span>
+            <h2>{t.calcTitle}</h2>
+            <p>{t.calcSub}</p>
           </div>
           <div className="calc-center-wrap">
             <BookingCalculator lang={lang} />

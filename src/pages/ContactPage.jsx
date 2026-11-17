@@ -3,26 +3,27 @@ import { useOutletContext, Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, MessageCircle, Send, Clock, HelpCircle, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import { faqData } from '../data/faqData';
+import { translations } from '../data/translations';
 
 export default function ContactPage() {
   const { lang } = useOutletContext();
-
+  const t = translations[lang]?.contact || translations.es.contact;
 
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  // 3 preguntas frecuentes para la sección de dudas en contacto
   const previewFaqs = faqData.slice(0, 3);
+  const waDirectHref = `https://wa.me/51910958898?text=${encodeURIComponent(t.waDirectMsg)}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const whatsappNumber = '51910958898';
     const message = encodeURIComponent(
-      `Hola Condori Expedition Transport! 🚗%0A` +
-      `Nombre: ${formState.name}%0A` +
-      `Email: ${formState.email}%0A` +
-      `Teléfono: ${formState.phone}%0A` +
-      `Consulta:%0A${formState.message}`
+      `${t.waFormIntro}\n` +
+      `${t.waFormName}: ${formState.name}\n` +
+      `Email: ${formState.email}\n` +
+      `${t.waFormPhone}: ${formState.phone}\n` +
+      `${t.waFormQuery}:\n${formState.message}`
     );
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
     setSubmitted(true);
@@ -42,13 +43,12 @@ export default function ContactPage() {
       />
 
       {/* Page Header */}
-
       <section className="page-hero-banner" style={{'--page-hero-img': "url('/images/queswachaca.jpg')"}}>
         <div className="container">
-          <span className="page-hero-badge">ATENCIÓN PERSONALIZADA 24/7</span>
-          <h1>Contáctanos y Planifica tu Viaje por Cusco</h1>
+          <span className="page-hero-badge">{t.heroBadge}</span>
+          <h1>{t.heroTitle}</h1>
           <p className="page-hero-sub">
-            Estamos listos para coordinar tus traslados, resolver inquietudes sobre altitud y trenes, y armar tu itinerario ideal sin intermediarios.
+            {t.heroSub}
           </p>
         </div>
       </section>
@@ -58,56 +58,56 @@ export default function ContactPage() {
           {/* Columna de Información Directa */}
           <div className="contact-info-col">
             <div className="contact-details-box">
-              <h3>Canales de Atención Directa</h3>
-              <p className="contact-intro">Escríbenos o llámanos a cualquier hora; nuestro equipo de guardia responderá de inmediato.</p>
+              <h3>{t.channelsTitle}</h3>
+              <p className="contact-intro">{t.channelsIntro}</p>
 
               <div className="contact-cards-list">
                 <a 
-                  href="https://wa.me/51910958898?text=Hola%20Condori%20Expedition%20Transport,%20deseo%20informaci%C3%B3n." 
+                  href={waDirectHref} 
                   target="_blank" 
                   rel="noreferrer"
                   className="contact-touch-card ws-touch"
                 >
                   <div className="touch-icon"><MessageCircle size={24} /></div>
                   <div className="touch-info">
-                    <strong>WhatsApp 24/7 (Respuesta Rápida)</strong>
+                    <strong>{t.cardWaTitle}</strong>
                     <span className="touch-val">+51 910 958 898</span>
-                    <span className="touch-sub">Canal prioritario de reservas</span>
+                    <span className="touch-sub">{t.cardWaSub}</span>
                   </div>
                 </a>
 
                 <a href="tel:+51910958898" className="contact-touch-card">
                   <div className="touch-icon"><Phone size={24} /></div>
                   <div className="touch-info">
-                    <strong>Llamadas Directas</strong>
+                    <strong>{t.cardPhoneTitle}</strong>
                     <span className="touch-val">+51 910 958 898</span>
-                    <span className="touch-sub">Atención en español e inglés</span>
+                    <span className="touch-sub">{t.cardPhoneSub}</span>
                   </div>
                 </a>
 
                 <a href="mailto:condoriexpedition@gmail.com" className="contact-touch-card">
                   <div className="touch-icon"><Mail size={24} /></div>
                   <div className="touch-info">
-                    <strong>Correo Electrónico</strong>
+                    <strong>{t.cardEmailTitle}</strong>
                     <span className="touch-val">condoriexpedition@gmail.com</span>
-                    <span className="touch-sub">Cotizaciones y facturación corporativa</span>
+                    <span className="touch-sub">{t.cardEmailSub}</span>
                   </div>
                 </a>
 
                 <div className="contact-touch-card no-link">
                   <div className="touch-icon"><Clock size={24} /></div>
                   <div className="touch-info">
-                    <strong>Horarios de Atención</strong>
-                    <span className="touch-val">Operaciones & Traslados: 24 Horas / 7 Días</span>
-                    <span className="touch-sub">Oficina comercial: 06:00 a 22:00</span>
+                    <strong>{t.cardHoursTitle}</strong>
+                    <span className="touch-val">{t.cardHoursVal}</span>
+                    <span className="touch-sub">{t.cardHoursSub}</span>
                   </div>
                 </div>
 
                 <div className="contact-touch-card no-link">
                   <div className="touch-icon"><MapPin size={24} /></div>
                   <div className="touch-info">
-                    <strong>Ubicación de Oficina</strong>
-                    <span className="touch-val">San Antonio - San Sebastián, Cusco, Perú</span>
+                    <strong>{t.cardLocationTitle}</strong>
+                    <span className="touch-val">{t.directAddress}</span>
                     <span className="touch-sub">Grupo Condori RYD SAC • RUC: 20616421744</span>
                   </div>
                 </div>
@@ -118,22 +118,22 @@ export default function ContactPage() {
           {/* Columna de Formulario */}
           <div className="contact-form-col">
             <div className="contact-form-card">
-              <h3>Envíanos un Mensaje</h3>
-              <p>Completa tus datos y te responderemos por WhatsApp o correo en minutos.</p>
+              <h3>{t.formTitle}</h3>
+              <p>{t.formSub}</p>
 
               {submitted && (
                 <div className="form-success-banner">
-                  ¡Mensaje preparado con éxito! Abriendo chat de WhatsApp para confirmación inmediata.
+                  {t.formSuccessBanner}
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="contact-form-elements">
                 <div className="form-group">
-                  <label htmlFor="contact-name">Nombre y Apellido *</label>
+                  <label htmlFor="contact-name">{t.nameLabel}</label>
                   <input 
                     id="contact-name"
                     type="text" 
-                    placeholder="Ej. Juan Pérez" 
+                    placeholder={t.namePlaceholder} 
                     required 
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -142,11 +142,11 @@ export default function ContactPage() {
 
                 <div className="form-row-2">
                   <div className="form-group">
-                    <label htmlFor="contact-email">Correo Electrónico *</label>
+                    <label htmlFor="contact-email">{t.emailLabel}</label>
                     <input 
                       id="contact-email"
                       type="email" 
-                      placeholder="nombre@email.com" 
+                      placeholder={t.emailPlaceholder} 
                       required 
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -154,11 +154,11 @@ export default function ContactPage() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="contact-phone">WhatsApp / Teléfono *</label>
+                    <label htmlFor="contact-phone">{t.phoneLabel}</label>
                     <input 
                       id="contact-phone"
                       type="tel" 
-                      placeholder="+51 999 999 999" 
+                      placeholder={t.phonePlaceholder} 
                       required 
                       value={formState.phone}
                       onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
@@ -167,11 +167,11 @@ export default function ContactPage() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="contact-message">¿Qué traslado o tour necesitas coordinar? *</label>
+                  <label htmlFor="contact-message">{t.messageLabel}</label>
                   <textarea 
                     id="contact-message"
                     rows="4" 
-                    placeholder="Indícanos fecha tentativa, número de pasajeros y destinos de tu interés..." 
+                    placeholder={t.messagePlaceholder} 
                     required
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -180,7 +180,7 @@ export default function ContactPage() {
 
                 <button type="submit" className="btn-contact-submit">
                   <Send size={18} />
-                  <span>Enviar Consulta por WhatsApp</span>
+                  <span>{t.btnSubmit}</span>
                 </button>
               </form>
             </div>
@@ -190,14 +190,14 @@ export default function ContactPage() {
         {/* Mapa y Ubicación en Cusco */}
         <div className="contact-map-section">
           <div className="section-header center">
-            <span className="section-tag"><MapPin size={14} className="icon-inline" /> SEDE CUSCO</span>
-            <h2>Nuestra Ubicación en Cusco</h2>
-            <p>Estratégicamente ubicados cerca de las principales avenidas y del Aeropuerto Internacional Alejandro Velasco Astete (CUZ).</p>
+            <span className="section-tag"><MapPin size={14} className="icon-inline" /> {t.mapTag}</span>
+            <h2>{t.mapTitle}</h2>
+            <p>{t.mapSub}</p>
           </div>
 
           <div className="map-frame-box">
             <iframe
-              title="Ubicación Condori Expedition Transport Cusco"
+              title={t.mapIframeTitle}
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15516.299066632668!2d-71.940733!3d-13.532353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916e537d94562fa5%3A0x600c3b88b488796!2sSan%20Sebasti%C3%A1n%2C%20Cusco%2C%20Per%C3%BA!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe"
               width="100%"
               height="380"
@@ -212,9 +212,9 @@ export default function ContactPage() {
         {/* Sección de Preguntas Frecuentes en Contacto */}
         <div className="contact-faqs-preview">
           <div className="section-header center">
-            <span className="section-tag"><HelpCircle size={14} className="icon-inline" /> DUDAS RÁPIDAS</span>
-            <h2>Preguntas Frecuentes Antes de Contactarnos</h2>
-            <p>Aquí respondemos a las consultas más comunes de nuestros viajeros.</p>
+            <span className="section-tag"><HelpCircle size={14} className="icon-inline" /> {t.faqTag}</span>
+            <h2>{t.faqTitle}</h2>
+            <p>{t.faqSub}</p>
           </div>
 
           <div className="faqs-simple-grid">
@@ -228,7 +228,7 @@ export default function ContactPage() {
 
           <div className="section-cta-center">
             <Link to="/preguntas-frecuentes" className="btn-cta-secondary">
-              <span>Ver todas las preguntas frecuentes (pagos, equipaje, altitud)</span>
+              <span>{t.btnAllFaqs}</span>
               <ArrowRight size={18} />
             </Link>
           </div>

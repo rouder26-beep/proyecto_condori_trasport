@@ -4,7 +4,8 @@ import { ShieldCheck, MapPin, Phone, Mail, BookOpen } from 'lucide-react';
 import { translations } from '../data/translations';
 
 export default function Footer({ lang, onOpenReclamaciones }) {
-  const t = translations[lang].footer;
+  const t = translations[lang]?.footer || translations.es.footer;
+  const navT = translations[lang]?.nav || translations.es.nav;
 
   return (
     <footer className="site-footer">
@@ -18,12 +19,12 @@ export default function Footer({ lang, onOpenReclamaciones }) {
             </div>
 
             <p className="footer-about-text">
-              Empresa formal de transporte turístico privado y tours en Cusco, Ollantaytambo y Valle Sagrado. Tarifas transparentes por vehículo y atención personalizada 24/7.
+              {t.aboutText}
             </p>
 
             <div className="footer-badges">
-              <span className="badge-item"><ShieldCheck size={14} /> SOAT TURISTICO</span>
-              <span className="badge-item"><ShieldCheck size={14} /> RUC Activo</span>
+              <span className="badge-item"><ShieldCheck size={14} /> {t.badgeSoat}</span>
+              <span className="badge-item"><ShieldCheck size={14} /> {t.badgeRuc}</span>
             </div>
 
             <div className="social-follow-box">
@@ -56,31 +57,31 @@ export default function Footer({ lang, onOpenReclamaciones }) {
           </div>
 
           <div className="footer-col">
-            <h4>Navegación</h4>
+            <h4>{t.navColTitle}</h4>
             <ul>
-              <li><Link to="/">Inicio</Link></li>
-              <li><Link to="/traslados">Traslados & Tarifario</Link></li>
-              <li><Link to="/tours">Tours Privados</Link></li>
-              <li><Link to="/flota">Nuestra Flota</Link></li>
-              <li><Link to="/nosotros">Nosotros</Link></li>
-              <li><Link to="/contacto">Contacto</Link></li>
-              <li><Link to="/preguntas-frecuentes">Preguntas Frecuentes</Link></li>
+              <li><Link to="/">{navT.home}</Link></li>
+              <li><Link to="/traslados">{navT.transfers}</Link></li>
+              <li><Link to="/tours">{navT.tours}</Link></li>
+              <li><Link to="/flota">{navT.fleet}</Link></li>
+              <li><Link to="/nosotros">{navT.about}</Link></li>
+              <li><Link to="/preguntas-frecuentes">{navT.faq}</Link></li>
+              <li><Link to="/contacto">{navT.contact}</Link></li>
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4>Rutas Principales</h4>
+            <h4>{t.servicesColTitle}</h4>
             <ul>
-              <li><Link to="/traslados">Aeropuerto Cusco → Hotel Cusco</Link></li>
-              <li><Link to="/traslados">Cusco → Estación Ollantaytambo</Link></li>
-              <li><Link to="/traslados">Cusco → Urubamba / Valle Sagrado</Link></li>
-              <li><Link to="/traslados">Maras & Moray Tour Privado</Link></li>
-              <li><Link to="/traslados">Montaña 7 Colores (Vinicunca)</Link></li>
+              <li><Link to="/traslados">{t.service1}</Link></li>
+              <li><Link to="/traslados">{t.service2}</Link></li>
+              <li><Link to="/tours/tour-valle-sagrado-vip">{t.service3}</Link></li>
+              <li><Link to="/tours/tour-vinicunca">{t.service4}</Link></li>
+              <li><Link to="/tours/tour-humantay">{t.service5}</Link></li>
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4>Contacto & Legal</h4>
+            <h4>{t.contactColTitle}</h4>
             <ul className="footer-contact-list">
               <li><MapPin size={15} /> San Antonio - San Sebastián, Cusco - Perú</li>
               <li><Phone size={15} /> <a href="tel:+51910958898" style={{ color: 'inherit' }}>+51 910 958 898</a></li>
@@ -89,13 +90,13 @@ export default function Footer({ lang, onOpenReclamaciones }) {
             </ul>
 
             <button type="button" className="btn-footer-reclamaciones" onClick={onOpenReclamaciones}>
-              <BookOpen size={16} /> Libro de Reclamaciones
+              <BookOpen size={16} /> {t.complaintsBook}
             </button>
           </div>
         </div>
 
         <div className="footer-payment-methods">
-          <span className="payment-methods-title">Métodos de pago:</span>
+          <span className="payment-methods-title">{t.paymentMethodsTitle}</span>
           <div className="payment-methods-list">
             <span className="payment-badge">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="payment-icon">
@@ -103,7 +104,7 @@ export default function Footer({ lang, onOpenReclamaciones }) {
                 <circle cx="12" cy="12" r="2" />
                 <path d="M6 12h.01M18 12h.01" />
               </svg>
-              <span>Efectivo soles (S/) y dólares ($)</span>
+              <span>{t.paymentCash}</span>
             </span>
             <span className="payment-badge visa-badge">
               <svg viewBox="0 0 48 48" width="34" height="22" className="visa-svg-logo" aria-label="Visa">
@@ -111,7 +112,7 @@ export default function Footer({ lang, onOpenReclamaciones }) {
                 <path d="M19.4 28.5l2.2-13.4h3.5l-2.2 13.4h-3.5zm13.7-13.1c-.7-.3-1.8-.5-3.2-.5-3.5 0-6 1.8-6 4.4 0 1.9 1.8 3 3.1 3.6 1.4.7 1.9 1.1 1.9 1.7 0 .9-1.1 1.4-2.2 1.4-1.4 0-2.2-.2-3.4-.7l-.5-.2-.5 3.1c.9.4 2.5.7 4.2.7 3.9 0 6.5-1.9 6.5-4.6 0-1.5-.9-2.7-3-3.7-1.3-.6-2.1-1.1-2.1-1.7 0-.6.7-1.2 2.2-1.2 1.2 0 2.1.2 2.8.5l.3.2.7-3.2zm8.5 0h-2.7c-.8 0-1.5.2-1.9 1.1l-5.3 12.3h3.7l.7-2h4.5l.4 2h3.3l-2.7-13.4zm-4.7 8.7l1.9-5.1.7 2.1.4 3h-3zm-19.8-8.7l-3.4 9.1-.4-1.8c-.6-2-2.5-4.2-4.6-5.3l3 11.4h3.7l5.5-13.4h-3.8z" fill="#1A1F71"/>
                 <path d="M12.1 15.4H6.7l-.1.3c4.2 1 6.9 3.5 8 6.6l-1.2-5.9c-.2-.7-.7-1-1.3-1z" fill="#F7B600"/>
               </svg>
-              <span>Tarjetas Visa</span>
+              <span>{t.paymentVisa}</span>
             </span>
           </div>
         </div>
@@ -119,13 +120,12 @@ export default function Footer({ lang, onOpenReclamaciones }) {
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} CONDORI EXPEDITION TRANSPORT. {t.rights}</p>
           <div className="footer-legal-links">
-            <Link to="/preguntas-frecuentes">Preguntas Frecuentes</Link>
+            <Link to="/preguntas-frecuentes">{navT.faq}</Link>
             <span style={{ margin: '0 8px', opacity: 0.5 }}>•</span>
-            <Link to="/contacto">{t.legal || 'Contacto Legal'}</Link>
+            <Link to="/contacto">{t.legal}</Link>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-

@@ -8,8 +8,12 @@ const reviewsList = [
     name: "Carlos M.",
     country: "🇲🇽 México",
     rating: 5,
-    date: "Hace 2 semanas",
-    route: "Traslado Cusco a Ollantaytambo",
+    dateKey: "date2Weeks",
+    route: {
+      es: "Traslado Cusco a Ollantaytambo",
+      en: "Cusco to Ollantaytambo Transfer",
+      pt: "Traslado Cusco a Ollantaytambo"
+    },
     comment: "Excelente servicio. Rudy y su equipo fueron súper puntuales en el aeropuerto de Cusco. El vehículo estaba impecable y contaba con oxígeno que nos ayudó bastante con la altura.",
     source: "Google Review"
   },
@@ -18,8 +22,12 @@ const reviewsList = [
     name: "Sarah & David Jenkins",
     country: "🇺🇸 USA",
     rating: 5,
-    date: "Hace 1 mes",
-    route: "Sacred Valley VIP Private Tour",
+    dateKey: "date1Month",
+    route: {
+      es: "Sacred Valley VIP Private Tour",
+      en: "Sacred Valley VIP Private Tour",
+      pt: "Sacred Valley VIP Private Tour"
+    },
     comment: "Best private transfer company in Cusco! Very transparent prices per vehicle with no surprises. Our driver was extremely friendly and knowledgeable. Highly recommended!",
     source: "TripAdvisor"
   },
@@ -28,8 +36,12 @@ const reviewsList = [
     name: "Juliana Rossi",
     country: "🇧🇷 Brasil",
     rating: 5,
-    date: "Hace 3 semanas",
-    route: "Tour Montanha 7 Cores",
+    dateKey: "date3Weeks",
+    route: {
+      es: "Tour Montanha 7 Cores",
+      en: "Rainbow Mountain Private Tour",
+      pt: "Tour Montanha 7 Cores"
+    },
     comment: "Viagem maravilhosa! Carro super confortável, motorista muito atencioso e seguro nas curvas da montanha. O oxigênio medicinal nos deu muita tranquilidade.",
     source: "Google Review"
   },
@@ -38,23 +50,27 @@ const reviewsList = [
     name: "Fernando & Lucía",
     country: "🇪🇸 España",
     rating: 5,
-    date: "Hace 1 mes",
-    route: "Traslado Aeropuerto + Valle Sagrado",
+    dateKey: "date1Month",
+    route: {
+      es: "Traslado Aeropuerto + Valle Sagrado",
+      en: "Airport Transfer + Sacred Valley",
+      pt: "Traslado Aeroporto + Vale Sagrado"
+    },
     comment: "Un 10/10 en puntualidad y atención. Rudy estuvo pendiente de nuestro vuelo atrasado en todo momento sin cobrarnos nada extra. Repetiremos sin duda.",
     source: "Google Review"
   }
 ];
 
-export default function ReviewsSection({ lang }) {
+export default function ReviewsSection({ lang = 'es' }) {
   const t = translations[lang]?.reviews || translations.es.reviews;
 
   return (
     <section id="reseñas" className="reviews-section">
       <div className="container">
         <div className="section-header center">
-          <span className="section-tag">TESTIMONIOS REALES DE CLIENTES</span>
-          <h2>{t.title || 'Lo Que Dicen Nuestros Pasajeros'}</h2>
-          <p>{t.subtitle || 'La satisfacción y seguridad de nuestros viajeros es nuestra mejor carta de presentación.'}</p>
+          <span className="section-tag">{t.tag}</span>
+          <h2>{t.title}</h2>
+          <p>{t.subtitle}</p>
 
           <div className="reviews-score-badge">
             <div className="stars-row">
@@ -62,47 +78,49 @@ export default function ReviewsSection({ lang }) {
                 <Star key={s} size={22} fill="#f59e0b" color="#f59e0b" />
               ))}
             </div>
-            <span className="score-text">5.0 / 5.0 Calificación Promedio • +500 Viajeros Atendidos</span>
+            <span className="score-text">{t.scoreText}</span>
           </div>
         </div>
 
         <div className="reviews-grid">
-          {reviewsList.map((rev) => (
-            <div key={rev.id} className="review-card">
-              <div className="rev-top">
-                <Quote size={28} className="quote-icon" />
-                <span className="rev-source">{rev.source}</span>
-              </div>
-
-              <p className="rev-text">"{rev.comment}"</p>
-
-              <div className="rev-stars">
-                {[...Array(rev.rating)].map((_, i) => (
-                  <Star key={i} size={16} fill="#f59e0b" color="#f59e0b" />
-                ))}
-              </div>
-
-              <div className="rev-user-row">
-                <div className="rev-user-info">
-                  <strong>{rev.name}</strong>
-                  <span className="rev-meta">{rev.country} • {rev.route}</span>
+          {reviewsList.map((rev) => {
+            const routeText = rev.route[lang] || rev.route.es;
+            return (
+              <div key={rev.id} className="review-card">
+                <div className="rev-top">
+                  <Quote size={28} className="quote-icon" />
+                  <span className="rev-source">{rev.source}</span>
                 </div>
-                <span className="badge-verified"><CheckCircle2 size={13} /> {t.verified || 'Verificado'}</span>
+
+                <p className="rev-text">"{rev.comment}"</p>
+
+                <div className="rev-stars">
+                  {[...Array(rev.rating)].map((_, i) => (
+                    <Star key={i} size={16} fill="#f59e0b" color="#f59e0b" />
+                  ))}
+                </div>
+
+                <div className="rev-user-row">
+                  <div className="rev-user-info">
+                    <strong>{rev.name}</strong>
+                    <span className="rev-meta">{rev.country} • {routeText}</span>
+                  </div>
+                  <span className="badge-verified"><CheckCircle2 size={13} /> {t.verified}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Espacio para enlaces a Google y TripAdvisor */}
         <div className="reviews-platforms-row">
           <a 
             href="https://maps.google.com" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-platform-review google-btn"
-            title="Escribir o leer opiniones en Google"
+            title={t.btnGoogleTitle}
           >
-            <span>Ver perfil en Google Reviews</span>
+            <span>{t.btnGoogle}</span>
             <ExternalLink size={15} />
           </a>
           <a 
@@ -110,9 +128,9 @@ export default function ReviewsSection({ lang }) {
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-platform-review tripadvisor-btn"
-            title="Escribir o leer opiniones en TripAdvisor"
+            title={t.btnTripadvisorTitle}
           >
-            <span>Ver opiniones en TripAdvisor</span>
+            <span>{t.btnTripadvisor}</span>
             <ExternalLink size={15} />
           </a>
         </div>
@@ -120,4 +138,3 @@ export default function ReviewsSection({ lang }) {
     </section>
   );
 }
-

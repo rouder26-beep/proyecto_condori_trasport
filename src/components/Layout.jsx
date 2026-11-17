@@ -17,8 +17,9 @@ export default function Layout({ lang, setLang }) {
         <Outlet context={{ lang }} />
       </main>
       <Footer lang={lang} onOpenReclamaciones={() => setReclamacionesOpen(true)} />
-      <WhatsAppButton />
+      <WhatsAppButton lang={lang} />
       <ReclamacionesModal
+        lang={lang}
         isOpen={reclamacionesOpen}
         onClose={() => setReclamacionesOpen(false)}
       />

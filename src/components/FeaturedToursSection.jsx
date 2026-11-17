@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, ArrowRight, MessageCircle, Compass } from 'lucide-react';
 import { toursData } from '../data/toursData';
+import { translations } from '../data/translations';
 
-export default function FeaturedToursSection({ lang }) {
+export default function FeaturedToursSection({ lang = 'es' }) {
+  const t = translations[lang]?.featuredTours || translations.es.featuredTours;
   const featured = toursData.slice(0, 3);
 
   const handleBookTour = (tour) => {
     const titleText = tour.title[lang] || tour.title.es;
-    const msg = `Hola Condori Expedition Transport, deseo cotizar el tour privado:%0A` +
-      `🏔️ Tour: ${titleText}%0A` +
-      `⏱️ Modalidad: ${tour.duration}%0A` +
-      `💵 Precio desde: $${tour.priceFrom} USD%0A` +
-      `¿Podrían brindarme información y disponibilidad?`;
+    const msg = `${encodeURIComponent(t.waIntro)}%0A` +
+      `🏔️ Tour: ${encodeURIComponent(titleText)}%0A` +
+      `⏱️ ${encodeURIComponent(t.waMode)}: ${encodeURIComponent(tour.duration)}%0A` +
+      `💵 ${encodeURIComponent(t.waPriceFrom)}: $${tour.priceFrom} USD%0A` +
+      `${encodeURIComponent(t.waAsk)}`;
     window.open(`https://wa.me/51910958898?text=${msg}`, '_blank');
   };
 
@@ -21,12 +23,10 @@ export default function FeaturedToursSection({ lang }) {
       <div className="container">
         <div className="section-header center">
           <span className="section-tag">
-            <Compass size={14} className="icon-inline" /> EXPERIENCIAS PRIVADAS
+            <Compass size={14} className="icon-inline" /> {t.tag}
           </span>
-          <h2>Tours Privados Destacados en Cusco</h2>
-          <p>
-            Descubre las maravillas incas y andinas a tu propio ritmo, sin horarios impuestos y con movilidad exclusiva para ti y tu grupo.
-          </p>
+          <h2>{t.title}</h2>
+          <p>{t.subtitle}</p>
         </div>
 
         <div className="featured-tours-grid">
@@ -39,7 +39,7 @@ export default function FeaturedToursSection({ lang }) {
                 <div className="tour-card-header">
                   <img 
                     src={tour.image} 
-                    alt={`${title} - Tour privado en Cusco`} 
+                    alt={`${title} - Condori Expedition Transport`} 
                     loading="lazy" 
                     className="tour-card-img" 
                   />
@@ -52,7 +52,7 @@ export default function FeaturedToursSection({ lang }) {
                       <Clock size={14} /> {tour.duration}
                     </span>
                     <span className="tour-price-tag">
-                      Desde <strong>${tour.priceFrom} USD</strong>
+                      {t.from} <strong>${tour.priceFrom} USD</strong>
                     </span>
                   </div>
 
@@ -65,10 +65,10 @@ export default function FeaturedToursSection({ lang }) {
                       className="btn-tour-ws"
                       onClick={() => handleBookTour(tour)}
                     >
-                      <MessageCircle size={16} /> Cotizar
+                      <MessageCircle size={16} /> {t.btnQuote}
                     </button>
                     <Link to={`/tours/${tour.id}`} className="btn-tour-link">
-                      Ver detalles
+                      {t.btnDetails}
                     </Link>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ export default function FeaturedToursSection({ lang }) {
 
         <div className="section-cta-center">
           <Link to="/tours" className="btn-cta-primary">
-            <span>Ver todos los tours</span>
+            <span>{t.btnAllTours}</span>
             <ArrowRight size={18} />
           </Link>
         </div>

@@ -16,15 +16,15 @@ export default function TourDetailPage() {
     return (
       <div className="container py-content text-center" style={{ padding: '80px 20px' }}>
         <SEO 
-          title="Tour no encontrado | Condori Expedition Transport"
-          description="El tour privado solicitado no está disponible. Consulta nuestro catálogo completo de tours en Cusco."
+          title={`${t.notFoundTitle} | Condori Expedition Transport`}
+          description={t.notFoundDesc}
         />
-        <h2>Tour no encontrado</h2>
+        <h2>{t.notFoundTitle}</h2>
         <p style={{ marginTop: '12px', color: 'var(--text-muted)' }}>
-          El tour que buscas no existe o ha cambiado de enlace.
+          {t.notFoundDesc}
         </p>
         <Link to="/tours" className="btn-cta-primary" style={{ marginTop: '24px' }}>
-          <ArrowLeft size={18} /> Ver todos los tours disponibles
+          <ArrowLeft size={18} /> {t.btnBackAllTours}
         </Link>
       </div>
     );
@@ -33,25 +33,27 @@ export default function TourDetailPage() {
   const title = tour.title[lang] || tour.title.es;
   const desc = tour.description[lang] || tour.description.es;
   const diff = tour.difficulty ? (tour.difficulty[lang] || tour.difficulty.es) : 'Moderada';
+  const includesList = tour.includesI18n?.[lang] || tour.includes;
+  const excludesList = tour.excludesI18n?.[lang] || tour.excludes;
 
-  const otherTours = toursData.filter(t => t.id !== tour.id).slice(0, 2);
+  const otherTours = toursData.filter(item => item.id !== tour.id).slice(0, 2);
 
   const handleWhatsAppBooking = () => {
-    const msg = `Hola Condori Expedition Transport! 🏔️%0A` +
-      `Me interesa reservar o cotizar el siguiente tour privado:%0A` +
+    const msg = `${encodeURIComponent(t.waBookIntro)}%0A` +
+      `${encodeURIComponent(t.waDetailSub)}%0A` +
       `📌 Tour: ${encodeURIComponent(title)}%0A` +
-      `⏱️ Modalidad: ${encodeURIComponent(tour.duration)}%0A` +
-      `💵 Tarifa desde: $${tour.priceFrom} USD%0A` +
-      `¿Podrían confirmarme disponibilidad y detalles para mi grupo? ¡Muchas gracias!`;
+      `⏱️ ${encodeURIComponent(t.duration)}: ${encodeURIComponent(tour.duration)}%0A` +
+      `💵 ${encodeURIComponent(t.fromPrice)}: $${tour.priceFrom} USD%0A` +
+      `${encodeURIComponent(t.waDetailAsk)}`;
     window.open(`https://wa.me/51910958898?text=${msg}`, '_blank');
   };
 
-  const emailSubject = encodeURIComponent(`Consulta Tour Privado: ${title}`);
+  const emailSubject = encodeURIComponent(`${t.emailSubjectPrefix}: ${title}`);
   const emailBody = encodeURIComponent(
-    `Hola equipo de Condori Expedition Transport,\n\n` +
-    `Deseo consultar sobre el tour privado "${title}".\n` +
-    `Por favor envíenme cotización y detalles de itinerario.\n\n` +
-    `Muchas gracias.`
+    `${t.emailBodyGreeting}\n\n` +
+    `${t.emailBodyLine1} "${title}".\n` +
+    `${t.emailBodyLine2}\n\n` +
+    `${t.emailBodyClosing}`
   );
   const emailHref = `mailto:condoriexpedition@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
@@ -78,8 +80,8 @@ export default function TourDetailPage() {
   return (
     <div className="page-view-tour-detail">
       <SEO 
-        title={`${title} en Cusco | Condori Expedition Transport`}
-        description={`${desc.slice(0, 155)}... Reserva con transporte 100% privado en Cusco.`}
+        title={`${title} | Condori Expedition Transport`}
+        description={`${desc.slice(0, 155)}...`}
         canonical={`/tours/${tour.id}`}
         image={tour.image}
         keywords={`${title}, tour privado Cusco, Valle Sagrado, transporte turístico Cusco`}
@@ -90,11 +92,10 @@ export default function TourDetailPage() {
       <div className="tour-breadcrumb-bar">
         <div className="container">
           <Link to="/tours" className="back-link">
-            <ArrowLeft size={16} /> Volver a Catálogo de Tours
+            <ArrowLeft size={16} /> {t.backCatalog}
           </Link>
           <span className="breadcrumb-separator">/</span>
           <span className="breadcrumb-current">{title}</span>
-
         </div>
       </div>
 
@@ -105,7 +106,7 @@ export default function TourDetailPage() {
             <div className="tour-hero-img-box">
               <img 
                 src={tour.image} 
-                alt={`${title} - Tour privado en Cusco`} 
+                alt={`${title} - Condori Expedition Transport`} 
                 className="tour-hero-img" 
               />
               <span className="tour-detail-tag">{tour.category}</span>
@@ -113,8 +114,8 @@ export default function TourDetailPage() {
 
             <div className="tour-header-meta">
               <div className="meta-pill"><Clock size={15} /> {tour.duration}</div>
-              <div className="meta-pill"><Mountain size={15} /> Dificultad: {diff}</div>
-              <div className="meta-pill"><ShieldCheck size={15} /> 100% Transporte Privado</div>
+              <div className="meta-pill"><Mountain size={15} /> {t.difficulty}: {diff}</div>
+              <div className="meta-pill"><ShieldCheck size={15} /> {t.privateTransportPill}</div>
             </div>
 
             <h1 className="tour-detail-title">{title}</h1>
@@ -123,17 +124,20 @@ export default function TourDetailPage() {
             {/* Itinerario Paso a Paso */}
             <div className="tour-itinerary-section">
               <h2 className="section-subtitle">
-                <Compass size={22} className="icon-inline" /> Itinerario Detallado del Recorrido
+                <Compass size={22} className="icon-inline" /> {t.itineraryTitle}
               </h2>
               <div className="itinerary-timeline">
-                {tour.itinerary.map((step, index) => (
-                  <div key={index} className="timeline-step">
-                    <div className="timeline-marker">{index + 1}</div>
-                    <div className="timeline-content">
-                      <p>{step.detail}</p>
+                {tour.itinerary.map((step, index) => {
+                  const stepText = (lang !== 'es' && step[lang]) ? step[lang] : step.detail;
+                  return (
+                    <div key={index} className="timeline-step">
+                      <div className="timeline-marker">{index + 1}</div>
+                      <div className="timeline-content">
+                        <p>{stepText}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -161,18 +165,18 @@ export default function TourDetailPage() {
             {/* Incluye / No incluye */}
             <div className="tour-inclusions-grid">
               <div className="inc-box includes">
-                <h3><CheckCircle size={20} className="inc-icon check" /> Qué Incluye</h3>
+                <h3><CheckCircle size={20} className="inc-icon check" /> {t.whatIncludes}</h3>
                 <ul>
-                  {tour.includes.map((item, idx) => (
+                  {includesList.map((item, idx) => (
                     <li key={idx}>{item}</li>
                   ))}
                 </ul>
               </div>
 
               <div className="inc-box excludes">
-                <h3><XCircle size={20} className="inc-icon x" /> Qué No Incluye</h3>
+                <h3><XCircle size={20} className="inc-icon x" /> {t.whatExcludes}</h3>
                 <ul>
-                  {tour.excludes.map((item, idx) => (
+                  {excludesList.map((item, idx) => (
                     <li key={idx}>{item}</li>
                   ))}
                   <li>{t.personalExpenses || 'Gastos personales'}</li>
@@ -184,25 +188,25 @@ export default function TourDetailPage() {
           {/* Sidebar Booking Card */}
           <aside className="tour-sidebar">
             <div className="tour-booking-card">
-              <span className="card-top-tag">RESERVA DIRECTA SIN INTERMEDIARIOS</span>
+              <span className="card-top-tag">{t.sidebarTopTag}</span>
               <div className="sidebar-price-display">
-                <span className="price-from-label">Precio estimado desde</span>
+                <span className="price-from-label">{t.estimatedPriceFrom}</span>
                 <div className="price-num">${tour.priceFrom} <span className="currency">USD</span></div>
-                <span className="price-note">Tarifa total por vehículo (no por persona)</span>
+                <span className="price-note">{t.perVehicleNote}</span>
               </div>
 
               <div className="sidebar-perks">
                 <div className="perk-item">
                   <ShieldCheck size={16} className="perk-icon" />
-                  <span>Servicio privado exclusivo para ti y tu grupo</span>
+                  <span>{t.perk1}</span>
                 </div>
                 <div className="perk-item">
                   <Clock size={16} className="perk-icon" />
-                  <span>Horario de recojo coordinado a tu elección</span>
+                  <span>{t.perk2}</span>
                 </div>
                 <div className="perk-item">
                   <CheckCircle size={16} className="perk-icon" />
-                  <span>Oxígeno medicinal y botiquín a bordo</span>
+                  <span>{t.perk3}</span>
                 </div>
               </div>
 
@@ -212,29 +216,29 @@ export default function TourDetailPage() {
                 onClick={handleWhatsAppBooking}
               >
                 <MessageCircle size={18} />
-                <span>Cotizar Tour por WhatsApp</span>
+                <span>{t.btnQuoteWa}</span>
               </button>
 
               <a href={emailHref} className="btn-sidebar-email">
                 <Mail size={16} />
-                <span>Consultar por Correo</span>
+                <span>{t.btnInquireEmail}</span>
               </a>
 
               <div className="sidebar-support-note">
-                <p>¿Preguntas antes de reservar? Llámanos o escríbenos al <strong>+51 910 958 898</strong>. Respondemos 24/7.</p>
+                <p>{t.supportNote1} <strong>+51 910 958 898</strong>. {t.supportNote2}</p>
               </div>
             </div>
 
             {/* Otros tours sugeridos */}
             <div className="other-tours-sidebar">
-              <h4>Otros Tours Sugeridos</h4>
+              <h4>{t.otherToursTitle}</h4>
               <div className="other-tours-list">
                 {otherTours.map((ot) => (
                   <Link key={ot.id} to={`/tours/${ot.id}`} className="other-tour-item">
                     <img src={ot.image} alt={ot.title[lang] || ot.title.es} className="other-tour-thumb" />
                     <div>
                       <strong>{ot.title[lang] || ot.title.es}</strong>
-                      <span>Desde ${ot.priceFrom} USD</span>
+                      <span>{t.fromPrice} ${ot.priceFrom} USD</span>
                     </div>
                   </Link>
                 ))}
