@@ -42,9 +42,9 @@ export const faqData = [
       pt: "Quais formas de pagamento vocês aceitam?"
     },
     answer: {
-      es: "Aceptamos efectivo en Soles (PEN) o Dólares (USD), Tarjetas de Crédito/Débito (Visa, Mastercard, Amex), Yape / Plin, PayPal y Transferencias Bancarias (BCP, Interbank).",
-      en: "We accept Cash (USD / PEN), Credit/Debit Cards, PayPal, and local instant bank transfers.",
-      pt: "Aceitamos Dinheiro (USD / PEN), Cartões de Crédito/Débito, PayPal e transferências bancárias."
+      es: "Aceptamos dólares en efectivo (USD), soles en efectivo (PEN) y tarjeta Visa.",
+      en: "We accept cash in US dollars (USD), cash in Peruvian soles (PEN) and Visa card.",
+      pt: "Aceitamos dólares em dinheiro (USD), soles em dinheiro (PEN) e cartão Visa."
     }
   },
   {

@@ -103,6 +103,7 @@ export const translations = {
     faq: {
       title: "Preguntas Frecuentes (FAQ)",
       subtitle: "Resolvemos todas tus dudas antes de contratar tu transporte en Cusco.",
+      paymentSubtitle: "Dólares, soles y Visa",
     },
     contact: {
       title: "Contáctanos y Cotiza con Nosotros",
@@ -228,6 +229,7 @@ export const translations = {
     faq: {
       title: "Frequently Asked Questions (FAQ)",
       subtitle: "Answering your key questions before booking your transport in Cusco.",
+      paymentSubtitle: "Dollars, soles and Visa",
     },
     contact: {
       title: "Contact Us & Get a Quote",
@@ -353,6 +355,7 @@ export const translations = {
     faq: {
       title: "Perguntas Frequentes (FAQ)",
       subtitle: "Tire suas dúvidas antes de viajar.",
+      paymentSubtitle: "Dólares, soles e Visa",
     },
     contact: {
       title: "Fale Conosco",

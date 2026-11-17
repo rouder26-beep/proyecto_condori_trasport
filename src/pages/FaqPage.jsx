@@ -4,6 +4,7 @@ import { HelpCircle, ChevronDown, ChevronUp, Search, MessageCircle, CreditCard, 
 
 import SEO from '../components/SEO';
 import { faqData } from '../data/faqData';
+import { translations } from '../data/translations';
 
 // Preguntas adicionales específicas solicitadas: cancelaciones, sillas de bebé, etc.
 const extendedFaqs = [
@@ -48,6 +49,7 @@ const extendedFaqs = [
 
 export default function FaqPage() {
   const { lang } = useOutletContext();
+  const t = translations[lang]?.faq || translations.es.faq;
   const [openIndex, setOpenIndex] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -103,7 +105,7 @@ export default function FaqPage() {
           <div className="topic-card">
             <CreditCard size={22} className="topic-icon" />
             <strong>Medios de Pago</strong>
-            <span>Efectivo, Tarjetas, Yape, Plin y PayPal</span>
+            <span>{t.paymentSubtitle || 'Dólares, soles y Visa'}</span>
           </div>
           <div className="topic-card">
             <Luggage size={22} className="topic-icon" />
