@@ -104,6 +104,7 @@ export const translations = {
       title: "Preguntas Frecuentes (FAQ)",
       subtitle: "Resolvemos todas tus dudas antes de contratar tu transporte en Cusco.",
       paymentSubtitle: "Dólares, soles y Visa",
+      oxygenSubtitle: "Oxígeno a bordo en todas las rutas",
     },
     contact: {
       title: "Contáctanos y Cotiza con Nosotros",
@@ -230,6 +231,7 @@ export const translations = {
       title: "Frequently Asked Questions (FAQ)",
       subtitle: "Answering your key questions before booking your transport in Cusco.",
       paymentSubtitle: "Dollars, soles and Visa",
+      oxygenSubtitle: "Oxygen on board on all routes",
     },
     contact: {
       title: "Contact Us & Get a Quote",
@@ -356,6 +358,7 @@ export const translations = {
       title: "Perguntas Frequentes (FAQ)",
       subtitle: "Tire suas dúvidas antes de viajar.",
       paymentSubtitle: "Dólares, soles e Visa",
+      oxygenSubtitle: "Oxigênio a bordo em todas as rotas",
     },
     contact: {
       title: "Fale Conosco",

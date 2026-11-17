@@ -115,7 +115,7 @@ export default function FaqPage() {
           <div className="topic-card">
             <Wind size={22} className="topic-icon" />
             <strong>Oxígeno Medicinal</strong>
-            <span>Balón a bordo en todas las rutas</span>
+            <span>{t.oxygenSubtitle || 'Oxígeno a bordo en todas las rutas'}</span>
           </div>
           <div className="topic-card">
             <RefreshCw size={22} className="topic-icon" />
