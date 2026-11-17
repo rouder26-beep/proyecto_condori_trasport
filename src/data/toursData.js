@@ -79,8 +79,7 @@ export const toursData = [
     includes: [
       "Transporte turístico privado ida y vuelta",
       "Conductor experimentado en rutas de montaña",
-      "Oxígeno medicinal + pulsiómetro",
-      "Manta térmica y snacks a bordo"
+      "Oxígeno medicinal + pulsiómetro"
     ],
     excludes: [
       "Boleto de ingreso a la comunidad (S/ 25)",
